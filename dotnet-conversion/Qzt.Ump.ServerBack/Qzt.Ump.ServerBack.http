@@ -1,0 +1,6 @@
+@Qzt.Ump.ServerBack_HostAddress = http://localhost:5128
+
+GET {{Qzt.Ump.ServerBack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
