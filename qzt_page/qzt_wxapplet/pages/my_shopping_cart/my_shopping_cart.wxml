@@ -1,0 +1,44 @@
+<!--pages/my_shopping_cart/my_shopping_cart.wxml-->
+
+<view class='fwz'>
+	<view class='fwzpage'>
+		<checkbox-group>
+			<view class='fwzlist' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="goods">
+				<view style="width: 50rpx;">
+					<label class="checkbox" style="margin-left: 15rpx;" data-index="{{index}}" bindtap="checkboxChange">
+						<checkbox value="{{goods.goodsName}}" checked="{{goods.isPitchon=='Y'}}" />
+					</label>
+				</view>
+				<image class='fwzimg' src='{{goods.goodsPic}}'></image>
+				<view class='fwzcon'>
+					<view class="fwzcon_first">{{goods.goodsName}}
+						<image data-index="{{index}}" bindtap="stoGoodsDel" src="https://img.jlqizutang.com/stogoods_del.png"></image>
+					</view>
+					<view class="fwzcon_two">{{goods.goodsRemark}}</view>
+					<view class="fwzcon_s">
+						¥{{goods.goodsPrice}}
+						<view class='buy_num_r'>
+							<view class='jian' data-index="{{index}}" bindtap='addAndSubtract' data-type="-">-</view>
+							<view class='shuliang'>{{goods.buyNum}}</view>
+							<view class='jia' data-index="{{index}}" bindtap='addAndSubtract' data-type="+">+</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</checkbox-group>
+		<image class="zwsjimg" hidden="{{dataShow}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+	</view>
+
+</view>
+<view class="botts">
+	<view class="checkalls">
+		<label class="checkbox" bindtap="checkalls">
+			<checkbox value="全选" checked="{{isCheckall=='Y'}}" />
+		</label>
+		<text bindtap="checkalls">全选</text>
+	</view>
+	<view class="totalmoney">
+		<text>合计：</text><text class="totalmoney_text">¥{{totalMoney}}</text>
+		<view class='closeanaccount' bindtap='closeAnAccount'>结算</view>
+	</view>
+</view>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztApplyBusorderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztApplyBusorder">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="contact_name" property="contactName"/>
+        <result column="contact_tel" property="contactTel"/>
+        <result column="company_name" property="companyName"/>
+        <result column="context" property="context"/>
+        <result column="state_mark" property="stateMark"/>
+        <result column="apply_user_id" property="applyUserId"/>
+        <result column="referrer_user_id" property="referrerUserId"/>
+        <result column="referrer_tel" property="referrerTel"/>
+        <result column="order_money" property="orderMoney"/>
+        <result column="balance_money" property="balanceMoney"/>
+        <result column="three_sides_money" property="threeSidesMoney"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="order_state" property="orderState"/>
+        <result column="pay_type" property="payType"/>
+        <result column="pay_state" property="payState"/>
+        <result column="pay_time" property="payTime"/>
+        <result column="address_id" property="addressId"/>
+        <result column="consignee_name" property="consigneeName"/>
+        <result column="consignee_tel" property="consigneeTel"/>
+        <result column="consignee_address" property="consigneeAddress"/>
+        <result column="courier_company" property="courierCompany"/>
+        <result column="courier_code" property="courierCode"/>
+        <result column="courier_no" property="courierNo"/>
+        <result column="courier_remarks" property="courierRemarks"/>
+        <result column="shipments_time" property="shipmentsTime"/>
+        <result column="signfor_time" property="signforTime"/>
+        <result column="finsh_time" property="finshTime"/>
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_apply_busorder
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="orderStateArr != null">
+                AND order_state IN
+                <foreach collection="orderStateArr" index="orderStateArr" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no = #{orderNo}
+            </if>
+            <if test="payType != null and payType != ''">
+                AND pay_type = #{payType}
+            </if>
+            <if test="payState != null and payState != ''">
+                AND pay_state = #{payState}
+            </if>
+            <if test="orderState != null and orderState != ''">
+                AND order_state = #{orderState}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND apply_user_id = #{userId}
+            </if>
+            <if test="referrerUserId != null and referrerUserId != ''">
+                AND referrer_user_id = #{referrerUserId}
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <!-- 根据用户ID查询订单 -->
+    <select id="queryByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT * FROM dgm_qzt_apply_busorder WHERE apply_user_id = #{userId} LIMIT 0,1;
+    </select>
+
+    <!-- 根据用户ID与订单编号查询订单 -->
+    <select id="queryByOrederNoUserId" resultMap="BaseResultMap">
+        SELECT * FROM dgm_qzt_apply_busorder WHERE apply_user_id = #{userId} AND order_no = #{orderNo} LIMIT 0,1;
+    </select>
+
+    <!-- 根据订单编号查询订单 -->
+    <select id="queryByOrederNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT * FROM dgm_qzt_apply_busorder WHERE order_no = #{orderNo} LIMIT 0,1;
+    </select>
+
+    <!--支付更新信息-->
+    <update id="applyOrderPayUpdate" parameterType="com.qzt.bus.model.QztApplyBusorder">
+        UPDATE dgm_qzt_apply_busorder
+        <set>
+            balance_money = #{balanceMoney},
+            three_sides_money = #{threeSidesMoney},
+            address_id = #{addressId},
+            consignee_name = #{consigneeName},
+            consignee_tel = #{consigneeTel},
+            consignee_address = #{consigneeAddress},
+            pay_type = #{payType},
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        </set>
+        WHERE
+        pay_state = '00'
+        AND order_state = '01'
+        AND order_no = #{orderNo}
+    </update>
+
+    <!--支付回调更新订单-->
+    <update id="applyOrderPayBack" parameterType="com.qzt.bus.model.QztApplyBusorder">
+        UPDATE dgm_qzt_apply_busorder
+        SET pay_state = #{payState},
+         order_state = #{orderState},
+         pay_time = #{updateTime},
+         update_time = #{updateTime}
+        WHERE
+          pay_state = '00'
+        AND order_state = '01'
+        AND order_no = #{orderNo}
+    </update>
+
+    <!--自提-->
+    <update id="offlineDistribution" parameterType="com.qzt.bus.model.QztApplyBusorder">
+        UPDATE dgm_qzt_apply_busorder
+        SET order_state = '09',
+            update_by = #{updateBy},
+            update_time = #{updateTime},
+            shipments_time = #{updateTime},
+            signfor_time = #{updateTime},
+            finsh_time = #{updateTime},
+            courier_remarks = #{courierRemarks}
+        WHERE
+            id_ = #{id}
+        AND order_state = '03'
+    </update>
+
+</mapper>

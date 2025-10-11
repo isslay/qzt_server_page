@@ -1,0 +1,624 @@
+/* pages/pay_page/pay_page.wxss */
+
+page {
+  background: #f4f4f4;
+}
+
+.defray_box {
+  width: 100%;
+  height: auto;
+  clear: both;
+  overflow: hidden;
+}
+
+.defray_title {
+  display: block;
+  width: 100%;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 30rpx;
+  color: #222328;
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.defray_money {
+  display: block;
+  width: 100%;
+  height: 71rpx;
+  line-height: 71rpx;
+  font-size: 64rpx;
+  color: #24272b;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.defray_collect {
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  margin-top: 60rpx;
+}
+
+.defray_collect view {
+  width: auto;
+  height: 120rpx;
+  float: left;
+  line-height: 120rpx;
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  color: #222328;
+  font-weight: bold;
+}
+
+.defray_collect text {
+  display: block;
+  width: auto;
+  height: 120rpx;
+  line-height: 120rpx;
+  float: right;
+  font-size: 28rpx;
+  color: #24272b;
+  margin-right: 30rpx;
+}
+
+.defray_but {
+  width: 690rpx;
+  height: 90rpx;
+  background: #22723c;
+  border-radius: 12rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: 60rpx;
+}
+
+/* @import '../../utils/public.wxss'; */
+
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 主页导航 */
+
+.homePage_nav {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-top: 1rpx solid #f4f4f4;
+  z-index: 999;
+}
+
+.homePage_nav view {
+  width: 25%;
+  height: 100rpx;
+  float: left;
+}
+
+.homePage_nav view image {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 auto;
+  margin-top: 13rpx;
+}
+
+.homePage_nav view text {
+  display: block;
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #666;
+}
+
+.goBack {
+  width: 100%;
+  height: 100rpx;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 999;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.goBackTwo {
+  width: 100%;
+  height: 40rpx;
+  position: relative;
+  background: #fff;
+}
+
+.goBackTwo view {
+  width: 150rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #2a2a2a;
+  text-align: right;
+  position: absolute;
+  right: 30rpx;
+}
+
+.goBack image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 40rpx;
+  z-index: 2;
+}
+
+.goBack text {
+  width: 73%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #2a2a2a;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.goBack view {
+  width: 150rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #2a2a2a;
+  text-align: right;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.goShai {
+  display: block;
+  width: 26rpx;
+  height: 22rpx;
+  text-align: right;
+  position: absolute;
+  top: 40rpx;
+  right: 30rpx;
+  background: url(http://img.rhzt.net/klyg112.png);
+  background-size: 100%;
+  z-index: 9999;
+}
+
+.nav_sub {
+  width: 100%;
+  height: 90rpx;
+}
+
+/* 四个按钮的选择按钮 */
+
+.four_nav {
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.four_nav view {
+  width: 25%;
+  height: 90rpx;
+  float: left;
+}
+
+.four_nav view text {
+  display: block;
+  width: 100%;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  color: #a1a6bb;
+  text-align: center;
+}
+
+.four_nav view i {
+  width: 24rpx;
+  height: 8rpx;
+  margin: 0 auto;
+  background: #ff553b;
+  display: none;
+}
+
+.four_nav view.four_active text {
+  color: #ff553b;
+}
+
+.four_nav view.four_active i {
+  display: block;
+}
+
+/* 五个按钮的选择按钮 */
+
+.five_nav {
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  position: fixed;
+  z-index: 9999999;
+}
+
+.five_nav view {
+  width: 20%;
+  height: 90rpx;
+  float: left;
+}
+
+.five_nav view text {
+  display: block;
+  width: 100%;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  color: #a1a6bb;
+  text-align: center;
+}
+
+.five_nav view i {
+  width: 24rpx;
+  height: 8rpx;
+  margin: 0 auto;
+  background: #ff553b;
+  display: none;
+}
+
+.five_nav view.five_active text {
+  color: #ff553b;
+}
+
+.five_nav view.five_active i {
+  display: block;
+}
+
+/* 两个按钮的选择按钮 */
+
+.two_nav {
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+}
+
+.two_nav view {
+  width: 50%;
+  height: 90rpx;
+  float: left;
+}
+
+.two_nav view text {
+  display: block;
+  width: 100%;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  color: #a1a6bb;
+  text-align: center;
+}
+
+.two_nav view i {
+  width: 24rpx;
+  height: 8rpx;
+  margin: 0 auto;
+  background: #ff553b;
+  display: none;
+}
+
+.two_nav view.two_active text {
+  color: #ff553b;
+}
+
+.two_nav view.two_active i {
+  display: block;
+}
+
+/* 三个按钮的选择按钮 */
+
+.three_nav {
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.three_nav view {
+  width: 33.33%;
+  height: 90rpx;
+  float: left;
+}
+
+.three_nav view text {
+  display: block;
+  width: 100%;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  color: #a1a6bb;
+  text-align: center;
+}
+
+.three_nav view i {
+  width: 24rpx;
+  height: 8rpx;
+  margin: 0 auto;
+  background: #ff553b;
+  display: none;
+}
+
+.three_nav view.three_active text {
+  color: #ff553b;
+}
+
+.three_nav view.three_active i {
+  display: block;
+}
+
+/* 支付 */
+
+.password-input {
+  display: flex;
+  width: 660rpx;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.password-input view {
+  width: 110rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+}
+
+.password-input view:nth-child(6) {
+  border-right: none;
+}
+
+.password-input view text {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.tips {
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.tips text {
+  color: #c30;
+}
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  margin-top: 50rpx;
+}
+
+.keyboard .number {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.keyboard .number view {
+  width: 33.3%;
+  height: 120rpx;
+  line-height: 110rpx;
+  text-align: center;
+  font-size: 46rpx;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.keyboard .ctr-btn {
+  width: 180rpx;
+}
+
+.keyboard .ctr-btn view {
+  height: 240rpx;
+  line-height: 240rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.keyboard .ctr-btn view .iconfont {
+  font-size: 44rpx !important;
+  color: #c30;
+}
+
+.keyboard .ctr-btn view:nth-child(2) {
+  font-size: 46rpx;
+  color: #c30;
+}
+
+.keyboard .active {
+  background-color: #e4e7ed;
+}
+
+.activity {
+  background-color: #fff;
+  padding: 25rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.activity.activity-item {
+  font-size: 26rpx;
+}
+
+.arrows-right {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.arrows-right.active {
+  transform: rotate(270deg);
+}
+
+.loading {
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99999;
+}
+
+.loadingN {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+}
+
+.network {
+  width: 400rpx;
+  height: 400rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999;
+}
+
+.networkN {
+  display: block;
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+
+.fanhui {
+  width: 70rpx;
+  height: 70rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 50rpx;
+  z-index: 999;
+}
+
+.fanhui image {
+  display: block;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.wxParse-img {
+  width: 690rpx;
+}
+
+.firmOrder_subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 分享 */
+
+.partakeBack {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(55, 63, 74, 0.70);
+  z-index: 999999999;
+}
+
+.partake {
+  width: 710rpx;
+  height: 424rpx;
+  background: rgba(255, 255, 255, 0.91);
+  border-radius: 12rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999999999;
+}
+
+.partake_title {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #24272b;
+  text-align: center;
+}
+
+.partake_subtitle {
+  display: block;
+  width: 100%;
+  min-height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #24272b;
+  margin-top: 50rpx;
+}
+
+.partake_but {
+  width: 100%;
+  height: 90rpx;
+  margin-top: 90rpx;
+}
+
+.partake_but button {
+  width: 310rpx;
+  height: 90rpx;
+  float: left;
+  border-radius: 12rpx;
+  margin: 0 23rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+}

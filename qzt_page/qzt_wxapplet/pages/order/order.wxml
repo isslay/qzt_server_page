@@ -1,0 +1,209 @@
+<!--pages/order/order.wxml-->
+<view class='order'>
+	<!--Tab布局-->
+	<view class='title'>
+		<view class='titleSel' bindtap='titleClick' data-idx='0'>
+			<text class="{{0 == currentIndex ? 'textac' : 'text'}}">待付款</text>
+			<hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+		</view>
+		<view class='titleSel' bindtap='titleClick' data-idx='1'>
+			<text class="{{1 == currentIndex ? 'textac' : 'text'}}">待发货</text>
+			<hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+		</view>
+		<view class='titleSel' bindtap='titleClick' data-idx='2'>
+			<text class="{{2 == currentIndex ? 'textac' : 'text'}}">待确认</text>
+			<hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+		</view>
+		<view class='titleSel' bindtap='titleClick' data-idx='3'>
+			<text class="{{3 == currentIndex ? 'textac' : 'text'}}">已完成</text>
+			<hr class="{{3 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+		</view>
+		<view class='titleSel' bindtap='titleClick' data-idx='4'>
+			<text class="{{4 == currentIndex ? 'textac' : 'text'}}">已取消</text>
+			<hr class="{{4 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+		</view>
+	</view>
+	<!--内容布局-->
+	<swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+		<swiper-item class='swiper' class='swiper'>
+			<scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+				<view class="ddlist" wx:for="{{orderData[0]}}" wx:for-item="order" wx:for-index="index" bindtap="orderDetails" data-orderNo="{{order.orderNo}}">
+					<view class="ddlisttop">
+						<view class="bh">订单编号：{{order.orderNo}}</view>
+						<view class="zt">{{order.orderStateMc}}</view>
+					</view>
+					<view class="sppage">
+						<view class='{{order.stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":order.stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{order.stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+							<image class="sppageimg" src="{{stoGoods.goodsPic}}"></image>
+							<view class="sppagexx">
+								<view class="spname">{{stoGoods.goodsName}}
+									<view class="gs">x{{stoGoods.buyNum}}</view>
+								</view>
+								<view class="zffs">{{stoGoods.goodsRemark}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="order_moneyinfo">
+						<view class="bh">订单金额：</view>
+						<text>{{order.totalPrice}}</text>
+					</view>
+					<!-- <view class="sppage">
+            <image class="sppageimg" src="{{order.goodsPic}}"></image>
+            <view class="sppagexx">
+              <view class="spname">{{order.goodsName}}
+                <view class="gs">x{{order.buyNum}}</view>
+              </view>
+              <view class="zffs" wx:if="{{order.payTypeMc!=''}}">{{order.payTypeMc}}</view>
+              <view class="je">
+                订单金额：{{order.totalPrice}}
+              </view>
+            </view>
+          </view> -->
+					<view class="spbtn">
+						<view class="time" wx:if="{{order.timingTime>0}}">
+							<image class="timeimg " src="https://img.jlqizutang.com/time.png "></image>
+							<view class="timedata ">{{order.countdownTimeText}}</view>
+						</view>
+						<view wx:if="{{order.orderState=='01'}}" catchtap="cancellationOrder" data-orderNo="{{order.orderNo}}" data-index="{index}}" class="butone ">取消</view>
+						<view wx:if="{{order.orderState=='01'}}" catchtap="toPayFor" data-orderNo="{{order.orderNo}}" class="buttwo ">去支付</view>
+						<view wx:if="{{order.orderState=='09'||order.orderState=='11'}}" catchtap="recurOrder" data-orderNo="{{order.orderNo}}" class="butone ">再来一单</view>
+						<view wx:if="{{order.orderState=='09'&&order.isServe=='Y'}}" class="buttwo" catchtap="applyForTheService" data-orderNo="{{order.orderNo}}">申请服务</view>
+						<view wx:if="{{order.orderState=='05'}}" class="butone" catchtap="confirmReceipt" data-orderNo="{{order.orderNo}}">确认收货</view>
+						<!-- <view wx:if="{{(order.orderState=='05'||order.orderState=='09')&&order.pickupWay=='1'}}" catchtap="checkTheLogistics" data-orderNo="{{order.orderNo}}" class="buttwo ">查看物流</view> -->
+					</view>
+
+				</view>
+				<image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+			</scroll-view>
+
+		</swiper-item>
+
+		<swiper-item class='swiper'>
+			<scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+				<view class="ddlist" wx:for="{{orderData[1]}}" wx:for-item="order" bindtap="orderDetails" data-orderNo="{{order.orderNo}}">
+					<view class="ddlisttop">
+						<view class="bh">订单编号：{{order.orderNo}}</view>
+						<view class="zt">{{order.orderStateMc}}</view>
+					</view>
+					<view class="sppage">
+						<view class='{{order.stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":order.stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{order.stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+							<image class="sppageimg" src="{{stoGoods.goodsPic}}"></image>
+							<view class="sppagexx">
+								<view class="spname">{{stoGoods.goodsName}}
+									<view class="gs">x{{stoGoods.buyNum}}</view>
+								</view>
+								<view class="zffs">{{stoGoods.goodsRemark}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="order_moneyinfo">
+						<view class="bh">合计金额：</view>
+						<text>{{order.totalPrice}}</text>
+					</view>
+				</view>
+				<image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item class='swiper'>
+			<scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+				<view class="ddlist" wx:for="{{orderData[2]}}" wx:for-item="order" bindtap="orderDetails" data-orderNo="{{order.orderNo}}">
+					<view class=" ddlisttop">
+						<view class="bh">订单编号：{{order.orderNo}}</view>
+						<view class="zt">{{order.orderStateMc}}</view>
+					</view>
+					<view class="sppage">
+						<view class='{{order.stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":order.stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{order.stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+							<image class="sppageimg" src="{{stoGoods.goodsPic}}"></image>
+							<view class="sppagexx">
+								<view class="spname">{{stoGoods.goodsName}}
+									<view class="gs">x{{stoGoods.buyNum}}</view>
+								</view>
+								<view class="zffs">{{stoGoods.goodsRemark}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="order_moneyinfo">
+						<view class="bh">合计金额：</view>
+						<text>{{order.totalPrice}}</text>
+					</view>
+					<view class="spbtn">
+						<view wx:if="{{order.orderState=='05'}}" class="butone" catchtap="confirmReceipt" data-orderNo="{{order.orderNo}}">确认收货</view>
+						<view wx:if="{{(order.orderState=='05'||order.orderState=='09')&&order.pickupWay=='1'}}" catchtap="checkTheLogistics" data-orderNo="{{order.orderNo}}" class="buttwo ">查看物流</view>
+					</view>
+				</view>
+
+				<image class="zwsjimg" hidden="{{dataShow[2]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item class='swiper'>
+			<scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+				<view class="ddlist" wx:for="{{orderData[3]}}" wx:for-item="order" bindtap="orderDetails" data-orderNo="{{order.orderNo}}">
+					<view class="ddlisttop">
+						<view class="bh">订单编号：{{order.orderNo}}</view>
+						<view class="zt">{{order.orderStateMc}}</view>
+					</view>
+					<view class="sppage">
+						<view class='{{order.stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":order.stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{order.stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+							<image class="sppageimg" src="{{stoGoods.goodsPic}}"></image>
+							<view class="sppagexx">
+								<view class="spname">{{stoGoods.goodsName}}
+									<view class="gs">x{{stoGoods.buyNum}}</view>
+								</view>
+								<view class="zffs">{{stoGoods.goodsRemark}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="order_moneyinfo">
+						<view class="bh">合计金额：</view>
+						<text>{{order.totalPrice}}</text>
+					</view>
+					<view class="spbtn ">
+						<view wx:if="{{order.orderState=='09'||order.orderState=='11'}}" catchtap="recurOrder" data-orderNo="{{order.orderNo}}" class="butone ">再来一单</view>
+						<view wx:if="{{order.orderState=='09'&&order.isServe=='Y'&&order.pickupWay=='1'}}" class="buttwo" catchtap="applyForTheService" data-orderNo="{{order.orderNo}}">申请服务</view>
+						<view wx:if="{{(order.orderState=='05'||order.orderState=='09')&&order.pickupWay=='1'}}" catchtap="checkTheLogistics" data-orderNo="{{order.orderNo}}" class="buttwo ">查看物流</view>
+					</view>
+				</view>
+
+				<image class="zwsjimg" hidden="{{dataShow[3]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+			</scroll-view>
+		</swiper-item>
+
+		<swiper-item class='swiper'>
+			<scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+				<view class="ddlist" wx:for="{{orderData[4]}}" wx:for-item="order" wx:key="key" bindtap="orderDetails" data-orderNo="{{order.orderNo}}">
+					<view class="ddlisttop">
+						<view class="bh">订单编号：{{order.orderNo}}</view>
+						<view class="zt">{{order.orderStateMc}}</view>
+					</view>
+					<view class="sppage">
+						<view class='{{order.stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":order.stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{order.stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+							<image class="sppageimg" src="{{stoGoods.goodsPic}}"></image>
+							<view class="sppagexx">
+								<view class="spname">{{stoGoods.goodsName}}
+									<view class="gs">x{{stoGoods.buyNum}}</view>
+								</view>
+								<view class="zffs">{{stoGoods.goodsRemark}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="order_moneyinfo">
+						<view class="bh">合计金额：</view>
+						<text>{{order.totalPrice}}</text>
+					</view>
+					<view class="spbtn">
+						<view wx:if="{{order.orderState=='09'||order.orderState=='11'}}" catchtap="recurOrder" data-orderNo="{{order.orderNo}}" class="butone ">再来一单</view>
+					</view>
+				</view>
+
+				<image class="zwsjimg" hidden="{{dataShow[4]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+
+
+	<view class="startPull" bindtap="refresh">
+		<image src="https://img.jlqizutang.com/refresh.png" class="startPullimg"></image>
+	</view>
+</view>

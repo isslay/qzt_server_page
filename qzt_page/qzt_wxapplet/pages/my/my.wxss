@@ -1,0 +1,325 @@
+/* pages/my/my.wxss */
+.mypage{
+  /* position: absolute; */
+  top: 0;
+  bottom:139rpx;
+  left: 0;
+  right: 0;
+  background: #F9FAFC;
+  padding: 5rpx 20rpx;
+  padding-bottom: 100rpx;
+  overflow-y: auto
+}
+.mytop{
+  width: 100%;
+  height: 400rpx;
+  background: #fff;
+  position: relative;
+  border-radius: 20rpx;
+  padding-top: 40rpx;
+  margin-top: 20rpx
+}
+.myb{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx
+}
+.mybleft{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx
+}
+.mytitle{
+  display: block;
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0rpx auto;
+  border-radius:50%;
+}
+.myname{
+  text-align: center;
+  margin-top: 10rpx;
+  width:100%
+}
+.myname span{
+ position: relative;
+  /* left: 20rpx; */
+  color: #5A5A5A;
+  font-size: 30rpx
+}
+.myname span+span{
+  color: #22723C;
+   position: relative;
+  /* left: 50rpx; */
+}
+.fwzimg{
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 4rpx;
+  margin:0 10rpx
+}
+
+.mytop-last{
+  padding: 0 20rpx;
+  display: flex;
+  margin-top: 40rpx
+}
+.my-l-list{
+  flex: 1;
+  text-align: center
+}
+.moneyname{
+  font-size:24rpx;
+  margin-bottom: 10rpx
+}
+.tgyj{
+  font-size: 36rpx;
+  color: #FF9F01;
+  font-weight: bold
+}
+.fxyj{
+  font-size: 36rpx;
+  color: #949191;
+  font-weight: bold
+}
+.wdye{
+  font-size: 36rpx;
+  color: #22723C;
+  font-weight: bold
+}
+
+.mydd{
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding:40rpx 20rpx;
+}
+.mycom-title{
+  color: #4A4A4A;
+  border-bottom:1px solid #f4f4f4;
+  padding-bottom: 20rpx;
+  font-weight: bold;
+  font-size: 32rpx
+}
+
+.myddlist{
+  display:flex;
+  margin-top: 40rpx
+}
+.myddlist-page{
+  flex:1;
+text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+}
+.ddimg{
+  width: 70rpx;
+  height: 70rpx
+}
+.ddname{
+  color: #5A5A5A;
+  font-size: 24rpx;
+  margin-top: 10rpx
+}
+
+.szimg{
+  width: 50rpx;
+  height: 50rpx
+}
+.szimgr{
+  width: 30rpx;
+  height: 30rpx
+}
+.szlist{
+  height: 110rpx;
+  line-height: 110rpx;
+  display:flex;
+  padding:0 10rpx 0 20rpx;
+  border-bottom:1rpx solid #f4f4f4;
+  vertical-align:middle;
+  position: relative
+}
+.szlist:last-child{
+  border: none
+}
+
+.szimg{
+float: left;
+margin-top: 30rpx;
+margin-right: 20rpx
+}
+.szimgr{
+  position: absolute;
+  right: 0;
+  top: 44rpx
+}
+.szname{
+  color: #5A5A5A;
+  font-size: 28rpx;
+
+}
+
+.kfdhbg{
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999
+}
+
+.kfdh{
+  width: 90%;
+  height: 370rpx;
+  
+  margin: 400rpx auto;
+  position: relative
+}
+.kftop{
+  height: 270rpx;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+  padding: 20rpx;
+    box-sizing: border-box;
+}
+.kfbtn{
+   height: 80rpx;
+    width: 100%;
+    background: #fff;
+    border-radius: 12rpx;
+    font-size: 30rpx;
+    color: #24272B;
+    line-height: 80rpx;
+    text-align: center;
+    font-weight: bold
+}
+.dhtitle{
+  text-align: center;
+  font-size: 30rpx;
+  color: #24272B;
+  font-weight: bold
+}
+.fwtime{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0 30rpx 0;
+  border-bottom: 1px solid #f4f4f4
+}
+.fwtimeimg{
+   width: 30rpx;
+   height: 30rpx
+}
+.fwtime text{
+  font-size: 26rpx;
+  color: #24272B;
+  font-weight: bold;
+  margin-left: 10rpx
+}
+.dhpage{
+  font-size: 48rpx;
+  color: #22723C;
+  text-align: center;
+  font-weight: bold;
+  line-height: 110rpx
+}
+.vshow{ 
+  display:block;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding:40rpx 20rpx;
+}
+.vhidden{ 
+  display: none ;
+}
+/* pages/hqxxtc/hqxxtc.wxss */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  height:500rpx;
+  padding-bottom:150rpx;
+ 
+}
+.hqxxpage{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f4f4f4
+}
+.hqxxone{
+  flex: 1;
+}
+.hqxxtwo{
+  height: 172rpx;
+  width: 100%;
+  padding: 80rpx 0 0 0;
+}
+.hqxxbtn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  background: #22723C;
+  border-radius: 12rpx
+}
+.hqxxtx{
+  display: flex
+}
+.hqxxtximg{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%
+}
+.hqxxtitle{
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+  font-weight: bold;
+  font-size: 42rpx
+}
+.xx1{
+  font-size: 31rpx;
+  margin-top: 16rpx
+}
+.xx2{
+  font-size: 26rpx;
+  margin-top: 34rpx;
+  color: #b1adad
+}

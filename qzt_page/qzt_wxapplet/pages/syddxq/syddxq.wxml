@@ -1,0 +1,77 @@
+<!--pages/ywc/ywc.wxml-->
+<view class="ddxq">
+  <view class="top">
+    <image class="topimg" src="https://img.jlqizutang.com/wancheng.png"></image>
+    {{stateMc}}
+  </view>
+  <view class="xqpage">
+    <view class="ul">
+      <view class="li">
+        <view class="liname">申请人：</view>
+        <view class="lipage">{{orderData.storeType}}</view>
+      </view>
+      <view class="li">
+        <view class="liname">联系电话：</view>
+        <view class="lipage">{{orderData.storeName}}</view>
+      </view>
+      <view class="li">
+        <view class="liname">疾病类型：</view>
+        <view class="lipage">{{orderData.diseaseName}}</view>
+      </view>
+      <view class="li">
+        <view class="liname">所属服务站：</view>
+        <view class="lipage">{{orderData.busName}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='fwzhzxx'>
+    <view class="zpli">
+      <view class="syzpname">身份证号：</view>
+      <view class="syzppage">{{orderData.idCardno}}</view>
+    </view>
+    <view class='syzp'>
+      <view class='syzptitle'>试用前照片:</view>
+      <view class='zpbox'>
+        <view class='imglist' wx:for-items="{{qztBusPics}}" >
+          <image class='syimg' src='{{item.bannerUrl}}'></image>              
+        </view>
+      </view>
+    </view>
+
+    <view class='syzp'>
+      <view class='syzptitle'>试用后照片:</view>
+      <view class='zpbox'>
+        <view class='imglist' wx:for-items="{{qztBusPics1}}" >
+          <image class='syimg' src='{{item.bannerUrl}}'></image>              
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+  <view class="xqlast">
+    <view class="syddxx">订单信息：</view>
+    <view class="lastlist">
+      <view class="lasrname">订单编号：</view>
+      <view class="latpage">{{orderData.orderNo}}</view>
+    </view>
+    <view class="lastlist">
+      <view class="lasrname">下单时间：</view>
+      <view class="latpage">{{orderData.createTime}}</view>
+    </view>    
+    <view class="lastlist">
+      <view class="lasrname">完成时间：</view>
+      <view class="latpage">{{orderData.updateTime}}</view>
+    </view>
+
+  </view>
+
+
+
+
+
+</view>

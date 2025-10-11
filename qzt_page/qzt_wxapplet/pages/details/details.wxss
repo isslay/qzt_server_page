@@ -1,0 +1,318 @@
+/* pages/details/details.wxss */
+@import "../../utils/wxParse/wxParse.wxss";
+
+view {
+  box-sizing: border-box;
+}
+
+.details {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  padding: 0rpx;
+  overflow-y: hidden;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  width: 16%;
+  height: 44px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  /* height: 100rpx; */
+  padding-left: 40rpx;
+}
+
+.fhimg {
+  width: 70rpx;
+  height: 70rpx;
+  z-index: 9999;
+}
+
+.fximg {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 20rpx;
+  z-index: 9999;
+}
+
+.page-body {
+  width: 100%;
+  padding-top: 0rpx;
+  height: 750rpx;
+}
+
+.page-section {
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+.page-section-gap {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.page-section-spacing {
+  box-sizing: border-box;
+  height: 750rpx;
+  padding: 0rpx;
+}
+
+swiper {
+  height: 750rpx;
+}
+
+swiper-item {
+  box-sizing: border-box;
+}
+
+.sliimg {
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.btn {
+  width: 100%;
+  height: 90rpx;
+  background: #22723c;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.one {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.one_last {
+  margin-bottom: 0;
+}
+
+.one img {
+  width: 100%;
+}
+
+.jiage text {
+  font-size: 40rpx;
+  color: #22723c;
+  font-weight: bold;
+}
+
+.jiage text+text {
+  font-size: 22rpx;
+  color: #9e9e9e;
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+
+.spname {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2a2a2a;
+  margin-top: 10rpx;
+}
+
+.apxx {
+  font-size: 26rpx;
+  color: #5a5a5a;
+  margin-top: 10rpx;
+}
+
+.ggsm {
+  font-size: 30rpx;
+  color: #2a2a2a;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.ggsmpage {
+  font-size: 28rpx;
+  color: #5a5a5a;
+  margin-top: 10rpx;
+}
+
+.sl {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.sl view {
+  font-size: 30rpx;
+  color: #5a5a5a;
+}
+
+.jian {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+  margin: 0 10rpx;
+}
+
+.jia {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+  margin: 0 10rpx;
+}
+
+.kc {
+  margin-left: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shuoming {
+  display: flex;
+  padding-top: 20rpx;
+  align-items: center;
+}
+
+.shuomingming {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.slist {
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.slist text {
+  font-size: 28rpx;
+  color: #5a5a5a;
+  margin-left: 10rpx;
+}
+
+.spxq {
+  font-size: 30rpx;
+  color: #2a2a2a;
+  font-weight: bold;
+  /* margin-bottom: 40rpx */
+}
+
+.sqlist {
+  font-size: 26rpx;
+  color: #5a5a5a;
+  margin: 10rpx 0;
+}
+
+.ztlbg {
+  width: 100%;
+  background: #fff;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+}
+
+.isbg {
+  background: #fff;
+  opacity: 1;
+  z-index: 9999;
+  transition: all 0.2s ease-in;
+}
+
+.top text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 38px;
+  text-align: center;
+}
+
+.detailView {
+  width: 100%;
+  text-align: center;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.pagebtn {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.tj {
+  width: 50%;
+  float: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ff9f01;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.qd {
+  width: 50%;
+  float: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #22723c;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.startPull {
+  position: fixed;
+  right: 60rpx;
+  bottom: 160rpx;
+}
+
+.startPullimg {
+  width: 120rpx;
+  height: 120rpx;
+}

@@ -1,0 +1,79 @@
+/* pages/classroom/classroom.wxss */
+view{
+    box-sizing: border-box;
+}
+.classroompage{
+  position: absolute;
+  top: 0;
+  bottom:128rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  padding: 20rpx 10rpx 10rpx 10rpx;
+  overflow-y: auto
+}
+.roomlist{
+  width: 100%;
+}
+.li{
+  width: 50%;
+  float: left;
+  height: 150rpx;
+  line-height: 150rpx;
+  box-sizing: border-box;
+  padding: 10rpx;
+ border-radius: 12rpx;
+ position: relative;
+ margin-bottom: 10rpx;
+}
+.li::before{
+  display: block;
+  content: "";
+  width: 15rpx;
+  height: 15rpx;
+  background: #22723C;
+  border-radius: 50%;
+  position: absolute;
+  left: 30rpx;
+  top: 70rpx
+}
+.li::after{
+  display: block;
+  content: "";
+  width: 15rpx;
+  height: 15rpx;
+  background: #22723C;
+  border-radius: 50%;
+  position: absolute;
+  right: 30rpx;
+  top: 70rpx
+}
+.lipage{
+  background:#fff;
+  /* box-shadow:4px 4px 10px #ccc; */
+  width: 100%;
+  height: 100%;    
+  padding: 10rpx;
+  border-radius: 12rpx;
+}
+.roomimg{
+  width: 100rpx;
+  height: 100rpx
+}
+.roomimgr{
+  width: 30rpx;
+  height: 30rpx
+}
+.roomname{
+  width: 100%;
+  height: 100%;
+  color: #22723C;
+  line-height: 110rpx;
+  padding: 0 40rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 12rpx;
+  border: 1px solid #dbe7df;
+  text-align: center;
+  overflow:hidden; text-overflow:ellipsis;
+}

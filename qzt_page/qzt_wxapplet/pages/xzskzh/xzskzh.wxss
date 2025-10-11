@@ -1,0 +1,390 @@
+/* pages/xzskzh/xzskzh.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.skzh {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.textac {
+  color: #22723c;
+}
+
+.titleSel {
+  color: #a1a6bb;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.headerLineSel {
+  background: #22723c;
+  height: 6rpx;
+  width: 30rpx;
+  position: absolute;
+  bottom: 0px;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 0rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  height: 150px;
+  overflow: scroll;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagetop {
+  flex: 1;
+  /* padding: 40rpx 40rpx 10rpx 40rpx; */
+  margin: 8px 20px 0.5px 20px;
+}
+
+.pagebtn {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.tj {
+  width: 50%;
+  float: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #22723c;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.qd {
+  width: 50%;
+  float: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #ff9f01;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.barlist {
+  width: 100%;
+  height: 296rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 25rpx;
+
+}
+
+.lable {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+  display: flex;
+}
+
+.raido {
+  width: 70rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.raidopage {
+  flex: 1;
+  padding: 40rpx 20rpx 0 0rpx;
+}
+
+.cardtop {
+  display: flex;
+  align-items: center;
+}
+
+.nameone {
+  flex: 1;
+}
+
+.nametwo {
+  width: 160rpx;
+}
+
+.namethree {
+  width: 180rpx;
+}
+
+.cardname {
+  font-size: 36rpx;
+  color: #24272b;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.cardnametwo {
+  font-size: 32rpx;
+  color: #5a5a5a;
+}
+
+.bankimg {
+  width: 200rpx;
+  height: 80rpx;
+}
+
+.cardteo {
+  display: flex;
+  align-items: center;
+}
+
+.cardhm {
+  flex: 1;
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 36rpx;
+  color: #5a5a5a;
+  align-items: center;
+}
+
+.xing {
+  padding-top: 6rpx;
+}
+
+.cardbtn {
+  text-align: right;
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+}
+
+.btnimg {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.moren {
+  font-size: 24rpx;
+  background: #ffeeeb;
+  color: #ff6a53;
+  padding: 2rpx 10rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 10rpx;
+}
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  height: 860rpx;
+}
+
+.add {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.addtitle {
+  width: 100%;
+  font-size: 30rpx;
+  color: #24272b;
+  border-bottom: 1px solid #e4e7f0;
+  text-align: center;
+  font-weight: bold;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.addpage {
+  width: 100%;
+  height: 100%;
+  padding: 0 40rpx;
+}
+
+.addlist {
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #e4e7f0;
+  display: flex;
+}
+
+.addname {
+  font-size: 26rpx;
+  color: #a1a6bb;
+  width: 150rpx;
+}
+
+.addinput {
+  flex: 1;
+}
+
+.addinput input {
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #24272b;
+}
+
+.addname text {
+  color: red;
+}
+
+label {
+  display: block;
+  font-size: 28rpx;
+  color: #222328;
+  /* margin-top: 20rpx; */
+}
+
+checkbox .wx-checkbox-input {
+  /* 自定义样式.... */
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border-radius: 50%;
+  border-color: #22723c !important;
+  position: relative;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  content: '';
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background-color: #22723c;
+  top: 15rpx;
+  display: flex;
+  left: 16rpx;
+  position: relative;
+}
+
+.addbtn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  background: #22723c;
+  border-radius: 12rpx;
+  margin-top: 20rpx;
+}
+
+radio .wx-radio-input {
+  /* 自定义样式.... */
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border-radius: 50%;
+  border-color: #22723c !important;
+  position: relative;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  content: '';
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background-color: #22723c;
+  top: 15rpx;
+  display: flex;
+  left: 16rpx;
+  position: relative;
+}
+
+.ailpay_nameone {
+  flex: 1;
+}
+
+.alipayimg {
+  width: 96rpx;
+  height: 96rpx;
+}
+
+.ailpay_namethree {
+  width: 150rpx;
+}
+
+.ailpay_barlist {
+  width: 100%;
+  height: 186rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  padding-top:10rpx;
+  padding-bottom: 25rpx;
+}

@@ -1,0 +1,130 @@
+<!--pages/fworder/fworder.wxml-->
+<view class='order'>
+  <!--Tab布局-->
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">待确认</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">待服务</text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+
+    <view class='titleSel' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'textac' : 'text'}}">已到店</text>
+      <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+    <view class='titleSel' bindtap='titleClick' data-idx='3'>
+      <text class="{{3 == currentIndex ? 'textac' : 'text'}}">已完成</text>
+      <hr class="{{3 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+
+
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item class='swiper' class='swiper'>
+
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData[0]}}" wx:key="item">
+          <view class="ddlisttop">
+            <view class="bh">服务单号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-id="{{item.id}}">
+            <image class="sppageimg" src="{{item.url}}"></image>
+            <view class="sppagexx">
+              <view class="spname">{{item.name}}</view>
+              <view class="zffs">疾病类型：{{item.disease}}</view>
+              <view class="je">所属服务站：{{item.server}}</view>
+            </view>
+          </view>
+          <view class="spbtn">
+          <view class="zffs2">申请时间：{{item.createTime}}</view>
+             <view class="buttwo" bindtap='qxorder' data-id="{{item.id}}" data-orderno="{{index}}" data-name="{{item.orderNo}}">确认服务</view>
+          </view>
+        </view>
+
+        <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper' class='swiper'>
+
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData[1]}}" wx:key="item">
+          <view class="ddlisttop">
+            <view class="bh">服务单号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-id="{{item.id}}">
+            <image class="sppageimg" src="{{item.url}}"></image>
+            <view class="sppagexx">
+              <view class="spname">{{item.name}}</view>
+              <view class="zffs">疾病类型：{{item.disease}}</view>
+              <view class="je">所属服务站：{{item.server}}</view>
+            </view>
+          </view>
+          <view class="spbtn">
+          <view class="zffs2">申请时间：{{item.createTime}}</view>
+            <view class="buttwo " bindtap='qxorder' data-id="{{item.id}}" data-orderno="{{index}}" data-name="{{item.orderNo}}">确认到店</view> 
+          </view>
+        </view>
+
+        <image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper' class='swiper'>
+
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData[2]}}" wx:key="item">
+          <view class="ddlisttop">
+            <view class="bh">服务单号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-id="{{item.id}}">
+            <image class="sppageimg" src="{{item.url}}"></image>
+            <view class="sppagexx">
+              <view class="spname">{{item.name}}</view>
+              <view class="zffs">疾病类型：{{item.disease}}</view>
+              <view class="je">所属服务站：{{item.server}}</view>
+            </view>
+          </view>
+          <view class="spbtn">
+          <view class="zffs2">申请时间：{{item.createTime}}</view>
+              <view class="buttwo " bindtap='qxorder' data-id="{{item.id}}" data-orderno="{{index}}" data-name="{{item.orderNo}}">确认完成</view>
+          </view>
+        </view>
+
+        <image class="zwsjimg" hidden="{{dataShow[2]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper' class='swiper'>
+
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData[3]}}" wx:key="item">
+          <view class="ddlisttop">
+            <view class="bh">服务单号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-id="{{item.id}}">
+            <image class="sppageimg" src="{{item.url}}"></image>
+            <view class="sppagexx">
+              <view class="spname">{{item.name}}</view>
+              <view class="zffs">申请时间：{{item.createTime}}</view>
+              <view class="je">所属服务站：{{item.server}}</view>
+            </view>
+          </view>
+        </view>
+
+        <image class="zwsjimg" hidden="{{dataShow[3]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+  </swiper>
+  <view class="startPull" bindtap="refresh">
+    <image src="https://img.jlqizutang.com/refresh.png" class="startPullimg"></image>
+  </view>
+</view>

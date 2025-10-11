@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztGoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztGoods">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="goods_type" property="goodsType"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_remark" property="goodsRemark"/>
+        <result column="share_pic" property="sharePic"/>
+        <result column="share_title" property="shareTitle"/>
+        <result column="share_content" property="shareContent"/>
+        <result column="goods_spec" property="goodsSpec"/>
+        <result column="goods_num" property="goodsNum"/>
+        <result column="sale_num" property="saleNum"/>
+        <result column="thumbnail" property="thumbnail"/>
+        <result column="content" property="content"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="goods_cost_price" property="goodsCostPrice"/>
+        <result column="freight" property="freight"/>
+        <result column="state" property="state"/>
+        <result column="share_money" property="shareMoney"/>
+        <result column="recommend_money" property="recommendMoney"/>
+        <result column="is_service" property="isService"/>
+        <result column="service_money" property="serviceMoney"/>
+        <result column="up_time" property="upTime"/>
+        <result column="coupon_status" property="couponStatus"/>
+        <result column="type_order" property="typeOrder"/>
+        <result column="class_id" property="classId" />
+        <result column="class_name" property="className" />
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_goods
+        <where>
+            state &lt;&gt; '-1'
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                AND goods_name like CONCAT('%','${goodsName}','%')
+            </if>
+            <if test="state != null and state != ''">
+                AND state = #{state}
+            </if>
+            <if test="classId != null and classId != ''">
+                AND class_id = #{classId}
+            </if>
+        </where>
+        ORDER BY type_order ASC ,create_time DESC
+    </select>
+
+    <!--减少库存-->
+    <update id="reduceGoodsRepertory">
+        UPDATE dgm_qzt_goods SET goods_num = goods_num - #{buyNum} WHERE id_ = #{goodsId} AND goods_num >= #{buyNum};
+    </update>
+
+    <!--增加库存-->
+    <update id="addGoodsRepertory">
+        UPDATE dgm_qzt_goods SET goods_num = goods_num + #{buyNum} WHERE id_ = #{goodsId};
+    </update>
+
+    <!--增加销量-->
+    <update id="addGoodsSalesVolume">
+        UPDATE dgm_qzt_goods SET sale_num = sale_num + #{buyNum} WHERE id_ = #{goodsId};
+    </update>
+
+
+</mapper>

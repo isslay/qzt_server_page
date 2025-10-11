@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztBusinessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztBusiness">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="user_id" property="userId"/>
+        <result column="bus_name" property="busName"/>
+        <result column="bus_address" property="busAddress"/>
+        <result column="bus_long" property="busLong"/>
+        <result column="bus_lat" property="busLat"/>
+        <result column="bus_tel" property="busTel"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="bus_time_start" property="busTimeStart"/>
+        <result column="bus_time_end" property="busTimeEnd"/>
+        <result column="bus_detail" property="busDetail"/>
+        <result column="bus_recommender" property="busRecommender"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="contacts" property="contacts"/>
+        <result column="contacts_tel" property="contactsTel"/>
+        <result column="bus_state" property="busState"/>
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT *,
+        ROUND(acos(cos(#{busLat,jdbcType=VARCHAR}*pi()/180 )*cos(b.bus_lat*pi()/180)*cos(#{busLong,jdbcType=VARCHAR}*pi()/180-
+        b.bus_long*pi()/180)+sin(#{busLat,jdbcType=VARCHAR}*pi()/180 )*sin(b.bus_lat*pi()/180))*6370996.81)
+        as distance
+        FROM dgm_qzt_business b
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="busName != null and busName != ''">
+                AND bus_name LIKE CONCAT('%',#{busName},'%')
+            </if>
+            <if test="busState != null and busState != ''">
+                AND bus_state = #{busState}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="province != null and province != ''">
+                AND province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                AND city = #{city}
+            </if>
+            <if test="area != null and area != ''">
+                AND area = #{area}
+            </if>
+        </where>
+        <if test="kilometer != null and kilometer != ''">
+            HAVING distance &lt;= #{kilometer}
+        </if>
+        ORDER BY distance ASC, create_time DESC, id_ ASC
+    </select>
+
+    <select id="findAllBussiness" resultType="map" parameterType="map">
+        SELECT * FROM dgm_qzt_business
+        <where>
+            <if test="busState != null and busState != ''">
+                AND bus_state = #{busState}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据userId查询服务站信息 -->
+    <select id="queryByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT * FROM dgm_qzt_business WHERE user_id = #{userId} LIMIT 0,1;
+    </select>
+
+    <!-- 查询指定区的服务站数量 -->
+    <select id="findAreaBussinessSize" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT COUNT(0) FROM dgm_qzt_business WHERE area = #{area} AND bus_state = '0';
+    </select>
+
+</mapper>

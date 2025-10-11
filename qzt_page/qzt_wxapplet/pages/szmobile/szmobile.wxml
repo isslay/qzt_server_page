@@ -1,0 +1,29 @@
+<!--pages/xgmm/xgmm.wxml-->
+<!--pages/xzshdz/xzshdz.wxml-->
+<view class='xzshdz'>
+
+  <view class='addpage'>
+
+    <view class='addlist'>
+      <view class='addname'>
+        原号码</view>
+      <view class='addinput'>
+       {{imput1}}
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>新号码</view>
+      <view class='addinput'>
+        <input type="number"  maxlength='11' value="{{imput2}}" bindinput ="imput2"/>
+      </view>
+    </view>
+    
+    <view class='addbtn' bindtap="doSubmit">确认</view>
+  </view>
+
+
+
+
+
+</view>

@@ -1,0 +1,95 @@
+<!--pages/fwzwh/fwzwh.wxml-->
+<view class='cooperationpage'>
+  <view class='fwzwh'>
+    <view class='coolist1'>
+      <view class='cooname'>服务站名称</view>
+      <view class='cooinput'>
+        <input type='text' maxlength="40" value='{{busName}}' placeholder="请填写服务站名称" bindinput="busNameInput" />
+      </view>
+    </view>
+
+    <view class='coolist'>
+      <view class='cooname'>联系电话</view>
+      <view class='cooinput'>
+        <input ype='number' maxlength="11" value='{{busTel}}' placeholder="请输入联系方式" bindinput="busTelInput" />
+      </view>
+    </view>
+
+    <view class='coolist'>
+      <view class='cooname'>详细地址</view>
+
+      <view class='cooinput'>
+        <view class='textSpan'>{{detail_info}}</view>
+        <button class='whimg' bindtap="mapView" style="background-image:url(https://img.jlqizutang.com/szright2.png);background-size:100%;width:60rpx;"></button>
+      </view>
+
+    </view>
+
+    <view class='coolist'>
+      <view class='cooname'>营业时间</view>
+      <view class='cooinput'>
+        <picker mode="time" class='time1' value="{{busTimeStart}}" placeholder="开始时间" start="00:00" end="23:59" bindchange="bindTimeChange1">
+          <view class="picker">
+            {{busTimeStart}}
+          </view>
+        </picker>
+        <view style="float:left;width:12%">至</view>
+        <picker mode="time" class='time2' value="{{busTimeEnd}}" placeholder="结束时间" start="00:00" end="23:59" bindchange="bindTimeChange2">
+          <view class="picker">
+            {{busTimeEnd}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='coolist'>
+      <view class='cooname'>营业状态</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="codeText">
+        <view class='cooinput'>
+          <input type='text' value='{{busStateMc}}' disabled="true" placeholder='请选择营业状态' />
+          <image class='whimg' src='https://img.jlqizutang.com/szright.png'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='coolist'>
+      <view class='cooname'>服务站描述</view>
+      <view class='cooinput'>
+        <!-- <textarea bindblur="bindTextAreaBlur" value="{{busDetail}}" fixed="fase" auto-height placeholder="请输入服务站描述" bindinput="busDetailInput" /> -->
+         <input type='text' value='{{busDetail}}' bindinput="busDetailInput"  placeholder='请输入服务站描述' />
+      </view>
+    </view>
+    <view class='coolist' style="height:240rpx">
+      <view class='cooname'>服务站图片</view>
+      <view class='zpbox'>
+        <view class='imglist' hidden="{{addImgAr0}}">
+          <image class='syimg' src='{{picUrl}}'></image>
+          <image class='delete' src='https://img.jlqizutang.com/delete.png' data-picno="a" bindtap="delPic"></image>
+        </view>
+
+        <view class='imglist' hidden="{{!addImgAr0}}" bindtap="upload0">
+          <image class='syimg' src='https://img.jlqizutang.com/tianjia.png'></image>
+        </view>
+
+      </view>
+    </view>
+    <view class='coolist'>
+      <view class='cooname'>环境图片
+        <view class="syzptitlespan">（请上传1-5张照片）</view>
+      </view>
+
+      <view class='zpbox'>
+        <view class='imglist' wx:for-items="{{imgAr1}}">
+          <image class='syimg' src='{{item}}'></image>
+          <image class='delete' src='https://img.jlqizutang.com/delete.png' data-picno="{{index}}" bindtap="delPic"></image>
+        </view>
+
+        <view class='imglist' hidden="{{!addImgAr1}}" bindtap="upload1">
+          <image class='syimg' src='https://img.jlqizutang.com/tianjia.png'></image>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+  <view class='btn' bindtap="submit">提交</view>
+</view>

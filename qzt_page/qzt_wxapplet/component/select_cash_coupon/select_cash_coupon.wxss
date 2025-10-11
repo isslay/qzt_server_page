@@ -1,0 +1,194 @@
+/* component/select_cash_coupon/select_cash_coupon.wxss */
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  height: 860rpx;
+}
+
+.add {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.addtitle {
+  width: 100%;
+  font-size: 30rpx;
+  color: #24272b;
+  border-bottom: 1px solid #f4f4f4;
+  text-align: center;
+  font-weight: bold;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.addpage {
+  width: 100%;
+  flex: 1;
+  overflow-y: scroll;
+  background: #f4f4f4;
+  padding-top: 7px;
+}
+
+.addbutpage {
+  width: 100%;
+  height: 170rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.addbut {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  background: #22723c;
+  border-radius: 12rpx;
+}
+
+.addlist {
+  width: 100%;
+  background: #fff;
+  border-radius: 10rpx;
+  border-bottom: 1px solid #e4e7f0;
+}
+
+.lable {
+  width: 100%;
+  height: 100%;  
+  position: relative;
+  display: flex;
+}
+
+.raido {
+  width: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio_group {
+  width: 95%;
+  margin-left: 16rpx;
+}
+
+.raidopage {
+  flex: 1;
+  padding: 20rpx 20rpx 0 0rpx;
+}
+
+radio .wx-radio-input {
+  /* 自定义样式.... */
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border-radius: 50%;
+  border-color: #22723c !important;
+  position: relative;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  content: '';
+  width: 18rpx;
+}
+
+.list {
+  width: 100%;
+  height: 190rpx;
+  position: relative;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.listleft {
+  width: 190rpx;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  color: #22723c;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+}
+
+.listleft text {
+  font-size: 64rpx;
+}
+
+.listleft span {
+  margin-top: 20rpx;
+}
+
+.listright {
+  flex: 1;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+
+.one {
+  color: #ff9f01;
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.two {
+  font-size: 24rpx;
+  color: #a1a6bb;
+  flex: 1;
+}
+
+.backgroundimg {
+  width: 100%;
+  height: 190rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.titlelcl {
+  position: absolute;
+  font-size: 25rpx;
+  color: #a1a6bb;
+  font-weight: 500;
+  float: left;
+  padding-left: 20rpx;
+
+
+}
+
+.closepic {
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  padding-left: 249rpx;
+  padding-top: 28rpx;
+}

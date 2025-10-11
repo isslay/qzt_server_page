@@ -1,0 +1,6 @@
+com\qzt\common\mdb\annotation\DataSourceAnnotation.class
+com\qzt\common\mdb\DbContextHolder.class
+com\qzt\common\mdb\aspect\DataSourceAspect.class
+com\qzt\common\mdb\configuration\MultipleDataSourceAutoConfiguration.class
+META-INF\spring-configuration-metadata.json
+com\qzt\common\mdb\DynamicDataSource.class

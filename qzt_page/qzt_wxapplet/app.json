@@ -1,0 +1,104 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/fwzwh/fwzwh",
+    "pages/myyhq/myyhq",
+    "pages/lingquyhq/lingquyhq",
+    "pages/myshezhi/myshezhi",
+    "pages/syddxq/syddxq",
+    "pages/mytg/mytg",
+    "pages/sydd/sydd",
+    "pages/ddxq/ddxq",
+    "pages/sqfwtwo/sqfwtwo",
+    "pages/order/order",
+    "pages/fwzxq/fwzxq",
+    "pages/sqfw/sqfw",
+    "pages/servicestation/servicestation",
+    "pages/details/details",
+    "pages/mfsy/mfsy",
+    "pages/syddcx/syddcx",
+    "pages/classroom/classroom",
+    "pages/classroompage/classroompage",
+    "pages/cooperation/cooperation",
+    "pages/logs/logs",
+    "pages/qrdd/qrdd",
+    "pages/syywc/syywc",
+    "pages/dzgl/dzgl",
+    "pages/xzshdz/xzshdz",
+    "pages/xgmm/xgmm",
+    "pages/szmm/szmm",
+    "pages/ckls/ckls",
+    "pages/myqb/myqb",
+    "pages/szmobile/szmobile",
+    "pages/yxck/yxck",
+    "pages/skzh/skzh",
+    "pages/add_shroff_account/add_shroff_account",
+    "pages/txdd/txdd",
+    "pages/pay_page/pay_page",
+    "pages/fillin_goods_order/fillin_goods_order",
+    "pages/goods_order_pay/goods_order_pay",
+    "pages/txsq/txsq",
+    "pages/withdrawal_record/withdrawal_record",
+    "pages/xzskzh/xzskzh",
+    "pages/xzdzgl/xzdzgl",
+    "pages/fworder/fworder",
+    "pages/fwddcx/fwddcx",
+    "pages/puias_order/puias_order",
+    "pages/select_business/select_business",
+    "pages/charge_off/charge_off",
+    "pages/logistics_details/logistics_details",
+    "pages/my_shopping_cart/my_shopping_cart",
+    "pages/shopping_cart_settlement/shopping_cart_settlement"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "七足堂",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#535353",
+    "selectedColor": "#f60",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classroom/classroom",
+        "iconPath": "img/classroom.png",
+        "selectedIconPath": "img/classroom_active.png",
+        "text": "健康课堂"
+      },
+      {
+        "pagePath": "pages/servicestation/servicestation",
+        "iconPath": "img/servicestation.png",
+        "selectedIconPath": "img/servicestation_active.png",
+        "text": "服务站"
+      },
+      {
+        "pagePath": "pages/my_shopping_cart/my_shopping_cart",
+        "iconPath": "img/shopping_cart.png",
+        "selectedIconPath": "img/shopping_cart_active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,88 @@
+/* pages/yxck/yxck.wxss */
+view{
+  box-sizing: border-box;
+}
+page{
+  background: #ffffff;
+}
+.yxck{
+  position: absolute;
+  top: 5rpx;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.yxcknoe{
+  padding:20rpx 40rpx;
+  border-bottom: 1px solid #f4f4f4;
+  position: relative
+}
+.yxckpage{
+  width: 100%;
+  flex: 1;
+  background: #fff;
+  padding-bottom: 20rpx
+}
+.cklist{
+  display: flex;
+  padding:5rpx 0
+}
+.name{
+  font-size: 28rpx;
+  color: #222328;
+}
+.page{
+  font-size: 28rpx;
+  color: #222328;
+}
+.btn{
+    position: absolute;
+    top: 20rpx; 
+    right: 40rpx;
+    font-size: 24rpx;
+    color: #22723C;
+    background: #e7f0ea;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx
+}
+.cktitle{
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #22723C;
+  font-weight: bold;
+  position: relative;
+  padding-left:20rpx
+}
+.cktitle::before{
+  display: block;
+  content: "";
+  width: 5px;
+  height: 80%;
+  background: #22723C;
+  position: absolute;
+  top: 13%;
+  left: 0;
+  border-radius: 25rpx
+}
+.clolr{
+  color: #22723C;
+}
+.jxzf{
+  height: 170rpx;
+  padding: 40rpx;
+}
+.jxzfbtn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #fff;
+  background: #22723C;
+  border-radius: 12rpx;
+}

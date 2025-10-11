@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单名称</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../../../css/font.css">
+    <link rel="stylesheet" href="../../../css/xadmin.css">
+    <link rel="stylesheet" href="../../../css/basic_info.css" media="all"/>
+    <!--    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="../../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/xadmin.js"></script>
+    <script type="text/javascript" src="../../../js/cookie.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>-->
+    <!--    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+        <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>-->
+
+    <script type="text/javascript" src="../../../js/html5.min.js"></script>
+    <script type="text/javascript" src="../../../js/respond.min.js"></script>
+    <!--[endif]-->
+</head>
+<body>
+<div class="x-body">
+    <form class="layui-form" id="dataForm">
+        <div class="container_table" style="padding-top: -20px;">
+            <div class="content">
+                <div class="column"><span class="current">订单详情</span></div>
+                <table class="kv-table">
+                    <tbody>
+                    <tr>
+                        <td class="kv-label">商品图片</td>
+                        <td class="kv-content" colspan="5">
+                            <img src="" id="goodsPic" height="100px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">商品名称</td>
+                        <td class="kv-content" colspan="5"><span id="goodsName"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">订单编号</td>
+                        <td class="kv-content"><span id="orderNo"></span></td>
+                        <td class="kv-label">下单时间</td>
+                        <td class="kv-content" colspan="3"><span id="createTime"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">用户ID</td>
+                        <td class="kv-content">
+                            <span id="userId"></span>
+                        </td>
+                        <td class="kv-label">订单状态</td>
+                        <td class="kv-content" colspan="3"><span id="orderStateMc"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">订单金额</td>
+                        <td class="kv-content"><span id="totalPrice"></span></td>
+                        <td class="kv-label">支付方式</td>
+                        <td class="kv-content"><span id="payTypeMc"></span></td>
+                        <td class="kv-label">支付时间</td>
+                        <td class="kv-content"><span id="payTime"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">三方支付金额</td>
+                        <td class="kv-content" colspan="5"><span id="threeSidesMoney"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">收货人</td>
+                        <td class="kv-content"><span id="consigneeName"></span></td>
+                        <td class="kv-label">收货人电话</td>
+                        <td class="kv-content"><span id="consigneeTel"></span></td>
+                        <td class="kv-label">收货地址</td>
+                        <td class="kv-content"><span id="consigneeAddress"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">快递公司</td>
+                        <td class="kv-content">
+                            <span id="courierCompany"></span>
+                        </td>
+                        <td class="kv-label">快递单号</td>
+                        <td class="kv-content" colspan="3">
+                            <span id="courierNo"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">快递备注</td>
+                        <td class="kv-content" colspan="5">
+                            <span id="courierRemarks"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <div class="layui-tab" lay-filter="test1">
+        <div class="container_table">
+            <div class="content">
+                <div class="column"><span class="current">操作记录</span></div>
+            </div>
+        </div>
+        <ul class="layui-tab-title">
+            <li class="layui-this" lay-id="111">订单日志</li>
+            <li lay-id="22" id="transportModeId">三方支付回调日志</li>
+        </ul>
+        <div class="layui-tab-content" style="padding: 0;">
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table" id="orderLogTable"></table>
+                <div id="orderLogPageDiv"></div>
+            </div>
+            <div class="layui-tab-item">
+                <table class="layui-table" id="orderPayBackTable"></table>
+                <div id="orderPayBackPageDiv"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../../../js/common.js"></script>
+<script type="text/javascript" src="qzt_applybusorder_model.js"></script>
+</body>
+</html>

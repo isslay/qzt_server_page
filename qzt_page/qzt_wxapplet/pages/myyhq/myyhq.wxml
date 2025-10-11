@@ -1,0 +1,168 @@
+<!--pages/myyhq/myyhq.wxml-->
+<view class='yhq'>
+  <!--Tab布局-->
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">赠送券<text></text></text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">待使用<text></text></text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+
+    <view class='titleSel' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'textac' : 'text'}}">已使用<text></text></text>
+      <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+    <view class='titleSel' bindtap='titleClick' data-idx='3'>
+      <text class="{{3 == currentIndex ? 'textac' : 'text'}}">已过期<text></text></text>
+      <hr class="{{3 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+
+
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item class='swiper' class='swiper'>
+
+      <view class='yhqpage'>
+        <view class='content'>
+          <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">
+            <view class='list' wx:for-items="{{orderData[0]}}">
+              <image class='backgroundimg' src='{{item.picUrl}}'></image>
+              <view class='listleft'>
+                <text>{{item.couponMoney}}</text>
+                <span>元</span>
+              </view>
+              <view class='listright'>
+                <view class='one'>商品通用（满100减{{item.couponMoney}}元）</view>
+                <view class='two'>{{item.startDate}}至{{item.endDate}}</view>
+                <view class='two'>获赠人：{{item.obj.userId==''?'暂无':item.obj.userId}}</view>
+              </view>              
+              <button class='zshyimg' wx:if="{{item.obj.state==0}}" data-couId="{{item.obj.id}}" style="background-image:url(https://img.jlqizutang.com/zshy.png);background-size:100%"   open-type="share"></button>
+            </view>  
+            <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image> 
+
+          </scroll-view>
+        </view>
+        <view class='btn'>
+          <view class='button' bindtap="showModal">赠送优惠券</view>
+        </view>
+      </view>
+
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='yhqpage'>
+        <view class='content'>
+
+          <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">
+            <view class='list' wx:for-items="{{orderData[1]}}">
+              <image class='backgroundimg' src='{{item.picUrl}}'></image>
+              <view class='listleft'>
+                <text>{{item.couponMoney}}</text>
+                <span>元</span>
+              </view>
+              <view class='listright'>
+                <view class='one'>全场商品通用（满100减{{item.couponMoney}}元）</view>
+                <view class='two'>{{item.startDate}}至{{item.endDate}}</view>
+                <view class='two'>赠送人：{{item.obj.giveUserId}}</view>
+              </view>
+            </view>  
+            <image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>          
+          </scroll-view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='yhqpage'>
+        <view class='content'>
+
+          <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">
+            <view class='list' wx:for-items="{{orderData[2]}}">
+              <image class='backgroundimg' src='{{item.picUrl}}'></image>
+              <view class='listleft'>
+                <text>{{item.couponMoney}}</text>
+                <span>元</span>
+              </view>
+              <view class='listright'>
+                <view class='one'>全场商品通用（满100减{{item.couponMoney}}元）</view>
+                <view class='two'>{{item.startDate}}至{{item.endDate}}</view>
+                <view class='two'>赠送人：{{item.obj.giveUserId}}</view>
+              </view>
+            </view>   
+            <image class="zwsjimg" hidden="{{dataShow[2]}}" src="https://img.jlqizutang.com/nodata1.png"></image>         
+          </scroll-view>
+
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='yhqpage'>
+        <view class='content'>
+
+          <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">
+            <view class='list' wx:for-items="{{orderData[3]}}">
+              <image class='backgroundimg' src='{{item.picUrl}}'></image>
+              <view class='listleft'>
+                <text>{{item.couponMoney}}</text>
+                <span>元</span>
+              </view>
+              <view class='listright'>
+                <view class='one'>全场商品通用（满100减{{item.couponMoney}}元）</view>
+                <view class='two'>{{item.startDate}}至{{item.endDate}}</view>
+                <view class='two'>赠送人：{{item.obj.giveUserId}}</view>
+              </view>
+            </view>  
+            <image class="zwsjimg" hidden="{{dataShow[3]}}" src="https://img.jlqizutang.com/nodata1.png"></image>          
+          </scroll-view>
+        </view>
+      </view>
+    </swiper-item>
+
+
+
+
+  </swiper>
+  <!-- 添加优惠券 -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class='add'>
+      <view class='addtitle'>赠送优惠券</view>
+      <view class="addpage">
+        <view class='cklslist'>
+          <view class='ckpage'>
+            <view class='name'>我的推广佣金</view>
+          </view>
+          <view class='moneyadd'>{{tAccountMoney}}</view>
+        </view>
+        <view class='cklslist'>
+          <view class='ckpage'>
+            <view class='name'>优惠券金额</view>
+          </view>
+          <view class='moneyadd'>5元</view>
+        </view>
+        <view class='cklslist'>
+          <view class='ckpage'>
+            <view class='name'>优惠券张数</view>
+          </view>
+          <view class='moneyadd'>1张</view>
+        </view>
+      </view>
+
+      <view class='addbutpage'>
+        <button class="addbut" hidden="{{showShare}}"  open-type="share">立即分享</button>
+        <view class="addbut" hidden="{{!showShare}}" bindtap="createCoupon">立即生成</view>
+      </view>
+    </view>
+  </view>
+  <view class="startPull" bindtap="refresh">
+    <image src="https://img.jlqizutang.com/refresh.png" class="startPullimg"></image>
+  </view>
+</view>

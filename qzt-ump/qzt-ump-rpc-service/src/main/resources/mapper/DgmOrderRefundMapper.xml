@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.DgmOrderRefundMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.DgmOrderRefund">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="out_refund_id" property="outRefundId" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="refund_reason" property="refundReason" />
+        <result column="pay_money" property="payMoney" />
+        <result column="service_cost" property="serviceCost" />
+        <result column="handle_time" property="handleTime" />
+        <result column="finish_time" property="finishTime" />
+        <result column="curr_status" property="currStatus" />
+        <result column="refund_id" property="refundId" />
+        <result column="notify_packet" property="notifyPacket" />
+        <result column="refund_status" property="refundStatus" />
+        <result column="user_received_account" property="userReceivedAccount" />
+        <result column="transaction_id" property="transactionId" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_order_refund
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <insert id="insertFK" parameterType="com.qzt.bus.model.DgmOrderRefund">
+        insert into dgm_order_refund
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">order_id,</if>
+            <if test="outRefundId != null">out_refund_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="refundReason != null">refund_reason,</if>
+            <if test="payMoney != null">pay_money,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">#{orderId},</if>
+            <if test="outRefundId != null">#{outRefundId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="refundReason != null">#{refundReason},</if>
+            <if test="payMoney != null">#{payMoney},</if>
+        </trim>
+    </insert>
+
+</mapper>

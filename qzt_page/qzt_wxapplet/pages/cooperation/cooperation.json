@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "服务站申请",
+  "usingComponents": {
+    "region": "../component/region_plugin/region_plugin"
+  }
+}

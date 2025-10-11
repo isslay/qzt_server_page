@@ -1,0 +1,509 @@
+/* pages/syddcx/syddcx.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.order {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f9fafc;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+page {
+  overflow: hidden;
+}
+
+.title {
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5rpx;
+}
+
+.textac {
+  color: #22723c;
+}
+
+.titleSel {
+  color: #a1a6bb;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.headerLineSel {
+  background: #22723c;
+  height: 6rpx;
+  width: 30rpx;
+  position: absolute;
+  bottom: 0px;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 0rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  /* height:150px; */
+  overflow: over;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.sydd {
+  flex: 1;
+  background: #f9fafc;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx 20rpx 20rpx;
+  margin-top: 20rpx;
+}
+
+.ddlist {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.ddlisttop {
+  padding: 10rpx 0 20rpx 0;
+  border-bottom: 1px solid #f4f4f4;
+  overflow: hidden;
+}
+
+.bh {
+  float: left;
+  font-size: 28rpx;
+  color: #24272b;
+}
+
+.zt {
+  float: right;
+  font-size: 28rpx;
+  color: #24272b;
+}
+
+.spbtn {
+  padding: 20rpx 0 0 0;
+}
+
+.spbtn {
+  text-align: right;
+  align-items: center;
+  border-top: 1px solid #f4f4f4;
+}
+
+.butone {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #24272b;
+  border: 1px solid #24272b;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+
+.buttwo {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #22723c;
+  border: 1px solid #22723c;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+}
+
+.butthree {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: rgb(223, 10, 28);
+  border: 1px solid rgb(223, 10, 28);
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+}
+
+.sppage {
+  display: flex;
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.sppagexx {
+  width: 100%;
+}
+
+.spname {
+  font-weight: bold;
+  color: #24272b;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.time {
+  float: right;
+  font-weight: initial;
+  color: #24272b;
+  font-size: 24rpx;
+}
+
+.iphone {
+  font-size: 24rpx;
+  color: #24272b;
+  margin-bottom: 10rpx;
+}
+
+.wfz {
+  font-size: 24rpx;
+  color: #22723c;
+}
+
+.syddcxs {
+  padding: 0 20rpx;
+}
+
+.search {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchimg {
+  width: 39rpx;
+  height: 39rpx;
+}
+
+.searchinput {
+  flex: 1;
+  color: #22723c;
+  font-size: 30rpx;
+  height: 40rpx;
+  padding-left: 20rpx;
+}
+
+.startPull {
+  position: fixed;
+  right: 60rpx;
+  bottom: 100rpx;
+}
+
+.startPullimg {
+  width: 120rpx;
+  height: 120rpx;
+}
+/* pages/syddcx/syddcx.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.order {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f9fafc;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+page {
+  overflow: hidden;
+}
+
+.title {
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5rpx;
+}
+
+.textac {
+  color: #22723c;
+}
+
+.titleSel {
+  color: #a1a6bb;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.headerLineSel {
+  background: #22723c;
+  height: 6rpx;
+  width: 30rpx;
+  position: absolute;
+  bottom: 0px;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 0rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  /* height:150px; */
+  overflow: over;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.sydd {
+  flex: 1;
+  background: #f9fafc;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx 20rpx 20rpx;
+  margin-top: 0rpx;
+}
+
+.ddlist {
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.ddlisttop {
+  padding: 10rpx 0 20rpx 0;
+  border-bottom: 1px solid #f4f4f4;
+  overflow: hidden;
+}
+
+.bh {
+  float: left;
+  font-size: 28rpx;
+  color: #24272b;
+}
+
+.zt {
+  float: right;
+  font-size: 28rpx;
+  color: #24272b;
+}
+
+.spbtn {
+  padding: 20rpx 0 0 0;
+}
+
+.spbtn {
+  text-align: right;
+  align-items: center;
+  border-top: 1px solid #f4f4f4;
+}
+
+.butone {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #24272b;
+  border: 1px solid #24272b;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+
+.buttwo {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #22723c;
+  border: 1px solid #22723c;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+}
+
+.butthree {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: rgb(223, 10, 28);
+  border: 1px solid rgb(223, 10, 28);
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+}
+
+.sppage {
+  display: flex;
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.sppagexx {
+  width: 100%;
+}
+
+.spname {
+  font-weight: bold;
+  color: #24272b;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.time {
+  float: right;
+  font-weight: initial;
+  color: #24272b;
+  font-size: 24rpx;
+}
+
+.iphone {
+  font-size: 24rpx;
+  color: #24272b;
+  margin-bottom: 10rpx;
+}
+
+.wfz {
+  font-size: 24rpx;
+  color: #22723c;
+}
+
+.syddcxs {
+  padding: 0 20rpx;
+}
+
+.search {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchimg {
+  width: 39rpx;
+  height: 39rpx;
+}
+
+.searchinput {
+  flex: 1;
+  color: #22723c;
+  font-size: 30rpx;
+  height: 40rpx;
+  padding-left: 20rpx;
+}
+
+.startPull {
+  position: fixed;
+  right: 60rpx;
+  bottom: 100rpx;
+}
+
+.startPullimg {
+  width: 120rpx;
+  height: 120rpx;
+}
+.sppageimg{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.spname{
+  color: #24272b;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx
+}
+.zffs{
+  color: #24272b;
+  font-size: 24rpx;
+  margin-bottom: 10rpx
+}
+.je{
+  color: #22723c;
+  font-size: 24rpx
+}
+
+.zffs2{
+  color: #24272b;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+  text-align: left;
+  /* padding-top: 20rpx; */
+}
+
+
+.sppagexx{
+  flex: 1;
+  align-items: center;
+  padding-left: 20rpx;
+}

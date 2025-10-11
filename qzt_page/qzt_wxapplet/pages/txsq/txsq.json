@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提现申请",
+  "usingComponents": {
+    "paypwd": "../component/pay_pwd/pay_pwd"
+  }
+}

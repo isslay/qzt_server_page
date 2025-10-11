@@ -1,0 +1,108 @@
+<!--pages/ywc/ywc.wxml-->
+<view class="ddxq">
+	<view class="top">
+		<image class="topimg" src="https://img.jlqizutang.com/wancheng.png"></image>
+		{{orderStateMc}}
+	</view>
+	<view class="xqpage">
+
+
+		<view class="pagetop">
+			<view class='{{stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+				<image class="xqimg" src="{{stoGoods.goodsPic}}"></image>
+				<view class="xqright">
+					<view class="xqname">{{stoGoods.goodsName}}</view>
+					<view class='two'>{{stoGoods.goodsRemark}}</view>
+					<view class="zfje">{{stoGoods.goodsPrice}}
+						<view class="shuliang">x{{stoGoods.buyNum}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="the_verification_code" wx-if="{{pickupWay==0&&payState==11&&theVerificationCode!=''}}">
+			<image class="xqimg" src="https://img.jlqizutang.com/hx_pic.png"></image>
+			<view class="the_verification_code_v">核销码：</view>
+			<view class="the_verification_code_p" bindtap="copyVerificationCode">
+				{{theVerificationCode}} 复制
+			</view>
+		</view>
+
+		<view class="ul">
+			<view class="li">
+				<view class="liname">订单金额：</view>
+				<view class="lipage">{{totalPrice}}</view>
+			</view>
+			<view class="li">
+				<view class="liname">抵扣券抵付：</view>
+				<view class="lipage">{{cashCouponMoney}}</view>
+			</view>
+			<view class="li">
+				<view class="liname">余额抵付：</view>
+				<view class="lipage">{{balanceMoney}}</view>
+			</view>
+		</view>
+		<view class="sfje">
+			<view class="liname">三方支付金额：</view>
+			<view class="lipage">{{threeSidesMoney}}</view>
+		</view>
+
+		<view class="lxkf" bindtap="calling" data-tel="4000307337">
+			<image class="kfimg" src="https://img.jlqizutang.com/dianhua.png"></image>
+			<text>联系客服</text>
+		</view>
+
+	</view>
+
+	<view class="xqlast">
+		<view class="lastlist">
+			<view class="lasrname">订单编号：</view>
+			<view class="latpage">{{orderNo}}</view>
+		</view>
+		<view class="lastlist">
+			<view class="lasrname">支付方式：</view>
+			<view class="latpage">{{payTypeMc}}</view>
+		</view>
+		<view class="lastlist">
+			<view class="lasrname">创建时间：</view>
+			<view class="latpage">{{createTime}}</view>
+		</view>
+		<view class="lastlist">
+			<view class="lasrname">付款时间：</view>
+			<view class="latpage">{{payTime}}</view>
+		</view>
+		<view class="lastlist">
+			<view class="lasrname">完成时间：</view>
+			<view class="latpage">{{finshTime}}</view>
+		</view>
+		<view class="lastlist" wx:if="{{bussId != '' && bussId != null && userTel != ''}}">
+			<view class="lasrname">联系电话：</view>
+			<view class="latpage" style="color:#22724c;" bindtap="calling" data-tel="{{userTel}}">{{userTel}}</view>
+		</view>
+		<view class="lastlist" wx:if="{{bussId == '' || bussId == null}}">
+			<view class="lasrname">{{pickupWay=='1'?'收货人电话':'服务站电话'}}：</view>
+			<view class="latpage" style="color:#22724c;" bindtap="calling" data-tel="{{consigneeTel}}">{{consigneeTel}}</view>
+		</view>
+		<view class="lastlist" wx:if="{{bussId == '' || bussId == null}}">
+			<view class="lasrname">{{pickupWay=='1'?'收货人名称':'服务站名称'}}：</view>
+			<view class="latpage" style="width: 500rpx;">{{consigneeName}}</view>
+		</view>
+		<view class="lastlist" wx:if="{{bussId == '' || bussId == null}}">
+			<view class="lasrname">{{pickupWay=='1'?'收货地址':'服务站地址'}}：</view>
+			<view class="latpage" style="width: 500rpx;">{{consigneeAddress}}</view>
+		</view>
+		<view class="spbtn" wx:if="{{bussId==''||bussId==null}}">
+			<view wx:if="{{orderState=='01'}}" bindtap="cancellationOrder" class="butone ">取消</view>
+			<view wx:if="{{orderState=='01'}}" bindtap="toPayFor" class="buttwo ">去支付</view>
+			<view wx:if="{{orderState=='09'||orderState=='11'}}" bindtap="recurOrder" class="butone ">再来一单</view>
+			<view wx:if="{{orderState=='09'&&isServe=='Y'&&order.pickupWay=='1'}}" class="buttwo" bindtap="applyForTheService">申请服务</view>
+			<view wx:if="{{orderState=='05'}}" class="butone" bindtap="confirmReceipt">确认收货</view>
+			<view wx:if="{{(orderState=='05'||orderState=='09')&&pickupWay=='1'}}" bindtap="checkTheLogistics" class="buttwo ">查看物流</view>
+		</view>
+	</view>
+
+
+
+
+
+</view>

@@ -1,0 +1,33 @@
+<!--pages/ckls/ckls.wxml-->
+<view class='ckls'>
+  <view class='cklspage'>
+
+    <view class='cklslist' wx:for-items="{{orderData}}" wx:if="{{conType==1}}">
+      <view class='ckpage'>
+        <view class='name'>{{item.obj.remark}}</view>
+        <view class='time'>{{item.obj.createTime}}</view>
+      </view>
+      <view class='moneyadd' wx:if="{{item.obj.changeType=='01'}}">+¥{{item.changeMoney}}</view>
+      <view class='money' wx:if="{{item.obj.changeType=='11'}}">-¥{{item.changeMoney}}</view>
+    </view>
+
+    <view class='cklslist' wx:for-items="{{orderData}}" wx:if="{{conType>1}}">
+      <view class='ckpage'>
+        <view class='name'>{{item.obj.remark}}</view>
+        <view class='time'>{{item.obj.createTime}}</view>
+      </view>
+      <view class='moneyadd'>{{item.allMoney}}
+        <view wx:if="{{item.changeMoney>0}}" class="change">（{{item.changeMoney}}）</view>
+      </view>
+
+    </view>
+
+    <image class="zwsjimg" hidden="{{dataShow}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+
+
+
+  </view>
+
+
+
+</view>

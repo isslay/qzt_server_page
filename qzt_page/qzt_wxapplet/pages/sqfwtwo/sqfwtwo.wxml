@@ -1,0 +1,59 @@
+<!--pages/sqfw/sqfw.wxml-->
+<view class='mfsy'>
+  <view class='sqfw'>
+    <view class='sqfwtile'>
+      <span>*</span>订单编号：</view>
+    <view class='sqfwname'>{{no}}</view>
+
+
+
+  </view>
+
+  <view class='mfsylist'>
+    <view class='mfsyname'>
+      <span>*</span>申请人姓名</view>
+    <view class='mfsyinput'>
+      <input type='text' value="{{contactName}}" maxlength="6" bindblur="contactName" placeholder='请输入' />
+    </view>
+  </view>
+
+  <view class='mfsylist'>
+    <view class='mfsyname'>
+      <span>*</span>联系电话</view>
+    <view class='mfsyinput'>
+      <input type='text' maxlength="11" value="{{contactTel}}" bindblur="contactTel" placeholder='请输入' />
+    </view>
+  </view>
+
+  <view class='mfsylist'>
+    <view class='mfsyname'>
+      <span>*</span>疾病类型</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="codeText">
+      <view class="picker">
+        <view class='mfsyinput'>
+          <input type='text' disabled='disabled' placeholder='请选择' value='{{applyTypeName}}' />
+          <image class='sxjt' src='https://img.jlqizutang.com/sxjt.png'></image>
+        </view>
+      </view>
+    </picker>
+
+  </view>
+
+  <view class='mfsylist'>
+    <view class='mfsyname'>
+      <span>*</span>选择服务站</view>
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" range-key="codeText1">
+      <view class="picker">
+        <view class='mfsyinput'>
+          <input type='text' disabled='disabled' placeholder='请选择' value='{{applyTypeName1}}' />
+          <image class='sxjt' src='https://img.jlqizutang.com/sxjt.png'></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+
+
+  <view class='sybtn' bind:touchend="subApplyfor">提交申请</view>
+
+
+</view>

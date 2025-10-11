@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.ump.dao.mapper.AppVersionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.ump.model.AppVersion">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="source_mode" property="sourceMode"/>
+        <result column="version_no" property="versionNo"/>
+        <result column="download_url" property="downloadUrl"/>
+        <result column="is_forced_update" property="isForcedUpdate"/>
+        <result column="remark_" property="remark"/>
+    </resultMap>
+
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_app_version
+        <where>
+            <if test="sourceMode != null and sourceMode != ''">
+                AND source_mode = #{sourceMode}
+            </if>
+            <if test="versionNo != null and versionNo != ''">
+                AND version_no = #{versionNo}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <!--获取最新版本信息-->
+    <select id="findMaxVersion" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT * FROM dgm_app_version
+        <where>
+            <if test="sourceMode != null and sourceMode != ''">
+                AND source_mode = #{sourceMode}
+            </if>
+        </where>
+        ORDER BY create_time DESC limit 0,1
+    </select>
+
+</mapper>

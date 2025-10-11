@@ -1,0 +1,90 @@
+<!--pages/mytg/mytg.wxml-->
+<view class='mytg'>
+
+  <view class='one' hidden="{{showTitle}}">
+    <view class='onepage' >
+      <view class='dqdj'>当前等级：{{userTypeMc}}</view>
+      <view class='img'>
+        <view class='imglist'>
+          <image class='{{imgcss[0]}}' src='https://img.jlqizutang.com/fwzimg.png'></image>
+          <view class='dj'>服务站</view>
+        </view>
+        <view class='imglist'>
+          <image class='{{imgcss[1]}}' src='https://img.jlqizutang.com/ddimg.png'></image>
+          <view class='dj'>督导</view>
+        </view>
+        <view class='imglist'>
+          <image class='{{imgcss[2]}}' src='https://img.jlqizutang.com/hhrimg.png'></image>
+          <view class='dj'>合伙人</view>
+        </view>
+        <view class='imglist'>
+          <image class='{{imgcss[3]}}' src='https://img.jlqizutang.com/gdimg.png'></image>
+          <view class='dj'>股东</view>
+        </view>
+      </view>
+      <view class='yqxx'>{{parseMessage}}</view>
+    </view>
+  </view>
+
+
+  <view class='two'>
+    <view class='twotop'>
+      <image src='https://img.jlqizutang.com/gdimg.png' class='wdfsry'></image>
+      <text>我的粉丝荣誉</text>
+    </view>
+    <view class='title'>
+      <view class='titleSel' bindtap='titleClick' data-idx='0'>
+        <text class="{{0 == currentIndex ? 'textac' : 'text'}}">用户</text>
+        <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+      <view class='titleSel' bindtap='titleClick' data-idx='1'>
+        <text class="{{1 == currentIndex ? 'textac' : 'text'}}">服务站</text>
+        <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+
+    </view>
+    <!--内容布局-->
+    <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+      <swiper-item class='swiper'  >
+        <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">
+          <view class='slipage' wx:for-items="{{orderData[0]}}">
+            <image src='{{item.wxHeadImage}}' class='userimg'></image>
+            <view class='xinxi'>
+              <view>用户ID：{{item.userId}}</view>
+              <view>会员名称：{{item.wxNickName}}</view>
+              <view>注册时间：{{item.createTime}}</view>
+            </view>
+          </view>     
+          <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>     
+        </scroll-view>
+      </swiper-item>
+
+      <swiper-item class='swiper' bindscrolltolower="scrollLower">
+        <scroll-view class="scroll" scroll-y="true" bindscrolltolower="scrollLower">       
+          <view class='slipage' wx:for-items="{{orderData[1]}}">
+            <image src='{{item.wxHeadImage}}' class='userimg'></image>
+            <view class='xinxi'>
+              <view>当前等级：{{item.state}}</view>
+              <view>会员名称：{{item.wxNickName}}</view>
+              <view>注册时间：{{item.createTime}}</view>
+            </view>
+          </view> 
+          <image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+          </scroll-view>
+      </swiper-item>
+
+
+    </swiper>
+
+
+
+  </view>
+
+  <view class="startPull" bindtap="refresh">
+    <image src="https://img.jlqizutang.com/refresh.png" class="startPullimg"></image>
+  </view>
+
+
+
+</view>

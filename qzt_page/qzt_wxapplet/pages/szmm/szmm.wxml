@@ -1,0 +1,26 @@
+<!--pages/xgmm/xgmm.wxml-->
+<!--pages/xzshdz/xzshdz.wxml-->
+<view class='xzshdz'>
+
+  <view class='addpage'>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>支付密码</view>
+      <view class='addinput'>
+        <input type="number" password='true' maxlength='6' placeholder="请输入6位数字" value="{{imput2}}" bindinput ="imput2"/>
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>确认密码</view>
+      <view class='addinput'>
+        <input type="number" password='true' maxlength='6' placeholder="请输入6位数字"  value="{{imput3}}" bindinput ="imput3"/>
+      </view>
+    </view>
+    <view class='addbtn' bindtap="doSubmit">确认</view>
+  </view>
+
+
+
+
+
+</view>

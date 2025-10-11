@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztAccountLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztAccountLog">
+        <result column="id_" property="id" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="user_id" property="userId" />
+        <result column="account_id" property="accountId" />
+        <result column="bus_id" property="busId" />
+        <result column="change_type" property="changeType" />
+        <result column="change_source" property="changeSource" />
+        <result column="change_num" property="changeNum" />
+        <result column="money_balance" property="moneyBalance" />
+        <result column="money_balance_end" property="moneyBalanceEnd" />
+        <result column="remark" property="remark" />
+        <result column="sort_index" property="sortIndex" />
+        <result column="log_state" property="logState" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_account_log
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="logState != null and logState!=''">
+                AND log_state = #{logState}
+            </if>
+            <if test="changeType != null and changeType!=''">
+                AND change_type = #{changeType}
+            </if>
+            <if test="regEndTime != null and regEndTime != ''">
+                AND create_time &lt;= #{regEndTime}
+            </if>
+            <if test="regStartTime != null and regStartTime != ''">
+                AND create_time &gt;= #{regStartTime}
+            </if>
+
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <select id="findAccountByBusId"  parameterType="map" resultType="java.lang.Integer">
+        select count(1) from dgm_qzt_account_log
+        <where>
+            <if test="userId!=null and userId!=''">
+                AND user_id=#{userId}
+            </if>
+            <if test="busId!=null and busId!=''">
+                AND bus_Id=#{busId}
+            </if>
+            <if test="changeSource!=null and changeSource!=''">
+                AND change_source=#{changeSource}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryUserAccount" parameterType="map" resultType="java.lang.Long">
+        SELECT  ifnull(sum(change_num),0) AS changeNum FROM dgm_qzt_account_log  WHERE
+        user_id IN (
+        SELECT  id_  FROM  dgm_qzt_user  WHERE  referrer_second = #{userId}
+        )
+        AND change_source IN
+        <foreach collection="changeSource" item="item" index="index" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        and change_Type='01' and create_time  like CONCAT(#{createTime},'%')
+        <if test="type=='down'">
+            and log_state &lt; #{logState}  and log_state>0
+        </if>
+        <if test="type=='up'">
+            and log_state &gt;= #{logState}
+        </if>
+    </select>
+
+    <!-- 查询某业务分润记录 -->
+    <select id="findShareList" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_account_log
+        WHERE bus_id LIKE CONCAT(#{busId},"%")  and change_type='01'
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findShareMapList" resultType="map" parameterType="map">
+        SELECT hal.*,hu.mobile FROM dgm_qzt_account_log hal LEFT JOIN dgm_qzt_user hu on hal.user_id=hu.id_
+        WHERE hal.bus_id LIKE CONCAT(#{busId},"%") and hal.change_type='01'
+        ORDER BY hal.create_time DESC
+    </select>
+
+</mapper>

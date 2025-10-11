@@ -1,0 +1,28 @@
+package com.qzt.bus.dao.mapper;
+
+
+import com.qzt.bus.model.DgmZxtClass;
+import com.qzt.common.core.base.BaseMapper;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author snow
+ * @since 2023-09-25
+ */
+public interface DgmZxtClassMapper extends BaseMapper<DgmZxtClass> {
+
+    /**
+     *  通用查询方法
+     * @param map
+     * @author snow
+     * @date 2023-09-25
+     */
+    List<DgmZxtClass> find(Map<String, Object> map);
+
+}

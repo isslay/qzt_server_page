@@ -1,0 +1,22 @@
+<!--pages/select_business/select_business.wxml-->
+<view class='fwz'>
+  <view class='search'>
+    <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+    <input type='text' class='searchinput' value='' confirm-type="search" bindconfirm="selectBusName" bindinput="busName" placeholder="服务站点查询" placeholder-class="searchinput" />
+  </view>
+
+  <view class='fwzpage'>
+    <view class='fwzlist' wx:for="{{businessList}}" wx:for-index="index" wx:for-item="business" data-id="{{business.id}}" data-busName="{{business.busName}}" data-busTel="{{business.busTel}}" data-busAddress="{{business.busAddress}}" bindtap='businessParticulars' >
+      <image class='fwzimg' src='{{business.picUrl}}'></image>
+      <view class='fwzcon'>
+        <view>{{business.busName}}</view>
+        <view>{{business.busTel}}</view>
+        <view>{{business.busAddress}}</view>
+      </view>
+      <image class='fwzimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <image class="zwsjimg" hidden="{{dataShow}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+
+  </view>
+
+</view>

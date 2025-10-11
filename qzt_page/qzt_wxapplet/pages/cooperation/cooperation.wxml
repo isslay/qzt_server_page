@@ -1,0 +1,40 @@
+<!--pages/cooperation/cooperation.wxml-->
+<view class='cooperationpage'>
+  <view class='logo'>
+    <image class='cooimg' src='https://img.jlqizutang.com/sqlogo.png'></image>
+  </view>
+  <view class='coolist'>
+    <view class='cooname'>*申请人姓名</view>
+    <view class='cooinput'>
+      <input type="text" value="{{contactName}}" disabled="{{disabled}}" maxlength="6" bindblur="contactName" placeholder="请输入申请人姓名" />
+    </view>
+  </view>
+  <view class='coolist'>
+    <view class='cooname'>*联系电话</view>
+    <view class='cooinput'>
+      <input type="number" maxlength="11" disabled="{{disabled}}" value="{{contactTel}}" bindblur="contactTel" placeholder="请输入联系电话" />
+    </view>
+  </view>
+  <view class='coolist'>
+    <view class='cooname'>*地址（省/市/区）</view>
+    <view class='cooinput'>
+      <input wx:if="{{disabled?true:false}}" type="text" disabled="true" value="{{proCityArea}}" placeholder="请选择所在省，市，区县" />
+      <region wx:if="{{disabled?false:true}}" id="region" bind:myevent="onMyevent"></region>
+    </view>
+  </view>
+  <view class='coolist'>
+    <view class='cooname'>*详细地址</view>
+    <view class='cooinput'>
+      <input type="text" value="{{stateMark}}" disabled="{{disabled}}" maxlength="64" bindblur="stateMark" placeholder="请输入门牌号等详细地址" />
+    </view>
+  </view>
+  <view class='coolist'>
+    <view class='cooname'>*推荐人</view>
+    <view class='cooinput'>
+      <input type="number" value="{{referrerUserId}}" disabled="{{disabled}}" maxlength="11" bindblur="referrerUserId" placeholder="推荐人ID或推荐人手机号" />
+    </view>
+  </view>
+  <view class='btn' wx:if="{{disabled?false:true}}">
+    <image bind:touchend="subApplyfor" class='tjbtn' src='https://img.jlqizutang.com/tjbtn.png'></image>
+  </view>
+</view>

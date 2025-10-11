@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 配置可参考 http://dubbo.io/User+Guide-zh.htm -->
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}"/>
+    <!-- 定义 zookeeper 注册中心地址及协议 -->
+    <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" client="zkclient"/>
+    <!-- 生成远程服务代理，可以和本地 bean 一样使用 testService -->
+    <dubbo:reference id="sysUserService" interface="com.qzt.ump.rpc.api.SysUserService" />
+    <dubbo:reference id="sysAuthorizeService" interface="com.qzt.ump.rpc.api.SysAuthorizeService"/>
+    <dubbo:reference id="sysMenuService" interface="com.qzt.ump.rpc.api.SysMenuService"/>
+    <dubbo:reference id="sysDeptService" interface="com.qzt.ump.rpc.api.SysDeptService"/>
+    <dubbo:reference id="sysRoleService" interface="com.qzt.ump.rpc.api.SysRoleService"/>
+    <dubbo:reference id="sysParamService" interface="com.qzt.ump.rpc.api.SysParamService"/>
+    <dubbo:reference id="sysLogService" interface="com.qzt.ump.rpc.api.SysLogService"/>
+    <dubbo:reference id="sysDicService" interface="com.qzt.ump.rpc.api.SysDicService"/>
+    <dubbo:reference id="sysDicsSublistService" interface="com.qzt.ump.rpc.api.SysDicSublistService" />
+    <dubbo:reference id="appVersionService" interface="com.qzt.ump.rpc.api.AppVersionService" />
+    <dubbo:reference id="sysAreaService" interface="com.qzt.ump.rpc.api.SysAreaService" />
+    <dubbo:reference id="processingPayOrder" interface="com.qzt.ump.rpc.api.ProcessingPayOrderService" />
+
+    <!--Cgw-->
+    <dubbo:reference id="qztAccountLogService" interface="com.qzt.bus.rpc.api.IQztAccountLogService"/>
+    <dubbo:reference id="qztAccountRelogService" interface="com.qzt.bus.rpc.api.IQztAccountRelogService"/>
+    <dubbo:reference id="qztAccountService" interface="com.qzt.bus.rpc.api.IQztAccountService"/>
+    <dubbo:reference id="qztApplyTryorderService" interface="com.qzt.bus.rpc.api.IQztApplyTryorderService"/>
+    <dubbo:reference id="qztTopUpRecordService" interface="com.qzt.bus.rpc.api.IQztTopUpRecordService"/>
+    <dubbo:reference id="qztUserCouponService" interface="com.qzt.bus.rpc.api.IQztUserCouponService"/>
+    <dubbo:reference id="qztUserRegService" interface="com.qzt.bus.rpc.api.IQztUserRegService"/>
+    <dubbo:reference id="qztUserService" interface="com.qzt.bus.rpc.api.IQztUserService"/>
+    <dubbo:reference id="qztRechargeService" interface="com.qzt.bus.rpc.api.IQztRechargeService"/>
+    <dubbo:reference id="qztPageBannerService" interface="com.qzt.bus.rpc.api.IQztPageBannerService"/>
+    <!--Xiaofei-->
+    <dubbo:reference id="qztApplyBusorderService" interface="com.qzt.bus.rpc.api.IQztApplyBusorderService"/>
+    <dubbo:reference id="qztGorderService" interface="com.qzt.bus.rpc.api.IQztGorderService"/>
+    <dubbo:reference id="qztOrderCommenService" interface="com.qzt.bus.rpc.api.IQztOrderCommenService"/>
+    <dubbo:reference id="qztPayBacklogService" interface="com.qzt.bus.rpc.api.IQztPayBacklogService"/>
+    <dubbo:reference id="qztUserAddressService" interface="com.qzt.bus.rpc.api.IQztUserAddressService"/>
+    <dubbo:reference id="qztWithdrawService" interface="com.qzt.bus.rpc.api.IQztWithdrawService"/>
+    <dubbo:reference id="qztBusinessService" interface="com.qzt.bus.rpc.api.IQztBusinessService"/>
+    <dubbo:reference id="qztBusLogService" interface="com.qzt.bus.rpc.api.IQztBusLogService"/>
+    <dubbo:reference id="qztBusPicService" interface="com.qzt.bus.rpc.api.IQztBusPicService"/>
+    <dubbo:reference id="qztServiceOrderService" interface="com.qzt.bus.rpc.api.IQztServiceOrderService"/>
+    <dubbo:reference id="qztTimingLogService" interface="com.qzt.bus.rpc.api.IQztTimingLogService"/>
+    <dubbo:reference id="qztUserBankService" interface="com.qzt.bus.rpc.api.IQztUserBankService"/>
+    <dubbo:reference id="qztBaseBankService" interface="com.qzt.bus.rpc.api.IQztBaseBankService"/>
+    <dubbo:reference id="qztStoGoodsService" interface="com.qzt.bus.rpc.api.IQztStoGoodsService"/>
+
+    <!--snow-->
+    <dubbo:reference id="qztGoodsService" interface="com.qzt.bus.rpc.api.IQztGoodsService"/>
+    <dubbo:reference id="qztGoodsBannerService" interface="com.qzt.bus.rpc.api.IQztGoodsBannerService"/>
+    <dubbo:reference id="qztBannerService" interface="com.qzt.bus.rpc.api.IQztBannerService"/>
+    <dubbo:reference id="qztHealthInfoService" interface="com.qzt.bus.rpc.api.IQztHealthInfoService"/>
+    <dubbo:reference id="qztResourceService" interface="com.qzt.bus.rpc.api.IQztResourceService"/>
+    <dubbo:reference id="erpGoodsInfoService" interface="com.qzt.bus.rpc.api.IErpGoodsInfoService"/>
+    <dubbo:reference id="userInfoService" interface="com.qzt.bus.rpc.api.IUserInfoService"/>
+    <dubbo:reference id="dgmCouponService" interface="com.qzt.bus.rpc.api.IDgmCouponService"/>
+    <dubbo:reference id="dgmCouponIntegralService" interface="com.qzt.bus.rpc.api.IDgmCouponIntegralService"/>
+    <dubbo:reference id="dgmGoodsClassService" interface="com.qzt.bus.rpc.api.IDgmGoodsClassService"/>
+    <dubbo:reference id="dgmZxtClassService" interface="com.qzt.bus.rpc.api.IDgmZxtClassService"/>
+    <dubbo:reference id="dgmZxtService" interface="com.qzt.bus.rpc.api.IDgmZxtService"/>
+    <dubbo:reference id="dgmGoodsCouponService" interface="com.qzt.bus.rpc.api.IDgmGoodsCouponService"/>
+    <dubbo:reference id="vErpOrderDetailService" interface="com.qzt.bus.rpc.api.IVErpOrderDetailService"/>
+    <dubbo:reference id="dgmOrderRefundService" interface="com.qzt.bus.rpc.api.IDgmOrderRefundService"/>
+    <dubbo:reference id="dgmIntegralRecordService" interface="com.qzt.bus.rpc.api.IDgmIntegralRecordService"/>
+    <dubbo:reference id="dgmReduceIntegralDetailService" interface="com.qzt.bus.rpc.api.IDgmReduceIntegralDetailService"/>
+    <dubbo:reference id="dgmUsableIntegralService" interface="com.qzt.bus.rpc.api.IDgmUsableIntegralService"/>
+
+</beans>

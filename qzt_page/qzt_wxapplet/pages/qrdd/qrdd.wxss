@@ -1,0 +1,205 @@
+/* pages/qrdd/qrdd.wxss */
+view{
+  box-sizing: border-box;
+}
+.ddxq{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  padding: 0rpx;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column
+}
+.top{
+  height: 100rpx;
+  background: #fff;
+  margin-top: 10rpx;
+  display: flex;
+   justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 32rpx;
+  color: #2a2a2a;
+}
+.topimg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.xqpage{
+  padding:20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.ul{
+  overflow: hidden;
+}
+.li{
+  padding: 14rpx 0;
+  overflow: hidden
+}
+.syddxx{
+  color: #222328;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.liname{
+  float: left;
+  font-size: 30rpx;
+  color: #222328
+}
+.lipage{
+  float: right;
+  font-size: 30rpx;
+  color: #222328
+}
+.xqlast{
+  margin-top: 20rpx;
+  background: #ffffff;
+  padding:20rpx;
+  overflow: hidden
+}
+.lastlist{
+  overflow: hidden;
+  padding: 8rpx 10rpx;
+
+}
+.lasrname{
+float: left;
+font-size: 28rpx;
+color: #24272b;
+}
+.latpage{
+  float: right;
+  font-size: 28rpx;
+  color: #24272b;
+}
+.spbtn{
+  margin-top: 20rpx;
+  border-top: 1px solid #e4e7f0;
+  padding: 20rpx 0 0 0
+}
+
+.spbtn{
+  text-align: right;
+  align-items: center;
+}
+
+.butone{
+  display: inline-block;
+  width: 150rpx;height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #24272b;
+  border: 1px solid #24272b;
+  border-radius: 8rpx;
+  font-size: 24rpx
+}
+
+.buttwo{
+  display: inline-block;
+  width: 150rpx;height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #22723C;
+  border: 1px solid #22723C;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx
+}
+
+
+.fwzhzxx{
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 20rpx
+}
+.syzp{
+  margin-top: 14rpx;
+}
+.syzptitle{
+  font-size: 28rpx;
+  color: #24272B;
+  line-height: 60rpx;
+  padding-left: 10rpx
+}
+.zpli{
+  overflow: hidden;
+  padding: 0 10rpx;
+  display: flex;
+  align-items: center
+}
+.syzpname{
+ flex: 1;
+  color: #222328;
+  font-size: 28rpx;
+}
+.syzppage{
+  width: 490rpx;
+  color: #222328;
+  font-size: 28rpx;
+  position: relative
+
+}
+.syzppage input{
+  width: 410rpx;
+  padding: 0 80rpx 0 0rpx;
+  color: #9d9b9b;
+  border-bottom: 1px solid #9d9b9b
+}
+.jy{
+  font-size: 26rpx;
+  color: #22723C;
+  position: absolute;
+  right: 0;
+  top:4rpx
+}
+.zpbox{
+ overflow: hidden
+}
+.imglist{
+  width:25%;
+  float: left;
+  padding: 10rpx;
+  height: 160rpx;
+  position: relative;
+  z-index: 9999
+}
+.delete{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx
+}
+.syimg{
+  width: 100%;
+  height: 100%;
+}
+.qrdd{
+  flex: 1;
+  overflow-y: auto
+}
+.qrddbtn{
+  width: 100%;
+  height: 100rpx;
+  background: #22723C;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  text-align: center
+}
+.syzptitlespan{
+  float: right;
+  font-size: 30rpx;
+  color: #b10808
+}

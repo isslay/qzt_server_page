@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "填写订单",
+  "usingComponents": {
+    "saddress": "../component/select_address/select_address",
+    "cashcoupon": "../component/select_cash_coupon/select_cash_coupon"
+  }
+}

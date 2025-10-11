@@ -1,0 +1,141 @@
+/* pages/dzgl/dzgl.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.dzgl {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dzglpage {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10rpx;
+}
+
+.dzglbtn {
+  width: 100%;
+  height: 170rpx;
+  padding: 40rpx;
+}
+
+.btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #22723c;
+  border-radius: 12rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.zdgllist {
+  position: relative;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding: 40rpx 40rpx 20rpx 40rpx;
+}
+
+.one {
+  margin-bottom: 20rpx;
+}
+
+.one text {
+  font-size: 30rpx;
+  color: #222328;
+  margin-right: 56rpx;
+}
+
+.two {
+  font-size: 30rpx;
+  color: #222328;
+  padding-bottom: 20rpx;
+}
+
+radio .wx-radio-input {
+  /* 自定义样式.... */
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border-radius: 50%;
+  border-color: #22723c !important;
+  position: relative;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  content: '';
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background-color: #22723c;
+  top: 15rpx;
+  display: flex;
+  left: 16rpx;
+  position: relative;
+}
+
+.three {
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid #f4f4f4;
+  position: relative;
+}
+
+.three text {
+  font-size: 28rpx;
+  color: #222328;
+}
+
+.threebtn {
+  height: 100%;
+  float: right;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.threeimg {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 40rpx;
+  position: relative;
+  top: 2rpx;
+}
+
+.threebtn text {
+  font-size: 28rpx;
+  color: #222328;
+  margin-left: 10rpx;
+}
+
+.lable {
+  position: absolute;
+  top: 2rpx;
+}
+
+.mr {
+  font-size: 24rpx;
+  background: #ffeeeb;
+  color: #ff6a53;
+  padding: 2rpx 10rpx;
+  position: absolute;
+  /* top: 40rpx; */
+  top: 44rpx;
+  right: 40rpx;
+}

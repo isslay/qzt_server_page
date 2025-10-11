@@ -1,0 +1,61 @@
+/* pages/xzshdz/xzshdz.wxss */
+
+view{
+  box-sizing: border-box;
+}
+.xzshdz{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  overflow:hidden;
+  display: flex;
+  flex-direction: column
+}
+.addpage{
+  width: 100%;
+  height: 100%;
+  padding: 0 40rpx;
+}
+
+.addlist{
+   height: 120rpx;
+   line-height: 120rpx;
+   border-bottom:1px solid #f4f4f4;
+   display: flex
+}
+.addname{
+  font-size: 30rpx;
+  color: #101100;
+  /* font-weight: bold; */
+  width: 190rpx
+}
+.addinput{
+  flex: 1
+}
+.addinput input{
+   height: 120rpx;
+   line-height: 120rpx;
+   text-align: left;
+   font-size: 28rpx;
+   color: #24272B;
+}
+.addname text{
+  color: red
+}
+
+.addbtn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  background: #22723C;
+  border-radius: 12rpx;
+  margin-top:40rpx;
+}

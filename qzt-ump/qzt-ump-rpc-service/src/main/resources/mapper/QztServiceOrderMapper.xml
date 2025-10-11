@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztServiceOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztServiceOrder">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="source_" property="source" />
+        <result column="user_id" property="userId" />
+        <result column="user_tel" property="userTel" />
+        <result column="busniess_id" property="busniessId" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_state" property="orderState" />
+        <result column="contacts_name" property="contactsName" />
+        <result column="contacts_tel" property="contactsTel" />
+        <result column="share_money" property="shareMoney" />
+        <result column="finish_time" property="finishTime" />
+        <result column="disease" property="disease" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_service_order
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="busniessId != null and busniessId != ''">
+                AND busniess_id = #{busniessId}
+            </if>
+            <if test="orderState != null and orderState != ''">
+                AND order_state = #{orderState}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="disease != null and disease != ''">
+                AND disease like CONCAT('%','${disease}','%')
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

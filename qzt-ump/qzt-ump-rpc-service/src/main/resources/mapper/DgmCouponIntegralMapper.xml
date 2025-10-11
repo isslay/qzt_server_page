@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.DgmCouponIntegralMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.DgmCouponIntegral">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="coupon_money" property="couponMoney" />
+        <result column="target_money" property="targetMoney" />
+        <result column="number" property="number" />
+        <result column="status" property="status" />
+        <result column="coupon_type" property="couponType" />
+        <result column="coupon_remark" property="couponRemark" />
+        <result column="target_id" property="targetId" />
+        <result column="goods_id" property="goodsId" />
+        <result column="coupon_begin" property="couponBegin" />
+        <result column="coupon_end" property="couponEnd" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_coupon_integral
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="couponType != null and couponType != ''">
+                AND coupon_type = #{couponType}
+            </if>
+            <if test="targetId != null and targetId != ''">
+                AND target_id = #{targetId}
+            </if>
+            <if test="goodsId != null and goodsId != ''">
+                AND goods_id = #{goodsId}
+            </if>
+            <if test="couponBegin != null and couponBegin != ''">
+                AND coupon_begin &lt;= #{couponBegin}
+            </if>
+            <if test="couponEnd != null and couponEnd != ''">
+                AND coupon_end &gt;= #{couponEnd}
+            </if>
+        </where>
+        ORDER BY coupon_money ASC ,create_time DESC, id_
+    </select>
+
+</mapper>

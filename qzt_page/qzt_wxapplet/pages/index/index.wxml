@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="index">
+ <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" current="{{imageIndex}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{background}}" wx:key="*this" wx:for-item="item">
+          <swiper-item>
+          <image class='sliimg' src='{{item.url}}'  data-goodsId="{{item.goodsId}}" bindtap='background' ></image>
+            
+          </swiper-item>
+        </block>
+      </swiper>
+   </view>
+ </view>
+
+<view class='index-mfsy' bindtap='go'>
+ <image class='mfsy' src='https://img.jlqizutang.com/mysy1.png'></image>
+</view>
+
+<view class='index-list'>
+   <view class='splist'>
+      <block wx:for="{{goodsround}}" wx:for-item="item">
+          <view class='li' bindtap='details'data-goodsId="{{item.goodsId}}" bindtap='particulars'>
+            <image class='cpimg' mode="aspectFit" src='{{item.url}}'></image>
+            <view class='cpname'>{{item.name}}</view>
+            <view class='cpjg'>¥{{item.money}}</view>
+          </view>
+      </block>
+      <!-- <view class='li' bindtap='details'>
+        <image class='cpimg' src='https://img.jlqizutang.com/cpimg.png'></image>
+        <view class='cpname'>盖康本草抑菌膏</view>
+        <view class='cpjg'>￥500.00</view>
+      </view>
+      <view class='li' bindtap='details'>
+        <image class='cpimg' src='https://img.jlqizutang.com/cpimg.png'></image>
+       <view class='cpname'>优厚抑菌膏</view>
+        <view class='cpjg'>￥200.00</view>
+      </view>
+      <view class='li' bindtap='details'>
+        <image class='cpimg' src='https://img.jlqizutang.com/cpimg.png'></image>
+        <view class='cpname'>盖康本草抑菌膏</view>
+        <view class='cpjg'>￥500.00</view>
+      </view>
+      <view class='li' bindtap='details'>
+        <image class='cpimg' src='https://img.jlqizutang.com/cpimg.png'></image>
+        <view class='cpname'>优厚抑菌膏</view>
+        <view class='cpjg'>￥200.00</view>
+      </view> -->
+   </view>
+</view>
+
+</view>

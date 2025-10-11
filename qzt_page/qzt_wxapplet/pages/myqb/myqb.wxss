@@ -1,0 +1,116 @@
+/* pages/myqb/myqb.wxss */
+
+view {
+  box-sizing: border-box;
+}
+page {
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+}
+
+.myqb {
+  /* position: absolute; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 40rpx;
+
+
+}
+
+.myye {
+  height: 120rpx;
+  width: 100%;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  position: relative;
+}
+
+.myyeimg {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.yename {
+  font-size: 34rpx;
+  color: #b9bdc7;
+  padding: 0 20rpx;
+}
+
+.yepage {
+  font-size: 40rpx;
+  font-weight: bolder;
+  color: #24272b;
+}
+
+.rimg {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 20rpx;
+}
+
+.tgyj {
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+
+.tgyjtop {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.trimg {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0rpx;
+}
+
+.jh {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 20rpx;
+}
+
+.jhimg {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.jhpage {
+  color: #24272b;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  /* font-weight: bold; */
+}
+
+.qbbtn {
+  height: 90rpx;
+  font-size: 32rpx;
+  background: #22723c;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #fff;
+  position: absolute;
+  bottom: 40rpx;
+  right: 40rpx;
+  left: 40rpx;
+}

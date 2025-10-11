@@ -1,0 +1,62 @@
+<!--pages/syywc/syywc.wxml-->
+<!--pages/qrdd/qrdd.wxml-->
+<view class="ddxq">
+  <view class='qrdd'>
+
+    <view class="xqpage">
+      <view class="ul">
+        <view class="li">
+          <view class="liname">申请人：</view>
+          <view class="lipage">{{orderData.storeType}}</view>
+        </view>
+        <view class="li">
+          <view class="liname">联系电话：</view>
+          <view class="lipage">{{orderData.storeName}}</view>
+        </view>
+        <view class="li">
+          <view class="liname">疾病类型：</view>
+          <view class="lipage">{{orderData.diseaseName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='fwzhzxx'>
+      <view class="zpli">
+        <view class="syzpname">身份证号：</view>
+        <view class="syzppage">{{orderData.idCardno}}</view>
+      </view>
+      <view class='syzp'>
+        <view class='syzptitle'>试用前照片:</view>
+        <view class='zpbox'>
+          <view class='imglist' wx:for-items="{{qztBusPics}}">
+            <image class='syimg' src='{{item.bannerUrl}}'></image>
+          </view>
+        </view>
+      </view>
+      <view class='syzp'>
+        <view class='syzptitle'>试用后照片:
+          <view class="syzptitlespan">（请上传1-5张试用后照片）</view>
+        </view>
+        <view class='zpbox'>
+          <view class='imglist' wx:for-items="{{imgAr}}" wx:key="item">
+            <image class='syimg' src='{{item}}'></image>
+            <image class='delete' src='https://img.jlqizutang.com/delete.png' data-picno="{{index}}" bindtap="delPic"></image>
+          </view>
+          <view class='imglist' hidden='{{showhidden}}' bindtap="upload">
+            <image class='syimg' src='https://img.jlqizutang.com/tianjia.png'></image>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+  <view class='qrddbtn' bindtap="doSubmit">完成</view>
+
+
+
+
+</view>

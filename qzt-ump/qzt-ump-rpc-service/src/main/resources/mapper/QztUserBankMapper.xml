@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztUserBankMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztUserBank">
+        <result column="id_" property="id"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="user_id" property="userId"/>
+        <result column="bank_type" property="bankType"/>
+        <result column="bank_id" property="bankId"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="bank_pic" property="bankPic"/>
+        <result column="real_name" property="realName"/>
+        <result column="binding_tel" property="bindingTel"/>
+        <result column="card_num" property="cardNum"/>
+        <result column="bank_branch_name" property="bankBranchName"/>
+        <result column="is_default" property="isDefault"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user_bank
+        <where>
+            <if test="isDel != null and isDel != ''">
+                AND is_del = #{isDel}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="isDefault != null and isDefault != ''">
+                AND is_default = #{isDefault}
+            </if>
+            <if test="bindingTel != null and bindingTel != ''">
+                AND binding_tel = #{bindingTel}
+            </if>
+        </where>
+        ORDER BY is_default DESC, create_time DESC, id_;
+    </select>
+
+    <!--根据ID与用户ID查询详情-->
+    <select id="selectByIdAndUserId" resultMap="BaseResultMap" parameterType="com.qzt.bus.model.QztUserBank">
+        SELECT * FROM dgm_qzt_user_bank WHERE id_ = #{id} AND user_id = #{userId} AND is_del = 'N' LIMIT 0,1;
+    </select>
+
+    <!--修改默认地址-->
+    <update id="defaultUserBank" parameterType="com.qzt.bus.model.QztUserBank">
+        UPDATE dgm_qzt_user_bank SET is_default = 'N',update_time = #{updateTime},update_by = #{updateBy} WHERE is_default = 'Y' AND user_id = #{userId};
+        UPDATE dgm_qzt_user_bank SET is_default = 'Y',update_time = #{updateTime},update_by = #{updateBy} WHERE id_ = #{id};
+    </update>
+
+    <!--查询用户有效收款账号数量-->
+    <select id="selectUserBankSize" resultType="java.util.Map" parameterType="java.lang.Long">
+        SELECT COUNT(IF(bank_type = '02', 1, NULL)) AS 'ailSize', COUNT(IF(bank_type = '01', 1, NULL)) AS 'bankSize' FROM dgm_qzt_user_bank WHERE is_del = 'N' AND user_id = #{userId};
+    </select>
+
+
+</mapper>

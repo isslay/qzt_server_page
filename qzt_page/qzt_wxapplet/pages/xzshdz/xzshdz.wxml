@@ -1,0 +1,45 @@
+<!--pages/xzshdz/xzshdz.wxml-->
+<view class='xzshdz'>
+  <view class='addpage'>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>姓名</view>
+      <view class='addinput'>
+        <input type="text" value="{{recipientName}}" maxlength="6" bindblur="recipientName" placeholder="请输入收货人姓名" />
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>手机号码</view>
+      <view class='addinput'>
+        <input type="number" maxlength="11" value="{{phone}}" bindblur="phone" placeholder="请输入手机号码" />
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>所在区域</view>
+      <view class='addinput'>
+        <region id="region" bind:myevent="onMyevent"></region>
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>详细地址</view>
+      <view class='addinput'>
+        <input type="text" value="{{detailAddress}}" maxlength="64" bindblur="detailAddress" placeholder="请输入门牌号等详细地址" />
+      </view>
+    </view>
+    <view class='addlist'>
+      <view class='addname'>地区邮编</view>
+      <view class='addinput'>
+        <input type="text" value="{{zipCode}}" maxlength="6" bindblur="zipCode" placeholder="请输入地区邮编" />
+      </view>
+    </view>
+    <label class="checkbox" bindtap="isDefault">
+      <checkbox value="Y" checked="{{isDefault=='Y' ?true:false}}" />默认地址
+    </label>
+    <view class='addbtn' bindtap="saveAddress">保存</view>
+  </view>
+
+
+</view>

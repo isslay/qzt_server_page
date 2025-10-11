@@ -1,0 +1,69 @@
+<!--pages/shopping_cart_settlement/shopping_cart_settlement.wxml-->
+<view class='txdd'>
+	<view class='txddpage'>
+		<view class='xuanze' bindtap="{{addressClick}}">
+			<view class='zxlist' wx:if="{{addressStatus == true}}">
+				<image class='znimg' src='https://img.jlqizutang.com/txhui.png'></image>
+				<view class='zxname'>{{companyName}} {{consigneeTel}}</view>
+			</view>
+			<view class='zxlist'>
+				<image class='znimg' wx:if="{{addressStatus == true}}" src='https://img.jlqizutang.com/address_pic.png'></image>
+				<view class='zxname'>{{consigneeAddress}}</view>
+				<image class='znimgr' src='https://img.jlqizutang.com/szright.png'></image>
+			</view>
+		</view>
+
+		<view class='spnei'>
+			<view class='{{stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+				<image src='{{stoGoods.goodsPic}}' class='spneiimg'></image>
+				<view class='spxiang'>
+					<view class='one'>{{stoGoods.goodsName}}<text class="buy_num">x{{stoGoods.buyNum}}</text></view>
+					<view class='two'>{{stoGoods.goodsRemark}}</view>
+					<view class='three'>价格：¥{{stoGoods.goodsPrice}}</view>
+				</view>
+			</view>
+		</view>
+
+		<view class='plist'>
+			<view class="sublevel" wx:if="{{isPickupWay}}">
+				<view class='left'>取货方式</view>
+				<view class='select_c_right'>
+					<picker mode="selector" bindchange="pickupWayBindPickerChange" value="{{pickupWayIndex}}" range="{{pickupWay}}">
+						<view class="picker">
+							{{pickupWay[pickupWayIndex]}}
+							<image class="c_right_image" src='https://img.jlqizutang.com/szright.png'></image>
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="sublevel">
+				<view class='left'>商品金额</view>
+				<view class='right'>¥{{totalAmountGoods}}</view>
+			</view>
+			<view class="sublevel" wx:if="{{grossFreight>0&&pickupWayIndex==1}}">
+				<view class='left'>运费</view>
+				<view class='f_right'>{{grossFreight==0?"包邮":"¥"+grossFreight}}</view>
+			</view>
+			<view class="sublevel" wx:if="{{couponList.length > 0&&couponStatus=='Y'}}">
+				<view class='left'>可用优惠券</view>
+				<view class='{{cashCouponId==null||cashCouponId==""?"select_c_right":"c_right"}}' bindtap="selectCoupon">{{cashCouponId==null||cashCouponId==""?"请选择":"满"+fullAmountReduction+"减"+cashCouponMoney}}
+					<image class="c_right_image" src='https://img.jlqizutang.com/szright.png'></image>
+				</view>
+			</view>
+			<view class="sublevel">
+				<view class='left'>联系电话</view>
+				<view class='f_right'>
+					<input class="f_right_input" value="{{userTel}}" placeholder="请输入联系电话" bindinput="luserTel" bindblur="luserTel"></input>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='txddbottom'>
+		<view class='txddhj'>合计:
+			<span>¥{{amountInTotal}}</span>
+		</view>
+		<view class='txddbtn' bind:touchend="subGoodsOrder">提交订单</view>
+	</view>
+</view>
+<saddress id="saddress" bind:myevent="onMyeventAddress"></saddress>
+<cashcoupon id="cashcoupon" bind:myevent="onMyeventCoupon"></cashcoupon>

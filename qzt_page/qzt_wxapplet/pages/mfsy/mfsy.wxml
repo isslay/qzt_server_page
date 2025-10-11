@@ -1,0 +1,51 @@
+<!--pages/mfsy/mfsy.wxml-->
+<view class='mfsy'>
+  
+<view class='mfsylist'>
+  <view class='mfsyname'><span>*</span>申请人姓名</view>
+  <view class='mfsyinput'><input type='text' placeholder='请输入真实姓名' bindinput ="userNameInput"/></view>
+</view>
+
+<view class='mfsylist'>
+  <view class='mfsyname'><span>*</span>联系电话</view>
+  <view class='mfsyinput'><input type='number' placeholder='请输入' maxlength='11' bindinput ="userTelInput"/></view>
+</view>
+
+<view class='mfsylist'>
+  <view class='mfsyname'><span>*</span>疾病类型</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="codeText">
+    <view class="picker">
+    <view class='mfsyinput'>
+    <input type='text' disabled='disabled' placeholder='请输入' value='{{applyTypeName}}' />
+    <image class='sxjt' src='https://img.jlqizutang.com/sxjt.png'></image>
+    </view>
+    </view>
+  </picker>  
+</view>
+
+<view  class="{{show1?'vshow':'vhidden'}}" >
+  <view class='mfsyname'><span>*</span>选择服务站</view>
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}" range-key="bus_name">
+    <view class="picker">
+    <view class='mfsyinput'>
+    <input type='text' disabled='disabled' placeholder='请输入' value='{{serviceName}}' />
+    <image class='sxjt' src='https://img.jlqizutang.com/sxjt.png'></image>
+    </view>
+    </view>
+  </picker>
+</view>
+
+<view  class="{{show2?'vshow':'vhidden'}}">
+  <view class='mfsyname'><span>*</span>所属服务站</view>    
+    <view class="picker">
+    <view class='mfsyinput'>
+    <input type='text' disabled='disabled' placeholder='请输入' value='{{serviceName}}' />    
+    </view>
+    </view>  
+</view>
+
+
+<view class='sybtn' bindtap="applyCheck">申请试用</view>
+
+
+</view>

@@ -1,0 +1,103 @@
+/* pages/myshezhi/myshezhi.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+page{
+  background: #f4f4f4;
+}
+.mysz {
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.myszpage {
+  flex: 1;
+}
+
+.szbtn {
+  width: 100%;
+  height: 170rpx;
+  padding: 40rpx;
+}
+
+.btn {
+  background: #22723c;
+  border-radius: 12rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.one {
+  height: 180rpx;
+  background: #fff;
+  padding: 40rpx;
+  margin-top: 5rpx;
+}
+
+.left {
+  height: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #222328;
+  /* font-weight: bold */
+}
+
+.right {
+  height: 100%;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.textcss {
+  font-size: 30rpx;
+}
+
+.userimg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.rightimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.two {
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 0 40rpx
+}
+
+.right text {
+  font-size: 28rpx;
+  line-height: 90rpx;
+  color: #5A5A5A;
+}
+
+.twolist {
+  height: 100rpx;
+  padding: 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.twolist:last-child {
+  border: none;
+}

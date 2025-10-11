@@ -1,0 +1,14 @@
+<!--pages/classroom/classroom.wxml-->
+<view class='classroompage'>
+  <view class='roomlist'>
+   
+    <view class='li' wx:for="{{goodsround}}" data-goodsId="{{item.goodsId}}"  bindtap='go'>
+        <view class='lipage'>
+          <view class='roomname'>{{item.name}}</view>
+        </view>
+     </view>
+
+  </view>
+
+
+</view>

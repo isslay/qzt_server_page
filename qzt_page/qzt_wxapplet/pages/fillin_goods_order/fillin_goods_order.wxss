@@ -1,0 +1,240 @@
+/* pages/fillin_goods_order/fillin_goods_order.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.txdd {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.txddpage {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.txddbottom {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.txddhj {
+  flex: 1;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid #f4f4f4;
+}
+
+.txddhj span {
+  color: #22723c;
+  font-weight: bold;
+}
+
+.txddbtn {
+  flex: 1;
+  height: 100%;
+  line-height: 100rpx;
+  background: #22723c;
+  font-size: 32rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.xuanze {
+  width: 100%;
+  padding: 30rpx 40rpx;
+  background: #fff;
+}
+
+.zxlist {
+  display: flex;
+  align-items: center;
+  margin: 5rpx 0;
+}
+
+.znimg {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.zxname {
+  flex: 1;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.znimgr {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.spnei {
+  border-top: 6rpx solid #22723c;
+  display: flex;
+  padding: 30rpx 40rpx;
+  background: #fff;
+}
+
+.spneiimg {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1px solid #f4f4f4;
+}
+
+.spxiang {
+  flex: 1;
+  padding-left: 20rpx;
+  padding-top: 5rpx;
+}
+
+.one {
+  font-size: 30rpx;
+  color: #24272b;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.two {
+  font-size: 24rpx;
+  color: #24272b;
+  display: -webkit-box;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.three {
+  font-size: 30rpx;
+  color: #22723c;
+  font-weight: bold;
+}
+
+.plist {
+  margin-top: 20rpx;
+  background: #fff;
+  height: auto;
+  padding: 0 40rpx;
+}
+
+.sublevel {
+  width: 100%;
+  background: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.sublevel:last-child {
+  width: 100%;
+  background: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #fff;
+}
+
+.left {
+  float: left;
+  font-size: 30rpx;
+  color: #2a2a2a;
+  font-weight: bold;
+}
+
+.right {
+  float: right;
+  font-size: 28rpx;
+  color: #22723c;
+  font-weight: bold;
+}
+
+.f_right {
+  float: right;
+  font-size: 28rpx;
+  color: #a1a6bb;
+  width: 7rem;
+}
+
+.f_right_input {
+   height: 90rpx;
+   /* line-height: 90rpx; */
+   text-align: right;
+   font-size: 28rpx;
+   color: #24272B;
+}
+
+.c_right {
+  float: right;
+  font-size: 28rpx;
+  color: #ff9f01;
+}
+
+.select_c_right {
+  float: right;
+  font-size: 28rpx;
+  color: #22723c;
+}
+
+.c_right_image {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 31rpx;
+}
+
+.buy_num_r {
+  float: right;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.jian {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+  margin: 0 10rpx;
+}
+
+.shuliang {
+  margin-right: 10rpx;
+}
+
+.jia {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+}

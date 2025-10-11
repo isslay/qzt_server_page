@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "确认自提",
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true
+}

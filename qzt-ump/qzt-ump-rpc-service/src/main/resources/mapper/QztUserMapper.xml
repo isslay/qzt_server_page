@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztUser">
+        <result column="id_" property="id"/>
+        <result column="id_" property="userId"/>
+        <result column="buss_id" property="bussId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="referrer_code" property="referrerCode"/>
+        <result column="mobile" property="mobile"/>
+        <result column="pwd" property="pwd"/>
+        <result column="pay_pwd" property="payPwd"/>
+        <result column="reg_source" property="regSource"/>
+        <result column="wx_nick_name" property="wxNickName"/>
+        <result column="wx_open_id" property="wxOpenId"/>
+        <result column="wx_head_image" property="wxHeadImage"/>
+        <result column="real_name" property="realName"/>
+        <result column="id_card" property="idCard"/>
+        <result column="state" property="state"/>
+        <result column="user_type" property="userType"/>
+        <result column="is_demotion" property="isDemotion"/>
+        <result column="is_upgrade" property="isUpgrade"/>
+        <result column="referrer_first" property="referrerFirst"/>
+        <result column="referrer_second" property="referrerSecond"/>
+        <result column="invitation_one" property="invitationOne"/>
+        <result column="invitation_two" property="invitationTwo"/>
+        <result column="gathering_type" property="gatheringType"/>
+        <result column="gathering_code" property="gatheringCode"/>
+        <result column="gathering_img" property="gatheringImg"/>
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="referrerFirst != null and referrerFirst != ''">
+                AND referrer_first = #{referrerFirst}
+            </if>
+            <if test="referrerSecond != null and referrerSecond != ''">
+                AND referrer_second = #{referrerSecond}
+            </if>
+            <if test="userType != null">
+                AND user_type &gt; #{userType}
+            </if>
+            <if test="parseType != null">
+                AND user_type = #{parseType}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findBack" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="regEndTime != null and regEndTime != ''">
+                AND create_time &lt;= #{regEndTime}
+            </if>
+            <if test="regStartTime != null and regStartTime != ''">
+                AND create_time &gt;= #{regStartTime}
+            </if>
+            <if test="state != null and state!=''">
+                AND state = #{state}
+            </if>
+            <if test="userType != null and userType!=''">
+                AND user_type = #{userType}
+            </if>
+            <if test="referrerFirst != null and referrerFirst != ''">
+                AND referrer_first = #{referrerFirst}
+            </if>
+            <if test="referrerSecond != null and referrerSecond != ''">
+                AND referrer_second = #{referrerSecond}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findCount" resultType="java.lang.Long" parameterType="map">
+        SELECT count(1) FROM dgm_qzt_user
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="referrerFirst != null and referrerFirst != ''">
+                AND referrer_first = #{referrerFirst}
+            </if>
+            <if test="referrerSecond != null and referrerSecond != ''">
+                AND referrer_second = #{referrerSecond}
+            </if>
+            <if test="userType != null">
+                AND user_type &gt; #{userType}
+            </if>
+            <if test="parseType != null">
+                AND user_type = #{parseType}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="findListByOpenId" resultMap="BaseResultMap" parameterType="map">
+        select * from dgm_qzt_user where wx_open_id  = #{openId}
+    </select>
+
+    <select id="findUserById" resultMap="BaseResultMap" parameterType="java.lang.String">
+
+        select *  from dgm_qzt_user where
+        wx_open_id=#{openId} AND referrer_code=#{unionId} LIMIT 1
+
+    </select>
+
+    <select id="findDGUserById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+
+        select *  from dgm_qzt_user where id_=#{id}
+
+    </select>
+
+    <select id="findUserByMobile" resultMap="BaseResultMap">
+
+        select *  from dgm_qzt_user where mobile=#{mobile} and real_name=#{realName} and id_ &lt;&gt; #{id} LIMIT 1
+
+    </select>
+
+    <select id="findUserByMobileName" resultMap="BaseResultMap">
+
+        select *  from dgm_qzt_user where mobile=#{mobile} and real_name=#{realName} LIMIT 1
+
+    </select>
+
+    <!--验证支付密码是否正确-->
+    <select id="verifyPayPwd" resultType="java.lang.Long">
+        SELECT CASE
+                    WHEN pay_pwd IS NULL OR pay_pwd = '' THEN - 1
+                    WHEN pay_pwd = #{payPwd} THEN COUNT(0)
+                    ELSE 0
+                END
+        FROM dgm_qzt_user WHERE id_ = #{userId};
+    </select>
+
+    <update id="updateUserMess" parameterType="map">
+        update dgm_qzt_user
+        <set>
+            <if test="conType==1">
+                wx_nick_name=#{nickName}
+            </if>
+            <if test="conType==2">
+                mobile=#{mobile}
+            </if>
+            <if test="conType==3">
+                referrer_first=#{referId},
+                referrer_second=#{referName},
+                pid=#{pid},
+                ph_short_name=#{phShortName}
+            </if>
+            <if test="conType1==3">
+                invitation_one=#{invitationOne},
+            </if>
+            <if test="conType==4">
+                wx_head_image=#{imgUrl}
+            </if>
+            <if test="conType==5">
+                real_name=#{realName}
+            </if>
+            <if test="conType==6">
+                pay_pwd=#{payPwd}
+            </if>
+        </set>
+        where id_=#{userId}
+        <if test="conType==6">
+            and (pay_pwd is null or pay_pwd='')
+        </if>
+    </update>
+
+    <update id="updateUserById" parameterType="map">
+        update dgm_qzt_user
+        <set>
+            <if test="state != null and state!=''">
+                state = #{state,jdbcType=VARCHAR},
+            </if>
+            <if test="invitationOne != null and invitationOne!=''">
+                invitation_one = #{invitationOne,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id_ = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 查询用户的上级关系树集合 -->
+    <select id="findRelationalTree" resultMap="BaseResultMap">
+        SELECT
+        qu.*
+        FROM
+        dgm_qzt_user_reg qur
+        LEFT JOIN dgm_qzt_user qu ON qur.parent_user_id = qu.id_
+        WHERE
+         qur.reg_user_id = #{userId}
+        AND qur.type = #{type}
+        ORDER BY qur.create_time DESC
+    </select>
+
+    <!-- 查询用户指定身份的直属下级数量 -->
+    <select id="queryDirectlyUnderLowerNum" resultType="java.lang.Long">
+        SELECT
+        COUNT(0)
+        FROM
+        dgm_qzt_user_reg qur
+        LEFT JOIN dgm_qzt_user qu ON qur.reg_user_id = qu.id_
+        WHERE
+        qur.parent_user_id =  #{parentUserId}
+        AND qu.user_type >= #{userType}
+        AND qur.num = 1
+        AND qur.type = #{regType}
+    </select>
+
+    <!--更新用户类型-->
+    <update id="updateUserType">
+        UPDATE dgm_qzt_user SET user_type = #{userType} WHERE id_ = #{userId};
+    </update>
+
+    <!--更新用户信息-->
+    <update id="modifyUserInfo">
+        UPDATE dgm_qzt_user
+        <set>
+            <if test="bussId != null and bussId != ''">
+                buss_id = #{bussId},
+            </if>
+            referrer_second = #{referrerSecond},
+            user_type = #{userType},
+            update_time = #{updateTime}
+        </set>
+        WHERE id_ = #{userId};
+    </update>
+
+    <!--修改用户身份-更新信息-->
+    <update id="updateUserTypepMap" parameterType="map">
+        UPDATE dgm_qzt_user
+        <set>
+            <if test="userType != null and userType != ''">
+                user_type = #{userType},
+            </if>
+            <if test="isDemotion != null and isDemotion != ''">
+                is_demotion = #{isDemotion},
+            </if>
+            <if test="isUpgrade != null and isUpgrade != ''">
+                is_upgrade = #{isUpgrade},
+            </if>
+            <if test="referrerSecond != null and referrerSecond != ''">
+                referrer_second = #{referrerSecond},
+            </if>
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        </set>
+        WHERE id_ = #{userId};
+    </update>
+
+</mapper>

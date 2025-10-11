@@ -1,0 +1,206 @@
+<!--pages/syddcx/syddcx.wxml-->
+<view class='order'>
+  <!--Tab布局-->
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">待接单</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">待到店</text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+
+    <view class='titleSel' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'textac' : 'text'}}">已到店</text>
+      <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+    <view class='titleSel' bindtap='titleClick' data-idx='3'>
+      <text class="{{3 == currentIndex ? 'textac' : 'text'}}">已完成</text>
+      <hr class="{{3 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+
+    <view class='titleSel' bindtap='titleClick' data-idx='4'>
+      <text class="{{4 == currentIndex ? 'textac' : 'text'}}">已拒绝</text>
+      <hr class="{{4 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+    </view>
+
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item class='swiper' class='swiper'>
+      <view class='syddcxs'>
+        <view class='search'>
+          <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+          <input type='text' class='searchinput' bindconfirm='doQuery' value="{{orderNoAr[0]}}" bindinput="orderInput" placeholder='请输入申请单号进行搜索' />
+        </view>
+      </view>
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData0}}" wx:key="item">
+          <view class="ddlisttop" bindtap='go' data-orderid="{{item.id}}">
+            <view class="bh">订单编号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-orderid="{{item.id}}">
+            <view class="sppagexx">
+              <view class="spname">申请人：
+                <text>{{item.storeType}}</text>
+                <view class="time">{{item.createTime}}</view>
+              </view>
+              <view class="iphone">联系电话：
+                <text>{{item.storeName}}</text>
+              </view>
+              <view class="iphone">疾病类型：
+                <text>{{item.diseaseName}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="spbtn">
+            <view class="buttwo" bindtap="qrorder" data-orderno="{{index}}" data-orderid="{{item.id}}" data-tel="{{item.storeName}}">确认接单</view>
+            <view class="butthree" bindtap="jjorder" data-orderid="{{item.id}}" data-tel="{{item.storeName}}">拒绝接单</view>
+          </view>
+        </view>
+        <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='syddcxs'>
+        <view class='search'>
+          <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+          <input type='text' class='searchinput' bindconfirm='doQuery' bindinput="orderInput" placeholder='请输入申请单号进行搜索' />
+        </view>
+      </view>
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData1}}" wx:key="item">
+          <view class="ddlisttop" bindtap='go' data-orderid="{{item.id}}">
+            <view class="bh">订单编号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-orderid="{{item.id}}">
+            <view class="sppagexx">
+              <view class="spname">申请人：
+                <text>{{item.storeType}}</text>
+                <view class="time">{{item.createTime}}</view>
+              </view>
+              <view class="iphone">联系电话：
+                <text>{{item.storeName}}</text>
+              </view>
+              <view class="iphone">疾病类型：
+                <text>{{item.diseaseName}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="spbtn">
+            <view class="buttwo" bindtap="qrdd" data-orderid="{{item.id}}" data-tel="{{item.storeName}}">确认到店</view>
+          </view>
+        </view>
+        <image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='syddcxs'>
+        <view class='search'>
+          <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+          <input type='text' class='searchinput' bindconfirm='doQuery' bindinput="orderInput" placeholder='请输入申请单号进行搜索' />
+        </view>
+      </view>
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData2}}" wx:key="item">
+          <view class="ddlisttop" bindtap='go' data-orderid="{{item.id}}">
+            <view class="bh">订单编号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-orderid="{{item.id}}">
+            <view class="sppagexx">
+              <view class="spname">申请人：
+                <text>{{item.storeType}}</text>
+                <view class="time">{{item.createTime}}</view>
+              </view>
+              <view class="iphone">联系电话：
+                <text>{{item.storeName}}</text>
+              </view>
+              <view class="iphone">疾病类型：
+                <text>{{item.diseaseName}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="spbtn">
+            <view class="buttwo" bindtap="wc" data-orderid="{{item.id}}" data-tel="{{item.storeName}}">已完成</view>
+          </view>
+        </view>
+        <image class="zwsjimg" hidden="{{dataShow[2]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='syddcxs'>
+        <view class='search'>
+          <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+          <input type='text' class='searchinput' bindconfirm='doQuery' bindinput="orderInput" placeholder='请输入申请单号进行搜索' />
+        </view>
+      </view>
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData3}}" wx:key="item">
+          <view class="ddlisttop" bindtap='go' data-orderid="{{item.id}}">
+            <view class="bh">订单编号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-orderid="{{item.id}}">
+            <view class="sppagexx">
+              <view class="spname">申请人：
+                <text>{{item.storeType}}</text>
+                <view class="time">{{item.createTime}}</view>
+              </view>
+              <view class="iphone">联系电话：
+                <text>{{item.storeName}}</text>
+              </view>
+              <view class="iphone">疾病类型：
+                <text>{{item.diseaseName}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <image class="zwsjimg" hidden="{{dataShow[3]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item class='swiper'>
+      <view class='syddcxs'>
+        <view class='search'>
+          <image class='searchimg' src='https://img.jlqizutang.com/search.png'></image>
+          <input type='text' class='searchinput' bindconfirm='doQuery' bindinput="orderInput" placeholder='请输入申请单号进行搜索' />
+        </view>
+      </view>
+      <scroll-view class="sydd" scroll-y="true" lower-threshold="30rpx" bindscrolltolower="scrollLower">
+        <view class="ddlist" wx:for-items="{{orderData4}}" wx:key="item">
+          <view class="ddlisttop" bindtap='go' data-orderid="{{item.id}}">
+            <view class="bh">订单编号：{{item.orderNo}}</view>
+          </view>
+          <view class="sppage" bindtap='go' data-orderid="{{item.id}}">
+            <view class="sppagexx">
+              <view class="spname">申请人：
+                <text>{{item.storeType}}</text>
+                <view class="time">{{item.createTime}}</view>
+              </view>
+              <view class="iphone">联系电话：
+                <text>{{item.storeName}}</text>
+              </view>
+              <view class="iphone">疾病类型：
+                <text>{{item.diseaseName}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+       
+
+        <image class="zwsjimg" hidden="{{dataShow[4]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+      </scroll-view>
+
+    </swiper-item>
+
+  </swiper>
+   <view class="startPull" bindtap="startPull">
+          <image src="https://img.jlqizutang.com/refresh.png" class="startPullimg"></image>
+        </view>
+</view>

@@ -1,0 +1,85 @@
+/* pages/sqfw/sqfw.wxss */
+view{
+  box-sizing: border-box;
+}
+.mfsy{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #F9FAFC;
+  padding: 40rpx;
+  overflow-y: auto
+}
+.mfsylist{
+  margin-bottom: 20rpx
+}
+.mfsyname{
+  color: #120000;
+  font-size: 26rpx;
+}
+.mfsyname span{
+  color: red
+}
+.mfsyinput{
+  margin-top: 20rpx;
+  position: relative
+}
+.mfsyinput input{
+  box-sizing: border-box;
+  width: 100%;
+  height: 90rpx;
+  border: 1px solid #ccc;
+  border-radius: 20rpx;
+  line-height: 90rpx;
+  font-size: 26rpx;
+  padding-left: 20rpx
+}
+
+.sybtn{
+  width: 100%;
+  height: 90rpx;
+  background: #22723C;
+  border-radius: 20rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #ffffff;
+  margin-top: 40rpx;
+  cursor: pointer
+}
+
+.sxjt{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx
+}
+
+.sqfw{
+  display: flex;
+  margin-bottom: 30rpx
+}
+.sqfwtile span{
+  color: red
+}
+.sqfwtile{
+width: 150rpx;
+color:#120000;
+font-size:26rpx;
+font-weight: bold
+}
+.sqfwname{
+flex: 1;
+color: #A1A6BB;
+font-size:26rpx;
+padding-left: 20rpx
+}
+.gmsl{
+  float: right;
+  display: flex;
+}

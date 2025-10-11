@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "试用订单查看",  
+    "backgroundTextStyle": "dark",    
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh": true,
+    "usingComponents": {}
+}

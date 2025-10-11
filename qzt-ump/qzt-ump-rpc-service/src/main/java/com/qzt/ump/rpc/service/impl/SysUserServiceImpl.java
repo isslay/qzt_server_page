@@ -1,0 +1,204 @@
+package com.qzt.ump.rpc.service.impl;
+
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.qzt.common.core.annotation.DistributedLock;
+import com.qzt.common.core.base.BaseServiceImpl;
+import com.qzt.pagedef.PageDef;
+import com.qzt.ump.common.UmpConstants;
+import com.qzt.ump.dao.mapper.SysRoleMapper;
+import com.qzt.ump.dao.mapper.SysUserMapper;
+import com.qzt.ump.dao.mapper.SysUserRoleMapper;
+import com.qzt.ump.model.SysRoleModel;
+import com.qzt.ump.model.SysUserModel;
+import com.qzt.ump.model.SysUserRoleModel;
+import com.qzt.ump.rpc.api.SysUserService;
+import com.xiaoleilu.hutool.lang.Assert;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+
+/**
+ * 用户管理服务实现
+ *
+ * @author cgw
+ * @date 2017/11/17 16:43
+ */
+@Slf4j
+@Service("sysUserService")
+@CacheConfig(cacheNames = UmpConstants.UmpCacheName.USER)
+public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUserModel> implements SysUserService {
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
+    @Autowired
+    private SysRoleMapper sysRoleMapper;
+    @Autowired
+    private SysUserRoleMapper sysUserRoleMapper;
+
+    @Override
+    public SysUserModel queryByAccount(String account) {
+        SysUserModel sysUserModel = new SysUserModel();
+        sysUserModel.setAccount(account);
+        sysUserModel.setEnable(1);
+        EntityWrapper<SysUserModel> entityWrapper = new EntityWrapper<>(sysUserModel);
+        return super.selectOne(entityWrapper);
+    }
+
+    @Override
+    public Page<SysUserModel> queryListPage(Page<SysUserModel> page) {
+        /*String searchKey = page.getCondition() == null ? null : page.getCondition().get("searchKey").toString();
+        List<SysUserModel> list = sysUserMapper.selectPage(page, searchKey);
+        page.setRecords(list);
+        return page;
+        */
+        PageHelper.startPage(page.getCurrent(), page.getSize());
+        List<SysUserModel> rb = sysUserMapper.selectUserPage(page.getCondition());
+        PageInfo pageInfos = new PageInfo<>(rb);
+        return PageDef.defPage(pageInfos, page);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(value = UmpConstants.UmpCacheName.USER, allEntries = true)
+    public boolean delBatchByIds(List<Long> ids) {
+        List<SysUserModel> sysUserModelList = new ArrayList<>(5);
+        for (Long id : ids) {
+            SysUserModel sysUserModel = new SysUserModel();
+            sysUserModel.setId(id);
+            sysUserModel.setIsDel(1);
+
+            sysUserModelList.add(sysUserModel);
+
+            SysUserRoleModel sysUserRoleModel = new SysUserRoleModel();
+            sysUserRoleModel.setIsDel(1);
+            sysUserRoleModel.setUpdateTime(new Date());
+            sysUserRoleModel.setUpdateBy(sysUserModel.getCreateBy());
+            EntityWrapper<SysUserRoleModel> wrapper = new EntityWrapper<>();
+            wrapper.eq("user_id", sysUserModel.getId());
+            sysUserRoleMapper.update(sysUserRoleModel, wrapper);
+        }
+        return super.updateBatchById(sysUserModelList);
+    }
+
+    @Override
+    public List<SysRoleModel> queryRoles(Long deptId) {
+        Assert.notNull(deptId);
+        EntityWrapper<SysRoleModel> entityWrapper = new EntityWrapper<>();
+        entityWrapper.eq("dept_id", deptId);
+        return sysRoleMapper.selectList(entityWrapper);
+    }
+
+    @Override
+    @CacheEvict(value = UmpConstants.UmpCacheName.USER, allEntries = true)
+    @Transactional(rollbackFor = Exception.class)
+    @DistributedLock
+    public SysUserModel add(SysUserModel sysUserModel) {
+        sysUserModel.setCreateTime(new Date());
+        sysUserModel.setUpdateTime(new Date());
+        if (super.insert(sysUserModel)) {
+            insertUserRole(sysUserModel);
+            return sysUserModel;
+        }
+        return null;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(value = {UmpConstants.UmpCacheName.ROLE,UmpConstants.UmpCacheName.MENU}, allEntries = true)
+    public boolean modifyUser(SysUserModel sysUserModel) {
+        boolean result = false;
+        EntityWrapper<SysUserRoleModel> wrapper = new EntityWrapper<>();
+        wrapper.eq("user_id", sysUserModel.getId());
+        sysUserRoleMapper.delete(wrapper);
+        insertUserRole(sysUserModel);
+        result = super.updateById(sysUserModel);
+
+        return result;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(value = UmpConstants.UmpCacheName.USER, allEntries = true)
+    public boolean modifyUser1(SysUserModel sysUserModel) {
+        boolean result = false;
+//        EntityWrapper<SysUserRoleModel> wrapper = new EntityWrapper<>();
+//        wrapper.eq("user_id", sysUserModel.getId());
+//        sysUserRoleMapper.delete(wrapper);
+//        insertUserRole(sysUserModel);
+        result = super.updateById(sysUserModel);
+
+        return result;
+    }
+
+    @Override
+    public boolean modifyStopUp(SysUserModel sysUserModel) {
+        return super.updateById(sysUserModel);
+    }
+
+    @Override
+    public List<SysUserRoleModel> queryUserRoles(Long userId) {
+        Assert.notNull(userId);
+        EntityWrapper<SysUserRoleModel> wrapper = new EntityWrapper<>();
+        wrapper.eq("user_id", userId);
+        return sysUserRoleMapper.selectList(wrapper);
+    }
+
+    @Override
+    public SysUserModel queryOne(Long id) {
+        SysUserModel sysUserModel = sysUserMapper.selectOne(id);
+        return sysUserModel;
+    }
+
+    private void insertUserRole(SysUserModel sysUserModel) {
+        if (sysUserModel.getRole() != null && sysUserModel.getRole().length != 0) {
+            for (Long roleId : sysUserModel.getRole()) {
+                SysUserRoleModel sysUserRoleModel = new SysUserRoleModel();
+                sysUserRoleModel.setUserId(sysUserModel.getId());
+                sysUserRoleModel.setCreateTime(new Date());
+                sysUserRoleModel.setUpdateTime(new Date());
+                sysUserRoleModel.setCreateBy(sysUserModel.getCreateBy());
+                sysUserRoleModel.setUpdateBy(sysUserModel.getCreateBy());
+                sysUserRoleModel.setRoleId(roleId);
+                sysUserRoleMapper.insert(sysUserRoleModel);
+            }
+        }
+    }
+
+    @Override
+    public SysUserRoleModel queryUserRole(Long userId) {
+        Assert.notNull(userId);
+        SysUserRoleModel sysUserRoleModel = new SysUserRoleModel();
+        sysUserRoleModel.setUserId(userId);
+        sysUserRoleModel.setRoleId(Long.valueOf("1013610015594872833"));
+        return sysUserRoleMapper.selectOne(sysUserRoleModel);
+    }
+    /**
+     * 根据角色ID查找用户
+     *
+     * @param roleId 角色ID
+     * @return List<SysUserModel>
+     * @author dzz
+     * @date 2018-10-07 12:48
+     */
+    @Override
+    public List<SysUserModel> queryByRoleId(Long roleId){
+        Assert.notNull(roleId);
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("roleId",roleId);
+        params.put("enable",1);
+        return sysUserMapper.selectUserByRoleId(params);
+    }
+
+}

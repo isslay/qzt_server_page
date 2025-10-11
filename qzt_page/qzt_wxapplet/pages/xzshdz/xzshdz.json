@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "region": "../component/region_plugin/region_plugin"
+  }
+}

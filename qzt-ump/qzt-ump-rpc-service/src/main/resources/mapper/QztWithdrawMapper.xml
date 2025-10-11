@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztWithdrawMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztWithdraw">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="source_" property="source" />
+        <result column="user_id" property="userId" />
+        <result column="user_tel" property="userTel" />
+        <result column="withdraw_money_type" property="withdrawMoneyType" />
+        <result column="withdraw_money" property="withdrawMoney" />
+        <result column="free_of_fee_money" property="freeOfFeeMoney" />
+        <result column="service_charge" property="serviceCharge" />
+        <result column="service_ratio" property="serviceRatio" />
+        <result column="arrival_amount" property="arrivalAmount" />
+        <result column="card_type" property="cardType" />
+        <result column="card_id" property="cardId" />
+        <result column="card_code" property="cardCode" />
+        <result column="real_name" property="realName" />
+        <result column="bank_name" property="bankName" />
+        <result column="opening_bank" property="openingBank" />
+        <result column="audit_user_id" property="auditUserId" />
+        <result column="audit_user_name" property="auditUserName" />
+        <result column="audit_time" property="auditTime" />
+        <result column="audit_state" property="auditState" />
+        <result column="audit_remark" property="auditRemark" />
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_withdraw
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="withdrawIdArr != null and withdrawIdArr != ''">
+                AND id_ IN
+                <foreach collection="withdrawIdArr" index="withdrawIdArr" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="auditStateArr != null and auditStateArr != ''">
+                AND audit_state IN
+                <foreach collection="auditStateArr" index="auditStateArr" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="auditState != null and auditState != ''">
+                AND audit_state = #{auditState}
+            </if>
+            <if test="cardType != null and cardType != ''">
+                AND card_type = #{cardType}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="source != null and source != ''">
+                AND source_ = #{source}
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="withdrawMoneyType != null and withdrawMoneyType != ''">
+                AND withdraw_money_type = #{withdrawMoneyType}
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <!-- 查询用户某天的提现次数 -->
+    <select id="verifyWithdrawFrequencyLimit" resultType="java.lang.Long">
+        SELECT
+        COUNT(0)
+        FROM
+        dgm_qzt_withdraw
+        <where>
+            user_id = #{userId}
+            AND audit_state != '10'
+            AND withdraw_money_type = '01'
+            AND create_time LIKE CONCAT(#{dateDay},'%')
+        </where>
+    </select>
+
+    <!-- 提现审核方法 -->
+    <update id="withdrawalAudit" parameterType="com.qzt.bus.model.QztWithdraw">
+        UPDATE dgm_qzt_withdraw
+        <set>
+            audit_state = #{auditState},
+            <if test="auditState == '10'">
+                audit_remark = #{auditRemark},
+            </if>
+            audit_user_id = #{auditUserId},
+            audit_user_name = #{auditUserName},
+            audit_time = #{auditTime},
+            update_by = #{auditUserId},
+            update_time = #{auditTime}
+        </set>
+        <where>
+            id_ = #{id}
+            <if test="auditState == '01'">
+                AND audit_state = '00'
+            </if>
+            <if test="auditState == '20'">
+                AND audit_state = '01'
+            </if>
+            <if test="auditState == '10'">
+                AND audit_state in ('00','01')
+            </if>
+        </where>
+    </update>
+
+    <!-- 提现审核（批量） -->
+    <update id="batchWithdrawalAudit">
+        UPDATE dgm_qzt_withdraw
+        <set>
+            audit_state = #{auditState},
+            <if test="auditState == '11' or auditState == '13' or auditState == '15'">
+                audit_remark = #{auditRemark},
+            </if>
+            audit_user_id = #{auditUserId},
+            audit_user_name = #{auditUserName},
+            audit_time = #{auditTime},
+            update_by = #{auditUserId},
+            update_time = #{auditTime}
+        </set>
+        <where>
+            id_ IN
+            <foreach collection="ids" index="ids" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+            <if test="auditState == '01' or auditState == '11'">
+                AND audit_state = '00'
+            </if>
+            <if test="auditState == '03' or auditState == '13'">
+                AND audit_state = '01'
+            </if>
+            <if test="auditState == '20' or auditState == '15'">
+                AND audit_state = '03'
+            </if>
+        </where>
+    </update>
+
+</mapper>

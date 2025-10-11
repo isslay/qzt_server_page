@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.ump.dao.mapper.SysAreaMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.ump.model.SysArea">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="area_name" property="areaName"/>
+        <result column="area_name_spell" property="areaNameSpell"/>
+        <result column="area_remark" property="areaRemark"/>
+        <result column="area_status" property="areaStatus"/>
+        <result column="area_code" property="areaCode"/>
+        <result column="autonavi_city_code" property="autonaviCityCode"/>
+        <result column="autonavi_area_code" property="autonaviAreaCode"/>
+    </resultMap>
+
+    <resultMap id="MapResultMap" type="java.util.Map">
+        <result column="id_" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="area_name" property="areaName"/>
+        <result column="area_name_spell" property="areaNameSpell"/>
+        <result column="area_remark" property="zipCode"/>
+        <result column="area_code" property="areaCode"/>
+        <result column="autonavi_city_code" property="autonaviCityCode"/>
+        <result column="autonavi_area_code" property="autonaviAreaCode"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id_, parent_id, area_name, area_name_spell, area_remark, area_code, autonavi_area_code, autonavi_city_code
+    </sql>
+
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_sys_area
+        <where>
+            <if test="plists != null">
+                AND parent_id IN
+                <foreach collection="plists" index="plists" item="item" open="(" separator="," close=")">
+                    #{item.id}
+                </foreach>
+            </if>
+            <if test="parentId != null and parentId != ''">
+                AND parent_id = #{parentId}
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY id_ ASC
+    </select>
+
+    <!--查询单条地区信息-->
+    <select id="findOne" resultType="com.qzt.ump.model.SysArea" parameterType="map">
+        SELECT * FROM dgm_sys_area
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="parentId != null and parentId != ''">
+                AND parent_id = #{parentId}
+            </if>
+            <if test="areaName != null and areaName != ''">
+                AND area_name = #{areaName}
+            </if>
+            <if test="areaCode != null and areaCode != ''">
+                AND area_code = #{areaCode}
+            </if>
+            <if test="autonaviCityCode != null and autonaviCityCode != ''">
+                AND autonavi_city_code = #{autonaviCityCode}
+            </if>
+            <if test="autonaviAreaCode != null and autonaviAreaCode != ''">
+                AND autonavi_area_code = #{autonaviAreaCode}
+            </if>
+            <if test="areaCodeLength != null and areaCodeLength != ''">
+                AND LENGTH(area_code) = #{areaCodeLength}
+            </if>
+        </where>
+    </select>
+
+    <select id="findListMap" resultMap="MapResultMap" parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM dgm_sys_area
+        <where>
+            <if test="plists != null">
+                AND parent_id IN
+                <foreach collection="plists" index="plists" item="item" open="(" separator="," close=")">
+                    #{item.id}
+                </foreach>
+            </if>
+            <if test="parentId != null and parentId != ''">
+                AND parent_id = #{parentId}
+            </if>
+        </where>
+        ORDER BY area_name_spell ASC
+    </select>
+
+    <select id="findMapOne" resultMap="MapResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM dgm_sys_area
+        <where>
+            id_ = #{id}
+        </where>
+    </select>
+
+    <select id="findAreaInfo" resultMap="MapResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM dgm_sys_area
+        <where>
+            area_code = #{code}
+        </where>
+    </select>
+
+    <select id="test" resultType="java.util.Map" parameterType="map">
+        SELECT * FROM gd
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT(#{name},'')
+            </if>
+            <if test="namelike != null and namelike != ''">
+                AND name LIKE CONCAT('%',#{name},'%')
+            </if>
+            <if test="adcode != null and adcode != ''">
+                AND adcode = #{adcode}
+            </if>
+            <if test="citycode != null and citycode != ''">
+                AND citycode = #{citycode}
+            </if>
+        </where>
+    </select>
+
+    <select id="test2" resultType="java.util.Map" parameterType="map">
+        SELECT * FROM gd
+        <where>
+            AND name LIKE CONCAT('%',#{name},'%') /*test2++++++++++++++++++++++++++++++++++++++++*/
+            <if test="adcode != null and adcode != ''">
+                AND adcode = #{adcode}
+            </if>
+            <if test="citycode != null and citycode != ''">
+                AND citycode = #{citycode}
+            </if>
+        </where>
+    </select>
+
+</mapper>

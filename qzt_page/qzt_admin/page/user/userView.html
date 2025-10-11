@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会员添加--layui后台管理模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../css/basic_info.css" media="all"/>
+</head>
+<body class="childrenBody">
+<form class="layui-form"  id="userForm">
+
+    <div class="container"> <div class="content">
+        <div class="column"><span class="current">基本信息</span></div>
+        <table class="kv-table">
+            <tbody>
+            <tr>
+                <td class="kv-label">登录账号</td>
+                <td class="kv-content" colspan="3"><span class="account"></span></td>
+            </tr>
+            <tr>
+                <td class="kv-label">部门</td>
+                <td class="kv-content" colspan="3"><span class="deptName"></span></td>
+            </tr>
+            <tr>
+                <td class="kv-label">真实姓名</td>
+                <td class="kv-content"><span class="userName"></span></td>
+                <td class="kv-label">电话</td>
+                <td class="kv-content"><span class="phone"></span></td>
+            </tr>
+            <tr>
+                <td class="kv-label">职位</td>
+                <td class="kv-content"><span class="position"></span></td>
+                <td class="kv-label">状态</td>
+                <td class="kv-content"><div class="layui-input-block">
+                    <input type="checkbox" name="enable" value="1" class="enable" title="启用" checked>
+                </div></td>
+            </tr>
+            <tr>
+                <td class="kv-label">角色</td>
+                <td class="kv-content" colspan="3"> <div class="layui-input-block" id="roleDiv">
+                </div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div> </div>
+
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="userView.js"></script>
+</body>
+</html>

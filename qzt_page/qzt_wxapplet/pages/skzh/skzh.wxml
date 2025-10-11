@@ -1,0 +1,190 @@
+<!--pages/skzh/skzh.wxml-->
+<view class='skzh'>
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">银行卡</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">支付宝</text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+
+    <swiper-item class='swiper' class='swiper'>
+      <view class='pagetop' wx:for="{{bankList}}" wx:for-item="bank" wx:for-index="index">
+
+        <view class='barlist'>
+          <view class='cardtop'>
+            <view class='nameone'>
+              <view class='cardname'>{{bank.realName}}</view>
+              <view class='cardnametwo'>{{bank.bindingTel}}</view>
+            </view>
+            <view class='namethree'>
+              <image src='{{bank.bankPic}}' class='bankimg'></image>
+            </view>
+          </view>
+          <view class='cardteo'>
+            <view class='cardhm xing'>****</view>
+            <view class='cardhm xing'>****</view>
+            <view class='cardhm xing'>****</view>
+            <view class='cardhm'>{{bank.cardNum}}</view>
+          </view>
+          <label class='lable' bindtap="{{bank.isDefault=='Y' ? '' : 'defaultShroffAccount'}}" data-id="{{bank.id}}">
+            <radio class="" value="" checked="{{bank.isDefault=='Y' ? true : false}}" color='#fff'>
+              <text>设为默认</text>
+            </radio>
+          </label>
+          <view class='cardbtn'>
+            <image src='https://img.jlqizutang.com/bianji.png' catchtap="edittoAddaddShroffAccount" data-id="{{bank.id}}" class='btnimg'></image>
+            <image src='https://img.jlqizutang.com/deletetwo.png' catchtap="delShroffAccount" data-index="{{index}}" data-id="{{bank.id}}" class='btnimg' bindtap='delete'></image>
+          </view>
+          <view class='moren' wx:if="{{bank.isDefault=='Y'}}">默认</view>
+        </view>
+        
+      </view>
+      <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+    </swiper-item>
+    <swiper-item class='swiper'>
+      <view class='ailpay_pagetop' wx:for="{{aliPayList}}" wx:for-item="aliPay" wx:for-index="index">
+
+        <view class='ailpay_barlist'>
+          <view class='cardtop'>
+            <view class='ailpay_nameone'>
+              <view class='cardname'>{{aliPay.realName}}</view>
+              <view class='cardnametwo'>{{aliPay.cardNum}}</view>
+            </view>
+            <view class='ailpay_namethree'>
+              <image src='{{aliPay.bankPic}}' class='alipayimg'></image>
+            </view>
+          </view>
+          <label class='ailpay_lable' bindtap="{{aliPay.isDefault=='Y' ? '' : 'defaultShroffAccount'}}" data-id="{{aliPay.id}}">
+            <radio class="" value="" checked="{{aliPay.isDefault=='Y' ? true : false}}" color='#fff'>
+              <text>设为默认</text>
+            </radio>
+          </label>
+          <view class='ailpay_cardbtn'>
+            <image src='https://img.jlqizutang.com/bianji.png' catchtap="edittoAddaddShroffAccount" data-id="{{aliPay.id}}" class='btnimg'></image>
+            <image src='https://img.jlqizutang.com/deletetwo.png' catchtap="delShroffAccount" data-id="{{aliPay.id}}" class='btnimg' bindtap='delete'></image>
+          </view>
+          <view class='moren' wx:if="{{aliPay.isDefault=='Y'}}">默认</view>
+        </view>
+
+      </view>
+      <image class="zwsjimg" hidden="{{dataShow[1]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+    </swiper-item>
+  </swiper>
+  <view class='pagebtn' bindtap='edittoAddaddShroffAccount'>添加收款账号</view>
+
+</view>
+
+
+<!-- 添加 -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='add'>
+    <view class='addtitle'>添加收款账号</view>
+    <view class='title'>
+      <view class='titleSel' bindtap='titleClick1' data-idx='0'>
+        <text class="{{0 == currentIndex1 ? 'textac' : 'text'}}">银行卡</text>
+        <hr class="{{0 == currentIndex1 ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+      <view class='titleSel' bindtap='titleClick1' data-idx='1'>
+        <text class="{{1 == currentIndex1 ? 'textac' : 'text'}}">支付宝</text>
+        <hr class="{{1 == currentIndex1 ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+
+    </view>
+    <!--内容布局-->
+    <swiper class='swiper' bindchange='pagechange1' current='{{currentIndex1}}'>
+      <swiper-item class='swiper' class='swiper'>
+        <view class='addpage'>
+          <view class='addlist'>
+            <view class='addname'>持卡人姓名</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>开户行</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>支行</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>银行卡号</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>手机号</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <label>
+            <checkbox value='设为默认' checked='trye'>设为默认</checkbox>
+          </label>
+          <view class='addbtn' bindtap="hideModal">确认</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='swiper'>
+        <view class='addpage'>
+          <view class='addlist'>
+            <view class='addname'>持卡人姓名</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>开户行</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>支行</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>银行卡号</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>手机号</view>
+            <view class='addinput'>
+              <input type="text" />
+            </view>
+          </view>
+          <label>
+            <checkbox value='设为默认' checked='trye'>设为默认</checkbox>
+          </label>
+          <view class='addbtn' bindtap="hideModal">确认</view>
+        </view>
+      </swiper-item>
+    </swiper>
+
+  </view>
+</view>
+
+<!-- 添加end -->

@@ -1,0 +1,144 @@
+/* pages/xzdzgl/xzdzgl.wxss */
+view{
+  box-sizing: border-box;
+}
+.dzgl{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow:hidden;
+  display: flex;
+  flex-direction: column
+}
+
+.dzglpage{
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10rpx;
+}
+.dzglbtn{
+  width: 100%;
+  height: 170rpx;
+  padding: 40rpx
+}
+.btn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #22723C;
+  border-radius: 12rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  text-align: center
+}
+.zdgllist{
+  flex: 1;
+
+  
+}
+.one{
+  margin-bottom: 30rpx
+}
+.one text{
+  font-size: 30rpx;
+  color: #222328;
+  margin-right: 60rpx
+}
+.two{
+  font-size: 30rpx;
+  color: #222328;
+  padding-right: 60rpx
+}
+radio .wx-radio-input{ 
+ /* 自定义样式.... */
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx
+ }
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border-radius: 50%;
+  border-color:#22723C !important;
+  position: relative
+}
+radio .wx-radio-input.wx-radio-input-checked::before {
+ content: ''; 
+ width: 18rpx;
+ height: 18rpx;
+ border-radius: 50%;
+ background-color: #22723C;
+ top: 15rpx;
+ display: flex; 
+ left: 16rpx;
+ position: relative;
+}
+.three{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid #E4E7F0;
+  position: relative
+}
+.three text{
+  font-size: 28rpx;
+  color: #222328;
+}
+.threebtn{
+  height: 100%;
+  float: right;
+  text-align: right;
+  display: flex;
+  align-items: center
+}
+
+.threeimg{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 40rpx;
+  position: relative;
+  top: 2rpx
+}
+.threebtn text{
+  font-size: 28rpx;
+  color: #222328;
+  margin-left: 10rpx;
+}
+.list{
+  display: flex;
+    position: relative;
+  background: #ffffff;
+  margin-bottom: 20rpx;
+  padding:20rpx
+}
+.lable{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.mr{
+    font-size: 24rpx;
+    background: #ffeeeb;
+    color: #ff6a53;
+    padding: 2rpx 10rpx;
+    position: absolute;
+    top: 28rpx;
+    right: 40rpx
+}
+.left{
+  width: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.bianjiimg{
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  bottom: 26rpx;
+  right: 40rpx
+}

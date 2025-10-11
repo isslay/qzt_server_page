@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 将监听者类 放入Spring容器  redis监听倒计时 -->
+    <bean id="messageListener" class="org.springframework.data.redis.listener.adapter.MessageListenerAdapter">
+        <constructor-arg>
+            <bean class="com.qzt.bus.rpc.service.impl.TopicMessageListener"/>
+        </constructor-arg>
+    </bean>
+
+    <!-- 配置监听者容器 redis监听倒计时  -->
+    <bean id="redisContainer" class="org.springframework.data.redis.listener.RedisMessageListenerContainer">
+        <property name="connectionFactory" ref="redisConnectionFactory"/>
+        <property name="messageListeners">
+            <map>
+                <entry key-ref="messageListener">
+                    <bean class="org.springframework.data.redis.listener.ChannelTopic">
+                        <constructor-arg value="__keyevent@0__:expired"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <!-- 配置可参考 http://dubbo.io/User+Guide-zh.htm -->
+    <!-- 服务提供方应用名，用于计算依赖关系 -->
+    <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}"/>
+    <!-- 定义 zookeeper 注册中心地址及协议 -->
+    <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" client="zkclient"/>
+    <!-- 定义 Dubbo 协议名称及使用的端口，dubbo 协议缺省端口为 20880，如果配置为 -1 或者没有配置 port，则会分配一个没有被占用的端口 -->
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysUserService" ref="sysUserService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysAuthorizeService" ref="sysAuthorizeService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysMenuService" ref="sysMenuService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysDeptService" ref="sysDeptService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysRoleService" ref="sysRoleService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysParamService" ref="sysParamService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysLogService" ref="sysLogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysDicService" ref="sysDicService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysDicSublistService" ref="sysDicsSublistService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.AppVersionService" ref="appVersionService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.SysAreaService" ref="sysAreaService" timeout="30000"/>
+    <dubbo:service interface="com.qzt.ump.rpc.api.ProcessingPayOrderService" ref="processingPayOrder" timeout="10000"/>
+
+    <!--Cgw-->
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztAccountLogService" ref="qztAccountLogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztAccountRelogService" ref="qztAccountRelogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztAccountService" ref="qztAccountService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztApplyTryorderService" ref="qztApplyTryorderService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztTopUpRecordService" ref="qztTopUpRecordService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztUserCouponService" ref="qztUserCouponService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztUserRegService" ref="qztUserRegService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztUserService" ref="qztUserService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztRechargeService" ref="qztRechargeService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztPageBannerService" ref="qztPageBannerService" timeout="10000"/>
+
+    <!--Xiaofei-->
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztApplyBusorderService" ref="qztApplyBusorderService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztGorderService" ref="qztGorderService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztOrderCommenService" ref="qztOrderCommenService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztPayBacklogService" ref="qztPayBacklogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztUserAddressService" ref="qztUserAddressService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztWithdrawService" ref="qztWithdrawService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztBusinessService" ref="qztBusinessService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztBusLogService" ref="qztBusLogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztBusPicService" ref="qztBusPicService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztServiceOrderService" ref="qztServiceOrderService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztTimingLogService" ref="qztTimingLogService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztUserBankService" ref="qztUserBankService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztBaseBankService" ref="qztBaseBankService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztStoGoodsService" ref="qztStoGoodsService" timeout="10000"/>
+
+    <!--snow-->
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztGoodsService" ref="qztGoodsService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztGoodsBannerService" ref="qztGoodsBannerService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztBannerService" ref="qztBannerService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztHealthInfoService" ref="qztHealthInfoService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IQztResourceService" ref="qztResourceService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IErpGoodsInfoService" ref="erpGoodsInfoService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IUserInfoService" ref="userInfoService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmCouponService" ref="dgmCouponService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmCouponIntegralService" ref="dgmCouponIntegralService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmGoodsClassService" ref="dgmGoodsClassService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmZxtClassService" ref="dgmZxtClassService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmZxtService" ref="dgmZxtService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmGoodsCouponService" ref="dgmGoodsCouponService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IVErpOrderDetailService" ref="vErpOrderDetailService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmOrderRefundService" ref="dgmOrderRefundService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmIntegralRecordService" ref="dgmIntegralRecordService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmReduceIntegralDetailService" ref="dgmReduceIntegralDetailService" timeout="10000"/>
+    <dubbo:service interface="com.qzt.bus.rpc.api.IDgmUsableIntegralService" ref="dgmUsableIntegralService" timeout="10000"/>
+
+</beans>

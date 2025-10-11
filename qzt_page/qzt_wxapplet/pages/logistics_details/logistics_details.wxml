@@ -1,0 +1,26 @@
+<!--pages/logistics_details/logistics_details.wxml-->
+
+<view class="wraper">
+	<!-- 物流信息 -->
+	<view class="kuaidiInfo">
+		<view class="kuaidiIcon">
+			<image src="https://img.jlqizutang.com/icon_logistics.png"></image>
+		</view>
+		<view class="kuaidiDetails">
+			<view>订单编号: <text class="satus">{{orderNo}}</text></view>
+			<view class="company">快递公司: <text>{{courierCompany}}</text></view>
+			<view class="number">快递单号: <text>{{courierNo}}</text></view>
+		</view>
+	</view>
+	<!-- 物流跟踪 -->
+	<view class="kuaidi_follow">
+		<view class="follow_title">物流跟踪</view>
+		<view class="follow_satus">
+			<view class="follow_address" wx:for="{{trackinfo}}" wx:for-item="track">
+				<view class="label {{index == 0 ? 'default' : ''}}"></view>
+				<view class="address {{index == 0 ? 'default' : ''}}">{{track.statusDescription}}</view>
+				<view class="date">{{track.scanningTime}}</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,66 @@
+<!--pages/xzdzgl/xzdzgl.wxml-->
+<view class='dzgl'>
+
+ <view class='dzglpage'>
+ 
+  <radio-group class="radio" name="radio">
+  <!-- list -->
+ 
+     <view class='list'>
+          <label class="lable">
+              <view class='left'>
+              <radio class="radio"  value="" checked="true" color='#fff'></radio>
+          </view>
+       <view class='zdgllist'>
+          <view class='one'>
+            <text>陈峰</text>
+            <text>187997930100</text>
+            <text>130000</text>
+          </view>
+           <view class='two'>吉林省船营姚家园社区299号5栋308</view>
+           <view class='mr'>默认</view>
+           
+            <image src='https://img.jlqizutang.com/bianji.png' class='bianjiimg'></image>
+           
+       </view>
+
+          </label>
+     </view>
+  
+    <view class='list'>
+          <label class="lable">
+              <view class='left'>
+              <radio class="radio"  value="" checked="" color='#fff'></radio>
+          </view>
+       <view class='zdgllist'>
+          <view class='one'>
+            <text>陈峰</text>
+            <text>187997930100</text>
+            <text>130000</text>
+          </view>
+           <view class='two'>吉林省船营姚家园社区299号5栋308</view>
+           <image src='https://img.jlqizutang.com/bianji.png' class='bianjiimg'></image>
+       </view>
+
+          </label>
+     </view>
+
+
+  
+  <!-- list end-->
+  </radio-group>
+
+
+
+
+  </view>
+
+
+
+
+
+
+<view class='dzglbtn'>
+   <view class='btn'>确定</view>
+</view>
+</view>

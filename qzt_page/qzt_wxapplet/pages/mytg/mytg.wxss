@@ -1,0 +1,225 @@
+/* pages/mytg/mytg.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.mytg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.one {
+  padding: 5rpx 0rpx 20rpx 0;
+  height: 360rpx;
+}
+
+.onepage {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.two {
+  flex: 1;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40rpx;
+}
+
+.dqdj {
+  font-size: 36rpx;
+  color: #222328;
+  font-weight: bold;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.img {
+  display: flex;
+  height: 130rpx;
+  padding: 10rpx 60rpx;
+  position: relative;
+}
+
+.img::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 670rpx;
+  height: 1px;
+  background: #ddd;
+  position: absolute;
+  left: 40rpx;
+  right: 40rpx;
+  top: 45rpx;
+}
+
+.imglist {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.listimg {
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 999;
+  margin: 0 auto;
+  margin-top: 10rpx;
+}
+
+.dj {
+  font-size: 24rpx;
+  color: #222328;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+}
+
+.dqimg {
+  width: 70rpx;
+  height: 70rpx;
+  margin-top: 0rpx;
+}
+
+.yqxx {
+  width: 50%;
+  margin: 40rpx auto 20rpx auto;
+  padding: 10rpx 0;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  border-radius: 25rpx;
+  color: #22723c;
+  background: #e8f0eb;
+}
+
+.wdfsry {
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+  top: 8rpx;
+}
+
+.twotop {
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.twotop text {
+  font-size: 28rpx;
+  color: #222328;
+  padding-left: 20rpx;
+}
+
+.title {
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.textac {
+  color: #22723c;
+}
+
+.titleSel {
+  color: #a1a6bb;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.headerLineSel {
+  background: #22723c;
+  height: 6rpx;
+  width: 30rpx;
+  position: absolute;
+  bottom: 0px;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 0rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  height: 150px; 
+  overflow: hidden;
+  margin: 10rpx 0;
+}
+
+.slipage {
+  display: flex;
+  padding: 40rpx 20rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.userimg {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.xinxi {
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.xinxi view {
+  padding-top: 10rpx;
+  font-size: 26rpx;
+  color: #222328;
+  flex: 1;
+  align-items: center;
+}
+
+.startPull {
+  position: fixed;
+  right: 60rpx;
+  bottom: 100rpx;
+}
+
+.startPullimg {
+  width: 120rpx;
+  height: 120rpx;
+}
+.scroll{
+width: 100%;
+height: 100%
+}

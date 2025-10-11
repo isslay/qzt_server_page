@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>试用订单</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../../../css/font.css">
+    <link rel="stylesheet" href="../../../css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/xadmin.js"></script>
+    <script type="text/javascript" src="../../../js/cookie.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>-->
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+</head>
+<body>
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">
+        <cite>试用订单</cite></a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i>
+    </a>
+</div>
+<div class="x-body">
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so" id="searchId">
+            <!--注意input条件与select条件需加单独div外层-->
+            <div class="layui-input-inline">
+                <select name="orderState" id="orderState">
+                    <option value="">订单状态(全部)</option>
+                    <option value="01">待确认</option>
+                    <option value="03">待到店</option>
+                    <option value="05">已服务</option>
+                    <option value="07">已完成</option>
+                    <option value="90">已拒绝</option>
+                    <option value="99">已取消</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <input type="text" value="" id="orderNo" placeholder="订单编号" class="layui-input">
+                <input type="text" value="" id="userId" placeholder="用户ID" class="layui-input">
+                <input type="text" value="" id="referrerUserId" placeholder="推荐人ID" class="layui-input">
+                <input type="text" value="" id="diseaseName" placeholder="疾病名称" class="layui-input">
+                <input type="text" value="" id="busName" placeholder="服务站名称" class="layui-input">
+                <input type="text" value="" id="startTime" placeholder="下单时间start" class="layui-input"> -
+                <input type="text" value="" id="endTime" placeholder="下单时间end" class="layui-input">
+            </div>
+            <a class="layui-btn search_btn"><i class="layui-icon">&#xe615;</i></a>
+            <a class="layui-btn excel">导出</a>
+        </form>
+    </div>
+    <table class="layui-table" id="qztApplyTryorderTable" lay-filter="qztApplyTryorderFilter"></table>
+    <!-- 分页控件div -->
+    <div class="page" id="pageDiv"></div>
+</div>
+<!-- 工具栏模板 -->
+<script type="text/html" id="toolBar">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="orderDetails">查看</a>
+    <!--<a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>-->
+</script>
+<script type="text/javascript" src="../../../js/common.js"></script>
+<script type="text/javascript" src="qztApplyTryorderList.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+com\qzt\common\oss\OssProperties.class
+com\qzt\common\oss\service\impl\QqCloudStorageServiceImpl.class
+com\qzt\common\oss\service\impl\AliCloudStorageServiceImpl.class
+com\qzt\common\oss\configuration\CloudStorageConfiguration.class
+com\qzt\common\oss\service\CloudStorageService.class

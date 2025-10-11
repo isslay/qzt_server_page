@@ -1,0 +1,233 @@
+/* pages/my_shopping_cart/my_shopping_cart.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+page {
+  background: #f4f4f4;
+}
+
+.fwz {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 40rpx 120rpx 40rpx;
+  overflow-y: auto;
+}
+
+.search {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background: #f9f9f9;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+
+.searchimg {
+  width: 39rpx;
+  height: 39rpx;
+}
+
+.searchinput {
+  flex: 1;
+  color: #22723c;
+  font-size: 30rpx;
+  height: 40rpx;
+  padding-left: 20rpx;
+}
+
+.fwzpage {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  float: left;
+  margin-bottom: 96rpx;
+  overflow: scroll;
+}
+
+.fwzlist {
+  display: flex;
+  align-items: center;
+  /* padding: 20rpx; */
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+
+}
+
+.fwzcon {
+  flex: 1;
+  padding: 0 20rpx;
+}
+
+/* .fwzcon view {
+  color: #565454;
+  font-size: 28rpx;
+} */
+
+.fwzcon_first {
+  color: #565454;
+  font-size: 28rpx;
+  font-weight: bold;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fwzcon_first image {
+  float: right;
+  width: 39rpx;
+  height: 39rpx;
+}
+
+.fwzcon_two {
+  color: #565454;
+  margin: 5rpx 0;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+
+.fwzcon_s {
+  color: #22723c;
+  font-size: 25rpx;
+}
+
+.fwzimg {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 5rpx;
+}
+
+.fwzimgr {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.buy_num_r {
+  color: #565454;
+  float: right;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.jian {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+  margin: 0 10rpx;
+}
+
+.shuliang {
+  margin-right: 10rpx;
+}
+
+.jia {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx !important;
+  background: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38rpx;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+  /* 圆角 */
+  width: 30rpx;
+  /* 背景的宽 */
+  height: 30rpx;
+  /* 背景的高 */
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border-radius: 50%;
+  border-color: #22723c !important;
+  border: 1rpx solid #FF783B;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #22723c;
+}
+
+.botts {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ffffff;
+  position: fixed;
+  /* margin-top: 30.2rem; */
+  float: left;
+  /* margin-left: -1.3rem; */
+
+  bottom: 4rem;
+}
+
+.checkalls {
+  float: left;
+  margin-left: 39rpx;
+  font-size: 28rpx;
+  width: 50rpx;
+}
+
+.checkalls text {
+  position: absolute;
+  left: 78rpx;
+  margin-top: 3rpx;
+}
+
+.totalmoney {
+  height: 80rpx;
+  line-height: 80rpx;
+  float: right;
+  margin-right: 12rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.totalmoney_text {
+  color: #22723c;
+  margin-right: 12rpx;
+}
+
+.closeanaccount {
+  height: 50rpx;
+  font-size: 26rpx;
+  background: #22723c;
+  border-radius: 28rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  float: right;
+  width: 119rpx;
+}

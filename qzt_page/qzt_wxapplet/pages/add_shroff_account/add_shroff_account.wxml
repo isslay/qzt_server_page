@@ -1,0 +1,102 @@
+<!--pages/add_shroff_account/add_shroff_account.wxml-->
+<view class='skzh'>
+  <view class='title' wx:if="{{isNewModified}}">
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">银行卡</text>
+      <hr class="{{0 == currentIndex ? 'banksTitle' : ''}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">支付宝</text>
+      <hr class="{{1 == currentIndex ? 'aliPayTitle' : ''}}" />
+    </view>
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+    <!-- 银行卡 -->
+    <swiper-item class='swiper' class='swiper'>
+      <view class='xzshdz'>
+        <view class='addpage'>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>姓名</view>
+            <view class='addinput'>
+              <input type="text" value="{{shroffAccount[0].realName}}" maxlength="6" bindblur="realName" placeholder="请输入您的姓名" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>银行</view>
+            <view class='addinput'>
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{bankNameList}}">
+                <view class="picker">
+                  <input type="text" disabled="true" value="{{shroffAccount[0].bankName}}" placeholder="请选择银行" />
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>开户行</view>
+            <view class='addinput'>
+              <input type="text" maxlength="11" value="{{shroffAccount[0].bankBranchName}}" bindblur="bankBranchName" placeholder="请输入开户行信息" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>银行卡号</view>
+            <view class='addinput'>
+              <input type="text" value="{{shroffAccount[0].cardNum}}" maxlength="20" bindblur="cardNum" placeholder="请输入银行卡号" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>手机号</view>
+            <view class='addinput'>
+              <input type="number" value="{{shroffAccount[0].bindingTel}}" maxlength="11" bindblur="bindingTel" placeholder="请输入银行卡绑定的手机号" />
+            </view>
+          </view>
+          <label class="checkbox" bindtap="isDefault">
+            <checkbox value="Y" checked="{{shroffAccount[0].isDefault=='Y' ?true:false}}" />设为默认
+          </label>
+          <view class='addbtn' bindtap="saveShroffAccount">保存</view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <!-- 支付宝 -->
+    <swiper-item class='swiper'>
+      <view class='xzshdz'>
+        <view class='addpage'>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>姓名</view>
+            <view class='addinput'>
+              <input type="text" value="{{shroffAccount[1].realName}}" maxlength="6" bindblur="realName" placeholder="请输入您的姓名" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>支付宝账号</view>
+            <view class='addinput'>
+              <input type="number" maxlength="11" value="{{shroffAccount[1].cardNum}}" bindblur="cardNum" placeholder="请输入支付宝账号" />
+            </view>
+          </view>
+          <view class='addlist'>
+            <view class='addname'>
+              <text>*</text>手机号</view>
+            <view class='addinput'>
+              <input type="number" maxlength="11" value="{{shroffAccount[1].bindingTel}}" bindblur="bindingTel" placeholder="请输入手机号" />
+            </view>
+          </view>
+          <label class="checkbox" bindtap="isDefault">
+            <checkbox value="Y" checked="{{shroffAccount[1].isDefault=='Y' ?true:false}}" />设为默认
+          </label>
+          <view class='addbtn' bindtap="saveShroffAccount">保存</view>
+        </view>
+      </view>
+    </swiper-item>
+
+  </swiper>
+
+
+</view>

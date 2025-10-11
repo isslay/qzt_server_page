@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-core/qzt-common-core.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-core/qzt-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-db/qzt-common-db.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-db/qzt-common-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-dsession/qzt-common-dsession.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-dsession/qzt-common-dsession.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-log/qzt-common-log.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-log/qzt-common-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-mdb/qzt-common-mdb.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-mdb/qzt-common-mdb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-mq/qzt-common-mq.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-mq/qzt-common-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-oss/qzt-common-oss.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-oss/qzt-common-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-pay/qzt-common-pay.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-pay/qzt-common-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-redis/qzt-common-redis.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-redis/qzt-common-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-tools/qzt-common-tools.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-tools/qzt-common-tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-common/qzt-common-web/qzt-common-web.iml" filepath="$PROJECT_DIR$/qzt-common/qzt-common-web/qzt-common-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-common/qzt-ump-common.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-common/qzt-ump-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-dao/qzt-ump-dao.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-dao/qzt-ump-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-generator/qzt-ump-generator.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-generator/qzt-ump-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-model/qzt-ump-model.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-model/qzt-ump-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-rpc-api/qzt-ump-rpc-api.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-rpc-api/qzt-ump-rpc-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-rpc-service/qzt-ump-rpc-service.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-rpc-service/qzt-ump-rpc-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-server-back/qzt-ump-server-back.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-server-back/qzt-ump-server-back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-server-scheduled/qzt-ump-server-scheduled.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-server-scheduled/qzt-ump-server-scheduled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qzt-ump/qzt-ump-server-web/qzt-ump-server-web.iml" filepath="$PROJECT_DIR$/qzt-ump/qzt-ump-server-web/qzt-ump-server-web.iml" />
+    </modules>
+  </component>
+</project>

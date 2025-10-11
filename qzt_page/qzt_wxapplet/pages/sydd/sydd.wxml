@@ -1,0 +1,28 @@
+<!--pages/sydd/sydd.wxml-->
+<view class="sydd">
+  <view class="ddlist" wx:for-items="{{orderData}}" wx:key="item">
+    <view class="ddlisttop">
+      <view class="bh">订单编号：{{item.obj.orderNo}}</view>
+      <view class="zt">{{item.stateMc}}</view>
+    </view>
+    <view class="sppage" bindtap='go' data-orderid="{{item.obj.id}}">
+      <view class="sppagexx">
+        <view class="spname">申请人：
+          <text>{{item.obj.storeType}}</text>
+          <view class="time">{{item.obj.createTime}}</view>
+        </view>
+        <view class="iphone">疾病类型：
+          <text>{{item.obj.diseaseName}}</text>
+        </view>
+        <view class="wfz">所属服务站：
+          <text>{{item.obj.busName}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="spbtn" wx:if="{{item.obj.orderState=='01'}}">
+      <view class="buttwo" bindtap="qxorder" data-orderno="{{index}}" data-orderid="{{item.obj.id}}" data-tel="{{item.obj.storeName}}">取消试用</view>
+    </view>
+
+  </view>
+  <image class="zwsjimg" hidden="{{dataShow}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+</view>

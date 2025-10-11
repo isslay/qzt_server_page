@@ -1,0 +1,213 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.2",
+	"appid": "wxaa512895419b74b8",
+	"projectname": "qzt_wxapplet",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/fwddcx/fwddcx",
+					"pathName": "pages/fwddcx/fwddcx",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/txsq/txsq",
+					"pathName": "pages/txsq/txsq",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/puias_order/puias_order",
+					"pathName": "pages/puias_order/puias_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/fillin_goods_order/fillin_goods_order",
+					"pathName": "pages/fillin_goods_order/fillin_goods_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/details/details",
+					"pathName": "pages/details/details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/fillin_goods_order/fillin_goods_order",
+					"pathName": "pages/fillin_goods_order/fillin_goods_order",
+					"query": "?goodsId=1198532173636866050",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/puias_order/puias_order",
+					"pathName": "pages/puias_order/puias_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/charge_off/charge_off",
+					"pathName": "pages/charge_off/charge_off",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my_shopping_cart/my_shopping_cart",
+					"pathName": "pages/my_shopping_cart/my_shopping_cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my_shopping_cart/my_shopping_cart",
+					"pathName": "pages/my_shopping_cart/my_shopping_cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shopping_cart_settlement/shopping_cart_settlement",
+					"pathName": "pages/shopping_cart_settlement/shopping_cart_settlement",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shopping_cart_settlement/shopping_cart_settlement",
+					"pathName": "pages/shopping_cart_settlement/shopping_cart_settlement",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/puias_order/puias_order",
+					"pathName": "pages/puias_order/puias_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my_shopping_cart/my_shopping_cart",
+					"pathName": "pages/my_shopping_cart/my_shopping_cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/fillin_goods_order/fillin_goods_order",
+					"pathName": "pages/fillin_goods_order/fillin_goods_order",
+					"scene": null
+				}
+			]
+		}
+	}
+}

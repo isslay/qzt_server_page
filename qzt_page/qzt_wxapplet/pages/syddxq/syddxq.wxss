@@ -1,0 +1,163 @@
+/* pages/ywc/ywc.wxss */
+view{
+  box-sizing: border-box;
+}
+.ddxq{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  padding: 0rpx;
+  overflow-y: auto
+}
+.top{
+  height: 100rpx;
+  background: #fff;
+
+  display: flex;
+   justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 32rpx;
+  color: #2a2a2a;
+}
+.topimg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.xqpage{
+  padding:20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.ul{
+  overflow: hidden;
+}
+.li{
+  padding: 14rpx 0;
+  overflow: hidden
+}
+.syddxx{
+  color: #222328;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+
+.liname{
+  float: left;
+  font-size: 30rpx;
+  color: #222328
+}
+.lipage{
+  float: right;
+  font-size: 30rpx;
+  color: #222328
+}
+.xqlast{
+  margin-top: 20rpx;
+  background: #ffffff;
+  padding:20rpx;
+  overflow: hidden
+}
+.lastlist{
+  overflow: hidden;
+  padding: 8rpx 10rpx;
+
+}
+.lasrname{
+float: left;
+font-size: 28rpx;
+color: #24272b;
+}
+.latpage{
+  float: right;
+  font-size: 28rpx;
+  color: #24272b;
+}
+.spbtn{
+  margin-top: 20rpx;
+  border-top: 1px solid #e4e7f0;
+  padding: 20rpx 0 0 0
+}
+
+.spbtn{
+  text-align: right;
+  align-items: center;
+}
+
+.butone{
+  display: inline-block;
+  width: 150rpx;height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #24272b;
+  border: 1px solid #24272b;
+  border-radius: 8rpx;
+  font-size: 24rpx
+}
+
+.buttwo{
+  display: inline-block;
+  width: 150rpx;height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #22723C;
+  border: 1px solid #22723C;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 40rpx
+}
+
+
+.fwzhzxx{
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 20rpx
+}
+.syzptitle{
+  font-size: 28rpx;
+  color: #24272B;
+  line-height: 60rpx;
+  padding-left: 10rpx
+}
+.zpli{
+  overflow: hidden;
+  padding:  10rpx
+}
+.syzpname{
+  float: left;
+  color: #222328;
+  font-size: 28rpx;
+}
+.syzppage{
+  float: right;
+  color: #222328;
+  font-size: 28rpx;
+}
+.syimg{
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 10rpx 10rpx 10rpx
+}
+.syimg{
+  width: 100%;
+  height: 100%;
+}
+.imglist{
+  width:25%;
+  float: left;
+  padding: 10rpx;
+  height: 160rpx;
+  position: relative;
+  z-index: 9999
+}
+.zpbox{
+ overflow: hidden
+}

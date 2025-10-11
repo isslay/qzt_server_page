@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单添加</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../../css/font.css">
+    <link rel="stylesheet" href="../../css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../js/xadmin.js"></script>
+    <script type="text/javascript" src="../../js/cookie.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="x-body">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class="x-red">*</span>类型
+            </label>
+            <div class="layui-input-inline" style="width: 260px;">
+                <input type="radio" name="menuType" lay-filter="menuType" value="0" title="目录">
+                <input type="radio" name="menuType" lay-filter="menuType" value="1" checked title="菜单">
+                <input type="radio" name="menuType" lay-filter="menuType" value="2" title="按钮">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class="x-red">*</span>菜单名称
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" name="menuName" class="layui-input menuName" lay-verify="required" placeholder="请输入菜单名称">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>上级菜单
+                </label>
+                <div class="layui-input-inline">
+                    <input type="hidden" id="parentId" name="parentId" class="layui-input parentId" value="0">
+                    <input type="text" id="parentName" name="parentName" class="layui-input parentName" placeholder="一级菜单"
+                           readonly>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item request">
+            <label class="layui-form-label">
+                <span class="x-red">*</span>请求地址
+            </label>
+            <div class="layui-input-inline" style="width: 600px;">
+                <input type="text" name="request" class="layui-input request" placeholder="请输入请求地址">
+            </div>
+        </div>
+        <div class="layui-form-item permission">
+            <label class="layui-form-label">
+                权限标识
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" name="permission" class="layui-input permission"
+                       placeholder="如：user:create">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <span class="x-red">*</span>多个用逗号分隔，如：user:list,user:create
+            </div>
+        </div>
+        <div class="layui-form-item sortNo">
+            <div class="layui-inline">
+                <label class="layui-form-label">排序号
+
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sortNo" class="layui-input sortNo" lay-verify="not_required_number"
+                           placeholder="请输入排序号">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item iconcls" style="display: none">
+            <label class="layui-form-label">
+                <span class="x-red">*</span>图标样式
+            </label>
+            <div class="layui-input-inline">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <i id="icony" class="icon iconfont" style="font-size: 36px;cursor: pointer;">&#xe6b4;</i>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-submit="" lay-filter="btn_submit">立即提交</button>
+<!--            <button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+        </div>
+        <input type="hidden" name="id" id="id"/>
+    </form>
+</div>
+<script type="text/javascript" src="menu.js"></script>
+</body>
+</html>

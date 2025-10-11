@@ -1,0 +1,10 @@
+<!--pages/pay_page/pay_page.wxml-->
+<view class='defray_box'>
+  <text class='defray_title'>订单金额</text>
+  <text class='defray_money'>{{payMoney}}</text>
+  <view class='defray_collect'>
+    <view>收款方</view>
+    <text>七足堂</text>
+  </view>
+  <view class='defray_but' bindtap='pay'>立即支付</view>
+</view>

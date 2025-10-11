@@ -1,0 +1,52 @@
+<!--pages/txsq/txsq.wxml-->
+<view class='txsq'>
+
+  <view class='txsqtop'>
+    <view class='toplist'>
+      <image class='zhangimg' src='https://img.jlqizutang.com/zhanghao.png'></image>
+      <view class='zhname'>登录账号：{{userId}}</view>
+      <view class='jl'></view>
+    </view>
+    <view class='toplist'>
+      <image class='zhangimg' src='https://img.jlqizutang.com/yue.png'></image>
+      <view class='zhname'>账户余额：¥{{usedMoney}}</view>
+      <view class='ckls' bindtap='checkWithdrawalRecords'>提现记录</view>
+    </view>
+  </view>
+  <view class='txcenter'>
+    <view class='txje'>
+      <view class='txjename'>提现金额：</view>
+      <view class='txjeinput'>
+        <input type="number" maxlength="6" value="{{withdrawMoney}}" bindinput="withdrawMoney" placeholder="请输入提现金额" />
+        <view class='fuhao'>¥</view>
+      </view>
+    </view>
+    <view class='txje'>
+      <view class='txjename'>到账金额：</view>
+      <view class='dzje'>
+        <view class='dzjepage'>¥{{arrivalAmount}}</view>
+        <view class='sxf' wx:if="{{serviceCharge>0}}">(手续费：¥{{serviceCharge}})</view>
+      </view>
+    </view>
+    <view class='txje'>
+      <view class='txjename'>收款账号：</view>
+      <view class='skzh' bindtap='selectReceivingAccount'>
+        {{bankName}}
+        <image class='skzhimg' src='https://img.jlqizutang.com/szright.png'></image>
+      </view>
+    </view>
+
+    <view class='txbut' bindtap="withdrawApplyfor">提现</view>
+
+  </view>
+
+  <view class='ts'>
+    <view class='tslist'>1、账户金额超过十元后可以申请提现；</view>
+    <view class='tslist'>2、提现金额必须为一元的整数倍；</view>
+    <!-- <view class='tslist'>2、提现手续费为{{commissionRatio*100}}%，最低{{commissionLeast*1+1}}元/笔。</view> -->
+    <view class='tslist'>3、所有提现申请每周二统一受理；</view>
+    <view class='tslist'>4、受理后3~7个工作日内到达绑定提现账户；</view>
+    <view class='tslist'>5、客服电话：400-030-7337</view>
+  </view>
+</view>
+<paypwd id="paypwd" bind:myevent="onMyeventPaypwd"></paypwd>

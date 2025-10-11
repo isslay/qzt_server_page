@@ -1,0 +1,46 @@
+/* pages/cooperation/cooperation.wxss */
+
+.cooperationpage{
+  position: absolute;
+  top: 0;
+  bottom:128rpx;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 10rpx 40rpx;
+  overflow-y: auto
+}
+.logo{
+  text-align: center;
+  padding:40rpx 0 20rpx 0
+}
+.cooimg{
+  width: 390rpx;
+  height: 42rpx;
+}
+.coolist{
+  margin-top: 40rpx
+}
+.cooname{
+  color: #565454;
+  font-size: 30rpx;
+}
+.cooinput{
+  border-bottom: 1px solid #f4f4f4;
+  padding: 10rpx 0
+}
+.cooinput input{
+  font-size: 28rpx;
+  color: #525252
+}
+
+
+.btn{
+  text-align: center;
+  margin-top: 70rpx
+}
+
+.tjbtn{
+  width: 480rpx;
+  height: 148rpx
+}

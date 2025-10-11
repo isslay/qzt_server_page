@@ -1,0 +1,9 @@
+com\qzt\ump\server\controller\CreateDeductionScheduled.class
+com\qzt\ump\server\ForceListener\CreateServiceTMoneyListener.class
+com\qzt\ump\server\controller\ActiveShareMoneyScheduled.class
+com\qzt\ump\server\ForceListener\GoodsOrderListener.class
+com\qzt\ump\server\ForceListener\CommonMqListener.class
+com\qzt\ump\server\base\ForcePoint.class
+com\qzt\ump\server\controller\CreateMoneyShareScheduled.class
+com\qzt\ump\server\ForceListener\CreateUserTMoneyListener.class
+com\qzt\ump\server\ServerScheduledApplication.class

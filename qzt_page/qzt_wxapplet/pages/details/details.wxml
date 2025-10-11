@@ -1,0 +1,78 @@
+<!--pages/details/details.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class='details'>
+  <view class="ztlbg {{isbg?'isbg':''}}" style='height: {{statusBarHeight}}px;'></view>
+  <view class="top {{isbg?'isbg':''}}" style="top:{{statusBarHeight}}px">
+    <image bindtap='back1' src='https://img.jlqizutang.com/fhbtn.png' class='fhimg'></image>
+    <!-- <image src='https://img.jlqizutang.com/fxbtn.png' class='fximg'></image> -->
+    <text>{{title}}</text>
+  </view>
+  <view class='content'>
+    <scroll-view class='page' scroll-y='true' bindscroll="scroll">
+      <view class="page-body">
+        <view class="page-section page-section-spacing swiper">
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+            <block wx:for="{{background}}" wx:key="*this">
+              <swiper-item>
+                <image class='sliimg' src='{{item}}'></image>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+      <view class='one'>
+        <view class='jiage'>
+          <text>¥{{goodMoney}}</text> </view>
+        <view class='spname'>{{goodName}}</view>
+        <view class='apxx'>{{goodRemark}}</view>
+      </view>
+      <view class='one'>
+        <view class='ggsm'>规格说明</view>
+        <view class='ggsmpage'>{{goodType}}</view>
+      </view>
+
+      <view class='one'>
+        <view class='sl'>
+          <view class='slname'>数量</view>
+          <view class='jian' bindtap='jian'>-</view>
+          <view class='shuliang'>{{number}}</view>
+          <view class='jia' bindtap='jia'>+</view>
+          <view class='kc'>（库存：{{goodNum}}）</view>
+        </view>
+        <view class='shuoming'>
+          <!-- <view class='slist'>
+             <image src='https://img.jlqizutang.com/wancheng.png' class='shuomingming'></image>
+             <text>7天无理由换货</text>
+           </view> -->
+          <view class='slist'>
+            <image src='https://img.jlqizutang.com/wancheng.png' class='shuomingming'></image>
+            <text>运费包邮</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='one one_last'>
+        <view class='spxq'>商品详情</view>
+        <!-- <view class='sqlist'>买真酒就上酒仙网 浓香型 五粮液</view>
+      <view class='sqlist'>全天猫实物商品通用去刮券</view>
+      <view class='sqlist'>价格¥ 899.00促销价¥ 499.00 促销价</view>
+      <view class='sqlist'>本店活动满1元,包邮；满199元,包邮,送任意1件赠品（赠完即止）</view>
+      <image src='https://img.jlqizutang.com/cpimg.png'></image> -->
+      </view>
+
+
+      <view class="detailView">
+        <template is="wxParse" data="{{wxParseData:goodContent.nodes}}" />
+      </view>
+    </scroll-view>
+
+    <view class="startPull" bindtap="shoppingCat">
+      <image src="https://img.jlqizutang.com/shopping_cart_lo.png" class="startPullimg"></image>
+    </view>
+    <!-- <view class='btn' bindtap="buyGoods">立即购买</view> -->
+    <view class='pagebtn'>
+      <view class='tj' bindtap='addGoodsShoppingCart'>加入购物车</view>
+      <view class='qd' bindtap='buyGoods'>立即购买</view>
+    </view>
+  </view>
+</view>

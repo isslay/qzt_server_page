@@ -1,0 +1,14 @@
+<!--pages/xgmm/xgmm.wxml-->
+<!--pages/xzshdz/xzshdz.wxml-->
+<view class='xzshdz'>
+  <view class='addpage'>
+    <view class='addlist'>
+      <view class='addname'>
+        <text>*</text>我的推荐人</view>
+      <view class='addinput'>
+        <input type="number" maxlength='11' value="{{imput1}}" bindinput ="imput1" placeholder='请输入推荐号或手机号' />
+      </view>
+    </view>
+    <view class='addbtn' bindtap="doSubmit">确认</view>
+  </view>
+</view>

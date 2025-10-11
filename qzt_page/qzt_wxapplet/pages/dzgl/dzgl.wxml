@@ -1,0 +1,42 @@
+<!--pages/dzgl/dzgl.wxml-->
+<view class='dzgl'>
+
+  <view class='dzglpage'>
+    <radio-group class="radio" name="radio">
+
+      <view class='zdgllist' wx:for="{{addressList}}" wx:for-index="index" wx:for-item="address">
+        <view class='one'>
+          <text>{{address.recipientName}}</text>
+          <text>{{address.phone}}</text>
+          <text>{{address.zipCode}}</text>
+        </view>
+        <view class='two'>{{address.address}}</view>
+        <view class='three'>
+          <label class='lable' bindtap="{{address.isDefault=='Y' ? '' : 'defaultArea'}}" data-id="{{address.id}}">
+            <radio class="" value="" checked="{{address.isDefault=='Y' ? true : false}}" color='#fff'>
+              <text>设为默认地址</text>
+            </radio>
+          </label>
+          <view class='threebtn'>
+            <view bindtap='xzshdz' data-id="{{address.id}}">
+              <image src='https://img.jlqizutang.com/bianji.png' class='threeimg'></image>
+              <text>编辑</text>
+            </view>
+            <view data-id="{{address.id}}" data-index="{{index}}" bindtap="addressDel">
+              <image src='https://img.jlqizutang.com/deletetwo.png' class='threeimg'></image>
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+        <view class='mr' wx:if="{{address.isDefault=='Y'}}">默认</view>
+      </view>
+
+      <image class="zwsjimg" hidden="{{dataShow}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+    </radio-group>
+  </view>
+
+  <view class='dzglbtn'>
+    <view class='btn' bindtap='xzshdz'>新增收货地址</view>
+  </view>
+
+</view>

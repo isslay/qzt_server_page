@@ -1,0 +1,62 @@
+<!--pages/yxck/yxck.wxml-->
+<view class='yxck'>
+  <view class='yxckpage'>
+    <view class='yxcknoe'>
+      <view class='cklist'>
+        <view class='name'>申请人：</view>
+        <view class='page'>{{contactName}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>联系电话：</view>
+        <view class='page'>{{contactTel}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>服务站地址：</view>
+        <view class='page'>{{address}}</view>
+      </view>
+      <view class='btn'>{{orderStateMc}}</view>
+    </view>
+    <view class='yxcknoe'>
+      <view class='cktitle'>收件人信息</view>
+      <view class='cklist'>
+        <view class='name'>收件人：</view>
+        <view class='page'>{{consigneeName}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>联系电话：</view>
+        <view class='page'>{{consigneeTel}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>收货地址：</view>
+        <view class='page clolr'>{{consigneeAddress}}</view>
+      </view>
+    </view>
+    <view class='yxcknoe'>
+      <view class='cktitle'>订单信息</view>
+      <view class='cklist'>
+        <view class='name'>物流公司：</view>
+        <view class='page'>{{courierCompany}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>物流单号：</view>
+        <view class='page'>{{courierNo}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>申请时间：</view>
+        <view class='page'>{{createTime}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>发货时间：</view>
+        <view class='page'>{{shipmentsTime}}</view>
+      </view>
+      <view class='cklist'>
+        <view class='name'>完成时间：</view>
+        <view class='page clolr'>{{finshTime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='jxzf' wx:if="{{orderState=='01'}}" bindtap="continuePay">
+    <view class='jxzfbtn'>继续支付</view>
+  </view>
+
+</view>

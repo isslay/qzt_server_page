@@ -1,0 +1,81 @@
+<!--pages/goods_order_pay/goods_order_pay.wxml-->
+<view class='txdd'>
+	<view class='txddpage'>
+		<view class='xuanze'>
+			<image class='znimgr' src='https://img.jlqizutang.com/order_price_pic.png'></image>
+			<view class='zxname'>订单金额：{{totalPriceMc}}</view>
+		</view>
+
+		<!-- <view class='spnei'>
+			<image src='{{goodsPic}}' class='spneiimg'></image>
+			<view class='spxiang'>
+				<view class='one'>{{goodsName}}</view>
+				<view class='two'>{{goodsExplain}}</view>
+				<view class='three'>价格：¥{{goodsPrice}}</view>
+			</view>
+		</view> -->
+		<view class='spnei'>
+			<view class='{{stoGoodsList.length==1?"goods_arr_firstd":index==0?"goods_arr_first":stoGoodsList.length-1==index?"goods_arr_last":"goods_arr"}}' wx:for="{{stoGoodsList}}" wx:for-item="stoGoods" wx:for-index="index">
+				<image src='{{stoGoods.goodsPic}}' class='spneiimg'></image>
+				<view class='spxiang'>
+					<view class='one'>{{stoGoods.goodsName}}<text class="buy_num">x{{stoGoods.buyNum}}</text></view>
+					<view class='two'>{{stoGoods.goodsRemark}}</view>
+					<view class='three'>价格：¥{{stoGoods.goodsPrice}}</view>
+				</view>
+			</view>
+		</view>
+
+
+		<view class='plist'>
+			<view class="sublevel" wx:if="{{usedMoney>0}}">
+				<view class='left'>可用余额</view>
+				<view class='c_right'>
+					¥{{usedMoney}}
+				</view>
+			</view>
+			<view class="sublevel" wx:if="{{usedMoney>0}}">
+				<view class='left'>使用余额</view>
+				<view class='c_right'>
+					<switch checked="{{usedMoneyChecked}}" disabled="{{disabled}}" bindchange="usedMoneySwitch" />
+				</view>
+			</view>
+			<view class="sublevel" wx:if="{{(isContinuePay=='Y'&&balanceMoney>0)||balanceMoney>0}}">
+				<view class='left'>余额抵付</view>
+				<view class='d_right'>
+					¥{{balanceMoney}}
+				</view>
+			</view>
+			<view class="sublevel" wx:if="{{(isContinuePay=='Y'&&cashCouponMoney>0)||cashCouponMoney>0}}">
+				<view class='left'>抵扣券抵付</view>
+				<view class='d_right'>
+					¥{{cashCouponMoney}}
+				</view>
+			</view>
+		</view>
+
+		<view class='plist' wx:if="{{threeSidesMoney > 0}}">
+			<view class="sublevel">
+				<view class='left'>选择支付方式</view>
+			</view>
+			<view class="sublevel">
+				<view class='left'>
+					<image class="weChat" src='https://img.jlqizutang.com/wx.png'></image>
+					微信支付
+				</view>
+				<view class='w_right'>
+					<label class="checkbox" bindtap="payType">
+						<checkbox value="w" checked="{{payType=='w' ?true:false}}" />
+					</label>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='txddbottom'>
+		<view class='txddhj'>应付:
+			<span>￥{{threeSidesMoney}}</span>
+		</view>
+		<view class='txddbtn' bind:touchend="pay0rder">立即支付</view>
+	</view>
+</view>
+
+<paypwd id="paypwd" bind:myevent="onMyeventPaypwd"></paypwd>

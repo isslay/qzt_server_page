@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztApplyTryorderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztApplyTryorder">
+        <result column="id_" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="store_type" property="storeType"/>
+        <result column="store_name" property="storeName"/>
+        <result column="disease_type" property="diseaseType"/>
+        <result column="disease_name" property="diseaseName"/>
+        <result column="bus_id" property="busId"/>
+        <result column="bus_name" property="busName"/>
+        <result column="apply_user_id" property="applyUserId"/>
+        <result column="order_state" property="orderState"/>
+        <result column="id_cardno" property="idCardno"/>
+        <result column="referrer_user_id" property="referrerUserId"/>
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_apply_tryorder
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="diseaseName != null and diseaseName != ''">
+                AND disease_name like CONCAT('%','${diseaseName}','%')
+            </if>
+            <if test="busName != null and busName != ''">
+                AND bus_name like CONCAT('%','${busName}','%')
+            </if>
+            <if test="referrerUserId != null and referrerUserId != ''">
+                AND referrer_user_id = #{referrerUserId}
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="busId != null and busId != ''">
+                AND bus_id = #{busId}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND apply_user_id = #{userId}
+            </if>
+            <if test="orderState != null and orderState != ''">
+                AND order_state = #{orderState}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no like CONCAT ('%',#{orderNo},'%')
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <update id="updateTryOrder" parameterType="map">
+        update dgm_qzt_apply_tryorder
+        <set>
+            <if test="oldOrderState!=null and orderState!=''">
+                order_state = #{orderState},
+                <if test="orderState=='05'">
+                    id_cardno = #{cardId},
+                </if>
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        <where>
+            <if test="oldOrderState!=null and oldOrderState!=''">
+                and order_state = #{oldOrderState}
+            </if>
+            <if test="id!=null and id!=''">
+                and id_ = #{id}
+            </if>
+            <if test="orderNo!=null and orderNo!=''">
+                and order_no = #{orderNo}
+            </if>
+            <if test="applyUserId!=null and applyUserId!=''">
+                and apply_user_id = #{applyUserId}
+            </if>
+            <if test="busId!=null and busId!=''">
+                and bus_id = #{busId}
+            </if>
+
+
+        </where>
+
+    </update>
+
+    <select id="queryOrderByCradId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM dgm_qzt_apply_tryorder
+        <where>
+            id_cardno = #{cardId}
+            <if test="disType!=null and disType!=''">
+                AND disease_type = #{disType}
+            </if>
+        </where>
+    </select>
+
+    <select id="checkTryOrder" resultType="java.lang.Integer" parameterType="map">
+        select count(1) from dgm_qzt_apply_tryorder where order_state not in ('90','99') and  store_name = #{storeName} and  disease_type =#{diseaseType}
+    </select>
+
+</mapper>

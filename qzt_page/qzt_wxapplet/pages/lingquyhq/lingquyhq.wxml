@@ -1,0 +1,38 @@
+<!--pages/lqyhq/lqyhq.wxml-->
+<view class="qlyhq">
+  <!-- 成功 -->
+  <view class="cg" hidden="{{showRs}}">
+    <image src="https://img.jlqizutang.com/yhqcg1.jpg" class="yhqimg"></image>
+    <view class="ts">
+      <view class="name">恭喜您领取成功！</view>
+      <view class="name">
+        <text>{{userName}}</text>赠送给您的优惠券</view>
+    </view>
+    <view class="cgpage">
+      <view class="cgcon">
+        <view class="mj">满          
+          <text>{{price}}</text>元</view>
+        <image src="https://img.jlqizutang.com/yhqcgpage2.png" class="yhqpageimg"></image>
+      </view>
+    </view>
+    <view class="btn" ontap="goIndex">立即使用</view>
+  </view>
+  <!-- 成功 end -->
+  <!-- 失败 -->
+  <view class="cg shibai" hidden="{{!showRs}}">
+    <image src="https://img.jlqizutang.com/yhqsb.png" class="yhqimg"></image>
+    <view class="ts">
+      <view class="name">{{message}}</view>
+    </view>
+    <view class="cgpage">
+      <view class="cgcon">
+        <view class="mj">
+          <text>5</text>元</view>
+        <image src="https://img.jlqizutang.com/yhqsbpage.png" class="yhqpageimg"></image>
+      </view>
+    </view>
+    <view class="btn" ontap="goIndex">返回首页</view>
+  </view>
+  <!-- 失败 end -->
+
+</view>

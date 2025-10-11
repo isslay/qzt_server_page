@@ -1,0 +1,132 @@
+/* pages/txsq/txsq.wxss */
+view{
+  box-sizing: border-box;
+}
+.txsq{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom:0rpx;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  overflow:hidden;
+  display: flex;
+  flex-direction: column
+}
+.txsqtop{
+  background: #fff;
+  padding:20rpx 40rpx;
+}
+.toplist{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10rpx 0;
+  position: relative
+}
+.zhangimg{
+   width: 30rpx;
+   height: 30rpx
+}
+.zhname{
+  font-size: 28rpx;
+  color: #24272B;
+  padding-left: 20rpx
+}
+.jl{
+    font-size: 28rpx;
+    color: #24272B;
+    position: absolute;
+    right: 0
+}
+
+.ckls{
+   font-size: 28rpx;
+    color: #22723C;
+   position: absolute;
+    right: 0
+}
+.txcenter{
+  padding: 40rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.txje{
+  display: flex;
+  align-items: center
+}
+.txjename{
+  width: 150rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #24272B;
+}
+.txjeinput{
+  flex: 1;
+  position: relative;
+  border-bottom: 1px solid #f4f4f4;
+}
+.txjeinput input{
+  width: 100%;
+  font-size: 26rpx;
+  color: #24272B;
+}
+.fuhao{
+  position: absolute;
+  right: 0;
+  top: 0
+}
+.dzje{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0
+}
+.dzjepage{
+  font-size: 26rpx;
+  color: #22723C;
+  font-weight: bold;
+  margin-right: 40rpx
+}
+.sxf{
+  font-size: 26rpx;
+  color: #ffa410;
+}
+.skzh{
+  flex: 1;
+  font-size: 26rpx;
+  color: #989A9C;
+  text-align: right;
+  padding-right: 40rpx;
+  position: relative
+}
+.skzhimg{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top:8rpx;
+  right: 0
+}
+
+.txbut{
+    height: 90rpx;
+    font-size: 32rpx;
+    background: #22723C;
+    border-radius: 12rpx;
+    text-align: center;
+    line-height: 90rpx;
+    color: #ffffff;
+    margin-top: 40rpx
+}
+.ts{
+  background: #fff;
+  padding: 40rpx;
+  margin-top: 20rpx
+}
+.tslist{
+  font-size: 26rpx;
+  color: #5A5A5A;
+  padding: 10rpx 0
+}

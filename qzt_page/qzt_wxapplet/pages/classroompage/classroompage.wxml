@@ -1,0 +1,17 @@
+<!--pages/classroompage/classroompage.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class='roompage'>
+  <view class='roomcontainer'>
+    <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
+    <!-- <image class='roomimgr' src='https://img.jlqizutang.com/sydd.png'></image>
+    <image class='roomimgr' src='https://img.jlqizutang.com/cpimg.png'></image>
+    <image class='roomimgr' src='https://img.jlqizutang.com/cpimg.png'></image>
+    <image class='roomimgr' src='https://img.jlqizutang.com/cpimg.png'></image>
+    <image class='roomimgr' src='https://img.jlqizutang.com/cpimg.png'></image> -->
+  </view>
+
+  <view class='roombtn' data-goodsId="{{goodsId}}" bindtap='go'>立即购买</view>
+
+
+
+</view>

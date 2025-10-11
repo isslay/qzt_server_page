@@ -1,0 +1,3 @@
+com\qzt\common\log\web\WebLogAspect.class
+com\qzt\common\log\model\SysLogModel.class
+com\qzt\common\log\rpc\RpcLogAspect.class

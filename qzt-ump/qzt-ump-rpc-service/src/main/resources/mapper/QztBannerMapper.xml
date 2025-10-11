@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztBannerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztBanner">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="banner_type" property="bannerType" />
+        <result column="banner_source" property="bannerSource" />
+        <result column="banner_num" property="bannerNum" />
+        <result column="pic_url" property="picUrl" />
+        <result column="link_url" property="linkUrl" />
+        <result column="remark" property="remark" />
+        <result column="state" property="state" />
+        <result column="content" property="content" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_banner
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="state != null and state != ''">
+                AND state = #{state}
+            </if>
+        </where>
+        ORDER BY banner_num ASC ,banner_type ASC ,create_time DESC
+    </select>
+
+</mapper>

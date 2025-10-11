@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品订单",
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true
+}

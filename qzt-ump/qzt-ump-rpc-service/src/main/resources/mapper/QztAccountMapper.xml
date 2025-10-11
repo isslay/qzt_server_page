@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztAccount">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_type" property="userType"/>
+        <result column="account_money" property="accountMoney"/>
+        <result column="used_money" property="usedMoney"/>
+        <result column="frozen_money" property="frozenMoney"/>
+        <result column="recommend_money" property="recommendMoney"/>
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_account
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findBack" resultType="map" parameterType="map">
+        SELECT t1.id_ as userId, t1.mobile as mobile , t1.user_type as userType ,t.account_Money as accountMoney FROM dgm_qzt_account t left join dgm_qzt_user t1 on t.user_id = t1.id_
+        <where>
+            <if test="id != null and id != ''">
+                AND t1.id_ = #{id}
+            </if>
+
+            <if test="state != null and state!=''">
+                AND t1.state = #{state}
+            </if>
+            <if test="userType != null and userType!=''">
+                AND t1.user_type = #{userType}
+            </if>
+        </where>
+        ORDER BY t.create_time DESC
+    </select>
+
+
+    <!--根据用户ID查询资产信息-->
+    <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT * FROM dgm_qzt_account WHERE user_id  = #{userId}  LIMIT 0,1;
+    </select>
+
+    <!--修改账户资产信息-->
+    <update id="changeAccount">
+        UPDATE dgm_qzt_account
+        <set>
+            <choose>
+                <when test="changeType == '01'">
+                    account_money = account_money + #{changeMoney}, used_money = used_money + #{changeMoney}
+                </when>
+                <when test="changeType == '11'">
+                    account_money = account_money - #{changeMoney}, used_money = used_money - #{changeMoney}
+                </when>
+            </choose>
+        </set>
+        <where>
+            <choose>
+                <when test="changeType == '11'">
+                    AND account_money >= #{changeMoney}
+                    AND used_money >= #{changeMoney}
+                </when>
+            </choose>
+            AND user_id = #{userId}
+        </where>
+    </update>
+
+</mapper>

@@ -1,0 +1,169 @@
+<!--pages/my/my.wxml-->
+<view class='mypage'>
+  <view class='mytop'>
+    <image class='mybleft' hidden="{{!showCode}}" src='https://img.jlqizutang.com/shareCode.png' bindtap='sharecode'></image>
+    <image class='myb' src='https://img.jlqizutang.com/myb.png' bindtap='wdsz'></image>
+    <image class='mytitle' src='{{userImg}}'></image>
+    <view class='myname'>
+      <span class="name">{{userName}}</span>
+
+      <span class="name">
+        <image hidden="{{show1}}" class='fwzimg' src='https://img.jlqizutang.com/shenfenzheng.png'></image>{{userTypeMc}}</span>
+    </view>
+    <view class='mytop-last' bindtap='myqb'>
+      <view class='my-l-list'>
+        <view class='moneyname'>推广佣金</view>
+        <view class='tgyj'>{{tMoney}}</view>
+      </view>
+      <view class='my-l-list'>
+        <view class='moneyname'>分享佣金</view>
+        <view class='fxyj'>{{sMoney}}</view>
+      </view>
+      <view class='my-l-list'>
+        <view class='moneyname'>我的余额</view>
+        <view class='wdye'>{{accountMoney}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='mydd'>
+    <view class='mycom-title'>我的订单</view>
+    <view class='myddlist'>
+      <view class='myddlist-page' bindtap="sydd">
+        <image class='ddimg' src='https://img.jlqizutang.com/sydd.png'></image>
+        <view class='ddname'>试用订单</view>
+      </view>
+      <view class='myddlist-page' bindtap="fwdd">
+        <image class='ddimg' src='https://img.jlqizutang.com/fwdd.png'></image>
+        <view class='ddname'>服务订单</view>
+      </view>
+      <view class='myddlist-page' bindtap='go'>
+        <image class='ddimg' src='https://img.jlqizutang.com/spdd.png'></image>
+        <view class='ddname'>商品订单</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='mydd' hidden="{{show1}}">
+    <view class='mycom-title'>我的服务站</view>
+    <view class='myddlist'>
+      <view class='myddlist-page' bindtap='fwzwh'>
+        <image class='ddimg' src='https://img.jlqizutang.com/fwzwh.png'></image>
+        <view class='ddname'>服务站维护</view>
+      </view>
+      <view class='myddlist-page' bindtap='fwddcx'>
+        <image class='ddimg' src='https://img.jlqizutang.com/fwddcx.png'></image>
+        <view class='ddname'>服务订单查询</view>
+      </view>
+      <view class='myddlist-page' bindtap='syddcx'>
+        <image class='ddimg' src='https://img.jlqizutang.com/syddcx.png'></image>
+        <view class='ddname'>试用订单查询</view>
+      </view>
+      <view class='myddlist-page' bindtap='puias'>
+        <image class='ddimg' src='https://img.jlqizutang.com/puias.png'></image>
+        <view class='ddname'>确认自提</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='mydd'>
+    <view class='mycom-title'>我的设置</view>
+    <view class='szlist' bindtap='applicationFor'>
+      <image class='szimg' src='https://img.jlqizutang.com/applicationfor_pic.png'></image>
+      <view class='szname'>合作申请</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='wdtg'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz11.png'></image>
+      <view class='szname'>我的推广</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='myyhq'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz12.png'></image>
+      <view class='szname'>我的优惠券</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='mytx'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz17.png'></image>
+      <view class='szname'>我的提现</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='dzgl'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz13.png'></image>
+      <view class='szname'>收货地址</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+
+    <view class='szlist' bindtap='skzh'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz14.png'></image>
+      <view class='szname'>收款账号</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='yxck'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz15.png'></image>
+      <view class='szname'>意向查看</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+    <view class='szlist' bindtap='click'>
+      <image class='szimg' src='https://img.jlqizutang.com/sz16.png'></image>
+      <view class='szname'>联系我们</view>
+      <image class='szimgr' src='https://img.jlqizutang.com/szright.png'></image>
+    </view>
+
+  </view>
+  <view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="hqxxpage">
+      <view class="hqxxone">
+        <view class="hqxxtx">
+          <image src="https://img.jlqizutang.com/logo.png" class="hqxxtximg"></image>
+          <view class="hqxxtitle">欢迎来到七足堂</view>
+        </view>
+        <view class="xx1">为提供更优质的服务，七足堂需要获取以下信息：</view>
+        <view class="xx2">你的公开信息（昵称，头像等）</view>
+      </view>
+      <view class="hqxxtwo">
+        <button open-type="getUserInfo" class="hqxxbtn" hover-class='none' bindgetuserinfo="getUserInfoFun">确定</button>
+
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+
+
+<view class='kfdhbg' hidden="{{hiddenName}}">
+  <view class='kfdh'>
+    <view class='kftop'>
+      <view class='dhtitle'>客服电话
+        <image src='https://img.jlqizutang.com/close.png' bindtap="click" style="width:30rpx;height:30rpx;float:right"></image>
+      </view>
+      <view class='fwtime'>
+        <image src='https://img.jlqizutang.com/wfzsj.png' class='fwtimeimg'></image>
+        <text>服务时间：9:00-17:00</text>
+      </view>
+      <view class='dhpage' bindtap="tel">0431-82705666</view>
+    </view>
+    <view class='kfbtn' bindtap='tel'>立即联系</view>
+  </view>
+</view>
+
+<view class='kfdhbg' hidden="{{hiddenPic}}">
+  <view class='kfdh' style="margin: 300rpx auto;">
+    <view class='kftop' style="height:530rpx;">
+      <view class='dhtitle'>
+        <image src='https://img.jlqizutang.com/close.png' bindtap='sharecode' style="width:30rpx;height:30rpx;float:right"></image>
+      </view>
+      <view class='dhpage' bindtap="save">
+        <image src='{{invitationOne}}' style="width:400rpx;height:400rpx;"></image>
+      </view>
+      <view class='dhpage' style="font-size:30rpx;line-height:30rpx">我的分享码（点击分享码下载）</view>
+    </view>
+
+  </view>
+
+</view>

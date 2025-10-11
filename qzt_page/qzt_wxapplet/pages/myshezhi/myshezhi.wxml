@@ -1,0 +1,66 @@
+<!--pages/myshezhi/myshezhi.wxml-->
+<view class='mysz'>
+
+  <view class='myszpage'>
+    <view class='one'>
+      <view class='left'>头像</view>
+      <view class='right' ontap="changeImg">
+        <image src='{{userImg}}' class='userimg'></image>
+        <image src='https://img.jlqizutang.com/szright.png' class='rightimg' ></image>
+      </view>
+    </view>
+
+    <view class='two'>
+      <view class='twolist'>
+        <view class='left'>分享ID</view>
+        <view class='right'>
+          <text>{{userId}}</text>          
+        </view>
+      </view>
+      <view class='twolist'  bindtap='szmobile'>
+        <view class='left'>手机号</view>
+        <view class='right'>
+          <text>{{mobile}}</text>
+          <image src='https://img.jlqizutang.com/szright.png' class='rightimg'></image>
+        </view>
+      </view>
+      <view class='twolist' >
+        <view class='left'>微信名称</view>
+        <view class='right'>
+          <text>{{wxName}}</text>
+          <!-- <image src='https://img.jlqizutang.com/brush.png' class='rightimg' bindgetuserinfo="getUserInfoFun"></image> -->
+          <button open-type="getUserInfo" class="hqxxbtn" hover-class='none' bindgetuserinfo="getUserInfoFun" plain='true' style="padding:0;border:none"><image src='https://img.jlqizutang.com/brush2.png' class='rightimg'></image></button>
+        </view>
+      </view>
+      <view class='twolist' hidden="{{shareShow}}" >
+        <view class='left'>我的推荐人</view>
+        <view class='right'>
+          <text class='textcss'>{{referrerFirst}}</text>         
+        </view>
+      </view>
+      <view class='twolist'  hidden="{{!shareShow}}"  bindtap='wdtjr'>
+        <view class='left'>我的推荐人</view>
+        <view class='right'>
+          <text>添加推荐人</text>
+          <image src='https://img.jlqizutang.com/szright.png' class='rightimg'></image>
+        </view>
+      </view>
+    </view>
+    <view class='two'>
+      <view class='twolist' bindtap='xgmm' hidden="{{!pwdShow}}">
+        <view class='left'>修改支付密码</view>
+        <view class='right'>
+          <image src='https://img.jlqizutang.com/szright.png' class='rightimg'></image>
+        </view>
+      </view>      
+    </view>
+    <view class='two'>
+      <view class='twolist' bindtap='szmm' hidden="{{pwdShow}}">
+        <view class='left'>设置支付密码</view>
+        <view class='right'>
+          <image src='https://img.jlqizutang.com/szright.png' class='rightimg'></image>
+        </view>
+      </view>      
+    </view>
+  </view>
+</view>

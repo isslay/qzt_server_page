@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.ErpGoodsInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.ErpGoodsInfo">
+        <id column="org_id" property="orgId" />
+        <result column="create_time" property="createTime" />
+        <result column="goods_id" property="goodsId" />
+        <result column="goods_code" property="goodsCode" />
+        <result column="goods_name" property="goodsName" />
+        <result column="logogram" property="logogram" />
+        <result column="goods_spec" property="goodsSpec" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="bzgg" property="bzgg" />
+        <result column="bar_code" property="barCode" />
+        <result column="brand_name" property="brandName" />
+        <result column="chem_name" property="chemName" />
+        <result column="stand_code" property="standCode" />
+        <result column="unit" property="unit" />
+        <result column="general_name" property="generalName" />
+        <result column="life_type" property="lifeType" />
+        <result column="day_unit" property="dayUnit" />
+        <result column="in_effect_day" property="inEffectDay" />
+        <result column="reg_mark" property="regMark" />
+        <result column="reg_mark_validity" property="regMarkValidity" />
+        <result column="place" property="place" />
+        <result column="goods_lm" property="goodsLm" />
+        <result column="spfl_a" property="spflA" />
+        <result column="spfl_b" property="spflB" />
+        <result column="spfl_c" property="spflC" />
+        <result column="spfl_d" property="spflD" />
+        <result column="entrust_name" property="entrustName" />
+        <result column="entrust_address" property="entrustAddress" />
+        <result column="scdz" property="scdz" />
+        <result column="new_rep_origin" property="newRepOrigin" />
+        <result column="san_zz" property="sanZz" />
+        <result column="swfl_code" property="swflCode" />
+        <result column="ckbs" property="ckbs" />
+        <result column="dwbs" property="dwbs" />
+        <result column="yyfl" property="yyfl" />
+        <result column="yyfl_b" property="yyflB" />
+        <result column="yyfl_c" property="yyflC" />
+        <result column="yyfl_d" property="yyflD" />
+        <result column="jgfl" property="jgfl" />
+        <result column="csspfl" property="csspfl" />
+        <result column="reg_dates" property="regDates" />
+        <result column="kk_ybmc" property="kkYbmc" />
+        <result column="med_ins_code" property="medInsCode" />
+        <result column="med_ins_name" property="medInsName" />
+        <result column="yblb" property="yblb" />
+        <result column="pur_tax_p" property="purTaxP" />
+        <result column="in_tax_rate" property="inTaxRate" />
+        <result column="pur_p" property="purP" />
+        <result column="bidd_price" property="biddPrice" />
+        <result column="sale_tax_p" property="saleTaxP" />
+        <result column="out_tax_rate" property="outTaxRate" />
+        <result column="sale_p" property="saleP" />
+        <result column="retail_p" property="retailP" />
+        <result column="max_retail_p" property="maxRetailP" />
+        <result column="mem_price" property="memPrice" />
+        <result column="creator_name" property="creatorName" />
+        <result column="last_stf_name" property="lastStfName" />
+        <result column="last_rev_time" property="lastRevTime" />
+        <result column="mi_dosage_unit" property="miDosageUnit" />
+        <result column="mi_dosage" property="miDosage" />
+        <result column="mi_conversion" property="miConversion" />
+        <result column="mi_min_package" property="miMinPackage" />
+        <result column="mi_days" property="miDays" />
+        <result column="mi_how_code" property="miHowCode" />
+        <result column="mi_dose" property="miDose" />
+        <result column="last_pull_date" property="lastPullDate" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM erp_goods_info
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findAllErpGoodsInfo" resultType="map" parameterType="map">
+        SELECT org_id as orgId,goods_id as goodsId,goods_name as goodsName,goods_spec as goodsSpec,retail_p as retailP,ph_short_name as bzgg FROM v_dgm_erp_goods
+        <where>
+            <if test="goodsName != null and goodsName != ''">
+                AND goods_name like CONCAT('%','${goodsName}','%')
+            </if>
+        </where>
+        ORDER BY org_id,goods_id
+    </select>
+
+</mapper>

@@ -1,0 +1,88 @@
+<!--pages/xzskzh/xzskzh.wxml-->
+<view class='skzh'>
+  <view class='title'>
+    <view class='titleSel' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'textac' : 'text'}}">银行卡</text>
+      <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+    <view class='titleSel' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'textac' : 'text'}}">支付宝</text>
+      <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+    <swiper-item class='swiper' class='swiper'>
+      <view class='pagetop'>
+        <!-- 卡片列表 -->
+        <radio-group class="radio" name="radio" bindchange="radioChange">
+
+          <view class='barlist' bindtap="selectBank" wx:for-items="{{bankList}}" wx:for-item="bank" wx:for-index="index" data-id="{{bank.id}}" data-cardNum="{{bank.cardNum}}" data-bankName="{{bank.bankName}}">
+            <label class='lable'>
+              <view class='raido'>
+                <radio class="radio" value="{{bank.id}}" data-cardNum="{{bank.cardNum}}" data-bankName="{{bank.bankName}}" checked="" color='#fff'>
+                </radio>
+              </view>
+              <view class='raidopage'>
+                <view class='cardtop'>
+                  <view class='nameone'>
+                    <view class='cardname'>{{bank.realName}}</view>
+                    <view class='cardnametwo'>{{bank.bindingTel}}</view>
+                  </view>
+                  <view class='namethree'>
+                    <image src='{{bank.bankPic}}' class='bankimg'></image>
+                  </view>
+                </view>
+                <view class='cardteo'>
+                  <view class='cardhm xing'>****</view>
+                  <view class='cardhm xing'>****</view>
+                  <view class='cardhm xing'>****</view>
+                  <view class='cardhm'>{{bank.cardNum}}</view>
+                </view>
+                <view class='moren' wx:if="{{bank.isDefault=='Y'}}">默认</view>
+              </view>
+            </label>
+          </view>
+        </radio-group>
+        <!-- 卡片列表end -->
+
+      </view>
+      <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+    </swiper-item>
+    <swiper-item class='swiper'>
+      <view class='pagetop'>
+        <!-- 卡片列表 -->
+        <radio-group class="radio" name="radio" bindchange="radioChange">
+          <view class='ailpay_barlist' bindtap="selectBank" wx:for-items="{{aliPayList}}" wx:for-item="aliPay" wx:for-index="index" data-id="{{aliPay.id}}" data-cardNum="{{aliPay.cardNum}}" data-bankName="{{aliPay.bankName}}">
+            <label class='lable'>
+              <view class='raido'>
+                <radio class="radio" value="{{aliPay.id}}" data-cardNum="{{aliPay.cardNum}}" data-bankName="{{aliPay.bankName}}" color='#fff'>
+                </radio>
+              </view>
+              <view class='raidopage'>
+                <view class='cardtop'>
+                  <view class='ailpay_nameone'>
+                    <view class='cardname'>{{aliPay.realName}}</view>
+                    <view class='cardnametwo'>{{aliPay.bindingTel}}</view>
+                  </view>
+                  <view class='ailpay_namethree'>
+                    <image src='{{aliPay.bankPic}}' class='alipayimg'></image>
+                  </view>
+                </view>
+                <view class='moren' wx:if="{{aliPay.isDefault=='Y'}}">默认</view>
+              </view>
+            </label>
+          </view>
+        </radio-group>
+        <!-- 卡片列表end -->
+      </view>
+      <image class="zwsjimg" hidden="{{dataShow[0]}}" src="https://img.jlqizutang.com/nodata1.png"></image>
+    </swiper-item>
+  </swiper>
+  <view class='pagebtn'>
+    <view class='tj' bindtap='addaddShroffAccount'>添加收款账号</view>
+    <view class='qd' bindtap='affirm'>确定</view>
+  </view>
+
+</view>

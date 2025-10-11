@@ -1,0 +1,41 @@
+<!--pages/fwzxq/fwzxq.wxml-->
+<view class='fwzxq'>
+  <view class='fwzpage'>
+    <view class="page-body">
+      <view class="page-section page-section-spacing swiper">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+          <block wx:for="{{background}}" wx:key="*this">
+            <swiper-item>
+              <image class='sliimg' src='{{item}}'></image>
+
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <view class='fwzxx'>
+      <view class='fwzname'>{{busName}}</view>
+      <view class='xxlist'>
+        <image class='xximg' src='https://img.jlqizutang.com/wfzdh.png'></image>
+        <view class='xxname'>电话：{{busTel}}</view>
+      </view>
+      <view class='xxlist'>
+        <image class='xximg' src='https://img.jlqizutang.com/wfzdz.png'></image>
+        <view class='xxname'>{{busAddress}}</view>
+      </view>
+      <view class='xxlist'>
+        <image class='xximg' src='https://img.jlqizutang.com/wfzsj.png'></image>
+        <view class='xxname'>{{startEndTime}}</view>
+      </view>
+    </view>
+
+    <view class='wfzxxjs'>
+      <view class='fwzjs'>详细介绍</view>
+      <view class='jspage'>{{busDetail}}</view>
+    </view>
+  </view>
+  <view class='fwzbut'>
+    <view bindtap='go'>申请试用</view>
+    <view bindtap='go1'>申请服务</view>
+  </view>
+</view>

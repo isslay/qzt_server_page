@@ -1,0 +1,6 @@
+<!--component/region_plugin/region_plugin.wxml-->
+<picker mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" bindchange="selectAreaChange" bindcolumnchange="selectAreaColumnChange">
+  <view class="picker">
+    <input type="text" disabled="true" value="{{proCityArea}}" placeholder="请选择所在省，市，区县" />
+  </view>
+</picker>

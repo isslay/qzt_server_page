@@ -1,0 +1,52 @@
+<!--pages/fwddxq/fwddxq.wxml-->
+<view class="ddxq">
+<view class="top">
+ <image class="topimg" src="https://img.jlqizutang.com/wancheng.png"></image>
+  {{status}}
+</view>
+ <view class="xqpage">
+ <view class="syddxx">服务项目：<view class='fwxm'>{{service}}</view></view>
+ <view class="syddxx">疾病类型：<view class='fwxm'>{{disease}}</view></view>
+   <view class="ul">
+      <view class="li">
+            <view class="liname">申请人：</view>
+            <view class="lipage">{{name}}</view>
+      </view>
+      <view class="li">
+            <view class="liname">联系电话：</view>
+            <view class="lipage">{{tel}}</view>
+      </view>
+      <view class="li">
+            <view class="liname">所属服务站：</view>
+            <view class="lipage">{{station}}</view>
+      </view>
+   </view>  
+ </view>
+<view class="xqlast">
+   <view class="syddxx">订单信息：</view>
+   <view class="lastlist">
+      <view class="lasrname">申请服务时间：</view>
+      <view class="latpage">{{beginTime}}</view>
+   </view>
+   <!-- <view class="lastlist">
+      <view class="lasrname">开始服务时间：</view>
+      <view class="latpage">2019-05-22 15：15：15</view>
+   </view> -->
+   <view class="lastlist">
+      <view class="lasrname">订单完成时间：</view>
+      <view class="latpage">{{endTime}}</view>
+   </view>
+
+         <!-- <view class="spbtn">
+            <view class="buttwo">取消</view>
+          </view> -->
+
+
+</view>
+
+
+
+
+
+</view>
+

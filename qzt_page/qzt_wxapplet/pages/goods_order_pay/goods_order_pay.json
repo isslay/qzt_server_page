@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "立即支付",
+  "usingComponents": {
+    "region": "../component/region_plugin/region_plugin",
+    "paypwd": "../component/pay_pwd/pay_pwd"
+  }
+}

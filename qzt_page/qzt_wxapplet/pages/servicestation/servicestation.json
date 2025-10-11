@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "服务站",
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

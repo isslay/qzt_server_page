@@ -1,0 +1,59 @@
+<!--pages/myqb/myqb.wxml-->
+<view class='myqb'>
+
+  <view class='myye' ontap='myAccoutLog'>
+    <image src='https://img.jlqizutang.com/myye.png' class='myyeimg'></image>
+    <view class='yename'>我的余额</view>
+    <view class='yepage'>¥{{accountMoney}}</view>
+    <image src='https://img.jlqizutang.com/szright.png' class='rimg'></image>
+  </view>
+
+  <view class='tgyj' ontap='tAccountLog'>
+    <view class='tgyjtop'>
+      <image src='https://img.jlqizutang.com/tgyj.png' class='myyeimg'></image>
+      <view class='yename'>推广佣金</view>
+      <view class='yepage'>{{tMoney}}</view>
+      <image src='https://img.jlqizutang.com/szright.png' class='trimg'></image>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/yjh.png' class='jhimg'></image>
+      <view class='jhpage'>已激活：{{tChangeMoneyMess}}</view>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/yjh.png' class='jhimg'></image>
+      <view class='jhpage'>已赠送：{{tGiveMoneyMess}}</view>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/wjh.png' class='jhimg'></image>
+      <view class='jhpage'>待激活：{{tHaveMoneyMess}}</view>
+    </view>
+
+  </view>
+
+
+  <view class='tgyj' ontap='sAccountLog'>
+    <view class='tgyjtop'>
+      <image src='https://img.jlqizutang.com/fxyj.png' class='myyeimg'></image>
+      <view class='yename'>分享佣金</view>
+      <view class='yepage'>{{sMoney}}</view>
+      <image src='https://img.jlqizutang.com/szright.png' class='trimg'></image>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/jrd.png' class='jhimg'></image>
+      <view class='jhpage'>待激活：{{sHaveMoneyMess}}</view>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/jrd.png' class='jhimg'></image>
+      <view class='jhpage'>已激活：{{sChangeMoneyMess}}</view>
+    </view>
+    <view class='jh'>
+      <image src='https://img.jlqizutang.com/jrd.png' class='jhimg'></image>
+      <view class='jhpage'>已过期：{{sPassMoneyMess}}</view>
+    </view>
+
+  </view>
+
+  <view class='qbbtn' bindtap='sqxt'>提现申请</view>
+
+
+</view>
