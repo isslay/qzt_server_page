@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztUserRegMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztUserReg">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="type" property="type"/>
+        <result column="parent_user_id" property="parentUserId"/>
+        <result column="reg_user_id" property="regUserId"/>
+        <result column="num" property="num"/>
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user_reg
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="regUserId != null and regUserId != ''">
+                AND reg_user_id = #{regUserId}
+            </if>
+            <if test="type != null and type != ''">
+                AND type = #{type}
+            </if>
+        </where>
+        ORDER BY num asc
+    </select>
+
+    <!--批量新增-->
+    <insert id="saveUserRegAll" parameterType="java.util.List">
+        insert into dgm_qzt_user_reg (create_time, parent_user_id, reg_user_id, num, type, create_by, update_time, update_by) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.createTime}, #{item.parentUserId}, #{item.regUserId}, #{item.num}, #{item.type}, #{item.createBy}, #{item.updateTime}, #{item.updateBy} )
+        </foreach>
+    </insert>
+
+    <!-- 根据父级子级type查询 -->
+    <select id="queryByPuserIdAndRuserId" resultType="java.lang.Long" parameterType="com.qzt.bus.model.QztUserReg">
+        SELECT COUNT(0) FROM dgm_qzt_user_reg
+        WHERE
+        ((parent_user_id = #{parentUserId} AND reg_user_id = #{regUserId})
+        OR (parent_user_id = #{regUserId} AND reg_user_id = #{parentUserId}))
+        AND type = #{type};
+    </select>
+
+    <!--创建关系树-->
+    <insert id="createRelationshipTree" parameterType="com.qzt.bus.model.QztUserReg">
+        INSERT INTO dgm_qzt_user_reg ( type, parent_user_id, reg_user_id, num, create_by, create_time, update_by, update_time)
+        SELECT
+        <choose>
+            <when test="progressType == '01'">
+                #{type}, parent_user_id, #{regUserId}, num + 1, #{regUserId}, #{createTime}, #{regUserId}, #{createTime}
+            </when>
+            <when test="progressType == '03'">
+                #{type}, #{parentUserId}, reg_user_id, num + 1, #{regUserId}, #{createTime}, #{regUserId}, #{createTime}
+            </when>
+        </choose>
+        FROM
+        dgm_qzt_user_reg
+        <where>
+            <choose>
+                <when test="progressType == '01'">
+                    reg_user_id = #{parentUserId}
+                    AND parent_user_id != #{parentUserId}
+                    AND reg_user_id != #{regUserId}
+                    AND parent_user_id != #{regUserId}
+                </when>
+                <when test="progressType == '03'">
+                    reg_user_id != #{regUserId}
+                    AND parent_user_id = #{regUserId}
+                    AND reg_user_id != #{parentUserId}
+                    AND parent_user_id != #{parentUserId}
+                </when>
+                <otherwise>
+                    AND id_ IS NULL
+                </otherwise>
+            </choose>
+            AND type = #{type};
+        </where>
+    </insert>
+
+
+</mapper>

@@ -86,5 +86,7 @@
     <file url="file://$PROJECT_DIR$/qzt-ump/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeper-embedded/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeper-embedded/src/main/resources" charset="UTF-8" />
   </component>
 </project>

@@ -3,11 +3,13 @@ com\qzt\bus\model\QztUser.class
 com\qzt\bus\model\DgmGoodsCoupon.class
 com\qzt\ump\model\SysDicSublist.class
 com\qzt\bus\model\QztPageBanner.class
+com\qzt\bus\model\DgmReduceIntegralDetail.class
 com\qzt\bus\model\QztApplyTryorder.class
 com\qzt\bus\model\QztServiceOrder.class
 com\qzt\Pagination.class
 com\qzt\ump\model\SysUserRoleModel.class
 com\qzt\ump\model\SysArea.class
+com\qzt\bus\model\DgmIntegralRecord.class
 com\qzt\bus\model\QztUserAddress.class
 com\qzt\ump\model\AppVersion.class
 com\qzt\bus\model\QztOrderCommen.class
@@ -15,6 +17,7 @@ com\qzt\bus\model\VErpOrderDetail.class
 com\qzt\bus\model\QztRecharge.class
 com\qzt\bus\model\QztAccountRelog.class
 com\qzt\bus\model\QztApplyBusorder.class
+com\qzt\bus\model\DgmCouponIntegral.class
 com\qzt\bus\model\DgmZxtClass.class
 com\qzt\bus\model\QztWithdraw.class
 com\qzt\bus\model\QztBusiness.class
@@ -46,6 +49,7 @@ com\qzt\bus\model\QztResource.class
 com\qzt\bus\model\QztTopUpRecord.class
 com\qzt\bus\model\DgmCoupon.class
 com\qzt\bus\model\QztHealthInfo.class
+com\qzt\bus\model\DgmUsableIntegral.class
 com\qzt\bus\model\QztBusLog.class
 com\qzt\ump\model\SysMenuModel.class
 com\qzt\bus\model\QztBusPic.class

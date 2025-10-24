@@ -1,0 +1,986 @@
+
+D:\git_local\qzt_server_page>set ERROR_CODE=0 
+
+D:\git_local\qzt_server_page>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+D:\git_local\qzt_server_page>set JAVA_HOME=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot 
+
+D:\git_local\qzt_server_page>set JAVA_EXE=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe 
+
+D:\git_local\qzt_server_page>if exist "D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe" goto init 
+
+D:\git_local\qzt_server_page>set MAVEN_PROJECTBASEDIR= 
+
+D:\git_local\qzt_server_page>IF NOT "" == "" goto endDetectBaseDir 
+
+D:\git_local\qzt_server_page>set EXEC_DIR=D:\git_local\qzt_server_page 
+
+D:\git_local\qzt_server_page>set WDIR=D:\git_local\qzt_server_page 
+
+D:\git_local\qzt_server_page>IF EXIST "D:\git_local\qzt_server_page"\.mvn goto baseDirFound 
+
+D:\git_local\qzt_server_page>set MAVEN_PROJECTBASEDIR=D:\git_local\qzt_server_page 
+
+D:\git_local\qzt_server_page>cd "D:\git_local\qzt_server_page" 
+
+D:\git_local\qzt_server_page>goto endDetectBaseDir 
+
+D:\git_local\qzt_server_page>IF NOT EXIST "D:\git_local\qzt_server_page\.mvn\jvm.config" goto endReadAdditionalConfig 
+
+D:\git_local\qzt_server_page>set WRAPPER_JAR="D:\git_local\qzt_server_page\.mvn\wrapper\maven-wrapper.jar" 
+
+D:\git_local\qzt_server_page>set WRAPPER_PROPERTIES="D:\git_local\qzt_server_page\.mvn\wrapper\maven-wrapper.properties" 
+
+D:\git_local\qzt_server_page>if exist "D:\git_local\qzt_server_page\.mvn\wrapper\maven-wrapper.jar" goto hasWrapperJar 
+
+D:\git_local\qzt_server_page>set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain 
+
+D:\git_local\qzt_server_page>"D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe" -Dmaven.multiModuleProjectDirectory="D:\git_local\qzt_server_page"    -classpath "D:\git_local\qzt_server_page\.mvn\wrapper\maven-wrapper.jar" org.apache.maven.wrapper.MavenWrapperMain -s D:\git_local\qzt_server_page\.mvn\settings.xml -Dmaven.repo.local=D:\git_local\qzt_server_page\.m2 -T 1C -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true clean install -V 
+Apache Maven 3.8.8 (4c87b05d9aedce574290d1acc98575ed5eb6cd39)
+Maven home: C:\Users\isslay\.m2\wrapper\dists\apache-maven-3.8.8-bin\67c30f74\apache-maven-3.8.8
+Java version: 1.8.0_462, vendor: Temurin, runtime: D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\jre
+Default locale: zh_CN, platform encoding: GBK
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-common-tools:jar:1.0.0
+[WARNING] 'dependencies.dependency.version' for com.github.qcloudsms:qcloudsms:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 42, column 22
+[WARNING] 'dependencies.dependency.scope' for net.sf.json-lib:json-lib:jar:jdk15 must be one of [provided, compile, runtime, test, system] but is 'gradle-plugin'. @ line 86, column 20
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-common-pay:jar:1.0.0
+[WARNING] 'dependencies.dependency.version' for org.springframework:spring-context:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 40, column 22
+[WARNING] 'dependencies.dependency.version' for org.springframework.boot:spring-boot:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 45, column 22
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot:jar -> version RELEASE vs ${spring.boot.version} @ line 95, column 21
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework:spring-context:jar -> version RELEASE vs 5.3.20 @ line 105, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-common-oss:jar:1.0.0
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-common-trans:jar:1.0.0
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 15, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-ump-rpc-service:jar:1.0.0
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.qzt:qzt-common-mq:jar -> duplicate declaration of version 1.0.0 @ line 77, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-ump-server-scheduled:jar:1.0.0
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.qzt:qzt-common-mq:jar -> duplicate declaration of version 1.0.0 @ line 142, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.qzt:qzt-ump-server-web:jar:1.0.0
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.google.zxing:core:jar -> version 3.2.0 vs 3.0.1 @ line 154, column 21
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.qzt:qzt-common-mq:jar -> duplicate declaration of version 1.0.0 @ line 168, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] qzt                                                                [pom]
+[INFO] qzt-common                                                         [pom]
+[INFO] qzt-common-core                                                    [jar]
+[INFO] qzt-common-http                                                    [jar]
+[INFO] qzt-common-web                                                     [jar]
+[INFO] qzt-common-redis                                                   [jar]
+[INFO] qzt-common-tools                                                   [jar]
+[INFO] qzt-common-db                                                      [jar]
+[INFO] qzt-common-mdb                                                     [jar]
+[INFO] qzt-common-mq                                                      [jar]
+[INFO] qzt-common-log                                                     [jar]
+[INFO] qzt-common-pay                                                     [jar]
+[INFO] qzt-common-dsession                                                [jar]
+[INFO] qzt-common-oss                                                     [jar]
+[INFO] qzt-common-trans                                                   [jar]
+[INFO] qzt-ump                                                            [pom]
+[INFO] qzt-ump-common                                                     [jar]
+[INFO] qzt-ump-model                                                      [jar]
+[INFO] qzt-ump-dao                                                        [jar]
+[INFO] qzt-ump-rpc-api                                                    [jar]
+[INFO] qzt-ump-rpc-service                                                [jar]
+[INFO] qzt-ump-server-back                                                [jar]
+[INFO] qzt-ump-server-scheduled                                           [jar]
+[INFO] qzt-ump-server-web                                                 [jar]
+[INFO] qzt-ump-mq                                                         [jar]
+[INFO] qzt-ump-generator                                                  [jar]
+[INFO] 
+[INFO] Using the MultiThreadedBuilder implementation with a thread count of 20
+[INFO] 
+[INFO] ----------------------------< com.qzt:qzt >-----------------------------
+[INFO] Building qzt 1.0.0                                                [1/26]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt ---
+[INFO] Installing D:\git_local\qzt_server_page\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt\1.0.0\qzt-1.0.0.pom
+[INFO] 
+[INFO] 
+[INFO] -------------------------< com.qzt:qzt-common >-------------------------
+[INFO] --------------------------< com.qzt:qzt-ump >---------------------------
+[INFO] Building qzt-common 1.0.0                                         [2/26]
+[INFO] Building qzt-ump 1.0.0                                            [3/26]
+[INFO]   from qzt-common\pom.xml
+[INFO]   from qzt-ump\pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common ---
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common\1.0.0\qzt-common-1.0.0.pom
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump\1.0.0\qzt-ump-1.0.0.pom
+[INFO] 
+[INFO] 
+[INFO] 
+[INFO] 
+[INFO] 
+[INFO] ----------------------< com.qzt:qzt-common-trans >----------------------
+[INFO] 
+[INFO] --------------------< com.qzt:qzt-common-dsession >---------------------
+[INFO] -------------------------< com.qzt:qzt-ump-mq >-------------------------
+[INFO] ----------------------< com.qzt:qzt-common-core >-----------------------
+[INFO] -----------------------< com.qzt:qzt-common-mq >------------------------
+[INFO] Building qzt-common-core 1.0.0                                    [7/26]
+[INFO] Building qzt-ump-mq 1.0.0                                         [6/26]
+[INFO]   from qzt-common\qzt-common-core\pom.xml
+[INFO] Building qzt-common-dsession 1.0.0                                [5/26]
+[INFO] ----------------------< com.qzt:qzt-common-http >-----------------------
+[INFO] Building qzt-common-trans 1.0.0                                   [4/26]
+[INFO]   from qzt-common\qzt-common-dsession\pom.xml
+[INFO] Building qzt-common-http 1.0.0                                    [9/26]
+[INFO]   from qzt-ump\qzt-ump-mq\pom.xml
+[INFO]   from qzt-common\qzt-common-http\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Building qzt-common-mq 1.0.0                                      [8/26]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]   from qzt-common\qzt-common-mq\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]   from qzt-common\qzt-common-trans\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-mq ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-mq ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-http ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-trans ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-dsession ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-mq ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-http\target
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\target
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\target
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-http ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\src\main\resources
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-http\src\main\resources
+[INFO] 
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-http ---
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-ump-mq ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-dsession ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-mq ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-trans ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-core\target
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\src\main\resources
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] 
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\src\main\resources
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-mq ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-dsession ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-http ---
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-common-trans ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-http\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-http ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-http ---
+[INFO] Copying 1 resource
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-mq ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\target\classes
+[INFO] Compiling 8 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\target\classes
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\target\classes
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-ump-mq ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-mq ---
+[INFO] Tests are skipped.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-http ---
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-mq ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-core\target\classes
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\target\qzt-ump-mq-1.0.0.jar
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-http\target\qzt-common-http-1.0.0.jar
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-http ---
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-mq ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-http\target\qzt-common-http-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-http\1.0.0\qzt-common-http-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\target\qzt-ump-mq-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-mq\1.0.0\qzt-ump-mq-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-mq\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-mq\1.0.0\qzt-ump-mq-1.0.0.pom
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-http\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-http\1.0.0\qzt-common-http-1.0.0.pom
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-dsession ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-dsession ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-dsession ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-dsession ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\target\qzt-common-dsession-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-dsession ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\target\qzt-common-dsession-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-dsession\1.0.0\qzt-common-dsession-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-dsession\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-dsession\1.0.0\qzt-common-dsession-1.0.0.pom
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-trans/src/main/java/com/qzt/common/swjtu/http/AbstractHttpAttribute.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\src\main\java\com\qzt\common\swjtu\http\AbstractHttpAttribute.java使用了未经检查或不安全的操作。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-trans/src/main/java/com/qzt/common/swjtu/http/AbstractHttpAttribute.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-trans ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-common-trans ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-trans ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-trans ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\target\qzt-common-trans-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-trans ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\target\qzt-common-trans-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-trans\1.0.0\qzt-common-trans-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-trans\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-trans\1.0.0\qzt-common-trans-1.0.0.pom
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-mq/src/main/java/com/qzt/common/mq/pushMq/MqMess.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\src\main\java\com\qzt\common\mq\pushMq\MqMess.java使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-mq/src/main/java/com/qzt/common/mq/pushMq/MqMess.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-mq ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-mq ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-mq ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-mq ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\target\qzt-common-mq-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-mq ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\target\qzt-common-mq-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-mq\1.0.0\qzt-common-mq-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-mq\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-mq\1.0.0\qzt-common-mq-1.0.0.pom
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-core/src/main/java/com/qzt/common/core/model/PageModel.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-core\src\main\java\com\qzt\common\core\model\PageModel.java使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-core/src/main/java/com/qzt/common/core/model/PageModel.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-core\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-core ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-core\target\qzt-common-core-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-core ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-core\target\qzt-common-core-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-core\1.0.0\qzt-common-core-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-core\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-core\1.0.0\qzt-common-core-1.0.0.pom
+[INFO] 
+[INFO] -----------------------< com.qzt:qzt-common-web >-----------------------
+[INFO] Building qzt-common-web 1.0.0                                    [10/26]
+[INFO] 
+[INFO] 
+[INFO] -----------------------< com.qzt:qzt-common-db >------------------------
+[INFO]   from qzt-common\qzt-common-web\pom.xml
+[INFO] 
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Building qzt-common-db 1.0.0                                     [11/26]
+[INFO] -----------------------< com.qzt:qzt-common-oss >-----------------------
+[INFO]   from qzt-common\qzt-common-db\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] -----------------------< com.qzt:qzt-common-log >-----------------------
+[INFO] Building qzt-common-oss 1.0.0                                    [12/26]
+[INFO] Building qzt-common-log 1.0.0                                    [13/26]
+[INFO]   from qzt-common\qzt-common-log\pom.xml
+[INFO]   from qzt-common\qzt-common-oss\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-oss ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\target
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-log ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-log\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-oss ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-log ---
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-common-oss ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-log\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-log ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-db ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-db\target
+[INFO] Changes detected - recompiling the module!
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\target\classes
+[INFO] Compiling 3 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-log\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-db\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-common-db ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to D:\git_local\qzt_server_page\qzt-common\qzt-common-db\target\classes
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-web ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-web\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-web\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-web\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-db ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-db\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-common-db ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-db ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-db ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-db\target\qzt-common-db-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-db ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-db\target\qzt-common-db-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-db\1.0.0\qzt-common-db-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-db\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-db\1.0.0\qzt-common-db-1.0.0.pom
+[INFO] 
+[INFO] -----------------------< com.qzt:qzt-common-mdb >-----------------------
+[INFO] Building qzt-common-mdb 1.0.0                                    [14/26]
+[INFO]   from qzt-common\qzt-common-mdb\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-mdb ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-mdb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-mdb ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\target\classes
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-oss/src/main/java/com/qzt/common/oss/service/impl/AliCloudStorageServiceImpl.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\src\main\java\com\qzt\common\oss\service\impl\AliCloudStorageServiceImpl.java使用或覆盖了已过时的 API。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-oss/src/main/java/com/qzt/common/oss/service/impl/AliCloudStorageServiceImpl.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-oss ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-common-oss ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-oss ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-oss ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\target\qzt-common-oss-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-oss ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\target\qzt-common-oss-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-oss\1.0.0\qzt-common-oss-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-oss\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-oss\1.0.0\qzt-common-oss-1.0.0.pom
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-log ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-log\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-log ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-log ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-log ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-log\target\qzt-common-log-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-log ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-log\target\qzt-common-log-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-log\1.0.0\qzt-common-log-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-log\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-log\1.0.0\qzt-common-log-1.0.0.pom
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-web/src/main/java/com/qzt/common/web/util/ResultUtil.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-web\src\main\java\com\qzt\common\web\util\ResultUtil.java使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-web/src/main/java/com/qzt/common/web/util/ResultUtil.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-web\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-web ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-web ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-web\target\qzt-common-web-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-web ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-web\target\qzt-common-web-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-web\1.0.0\qzt-common-web-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-web\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-web\1.0.0\qzt-common-web-1.0.0.pom
+[INFO] 
+[INFO] 
+[INFO] ----------------------< com.qzt:qzt-common-redis >----------------------
+[INFO] ---------------------< com.qzt:qzt-ump-generator >----------------------
+[INFO] Building qzt-ump-generator 1.0.0                                 [16/26]
+[INFO] Building qzt-common-redis 1.0.0                                  [15/26]
+[INFO]   from qzt-ump\qzt-ump-generator\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]   from qzt-common\qzt-common-redis\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-mdb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-mdb ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-mdb ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-mdb ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\target\qzt-common-mdb-1.0.0.jar
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-generator ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\target
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-redis ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\target
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-mdb ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\target\qzt-common-mdb-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-mdb\1.0.0\qzt-common-mdb-1.0.0.jar
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-generator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 11 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-redis ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-common-redis ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-generator ---
+[INFO] Compiling 7 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\target\classes
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\target\classes
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-mdb\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-mdb\1.0.0\qzt-common-mdb-1.0.0.pom
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-generator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-generator ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-generator ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-generator ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\target\qzt-ump-generator-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-generator ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\target\qzt-ump-generator-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-generator\1.0.0\qzt-ump-generator-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-generator\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-generator\1.0.0\qzt-ump-generator-1.0.0.pom
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-redis/src/main/java/com/qzt/common/redis/configuration/RedisConfig.java: 某些输入文件使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-common/qzt-common-redis/src/main/java/com/qzt/common/redis/configuration/RedisConfig.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-redis ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-common-redis ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-redis ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-redis ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\target\qzt-common-redis-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-redis ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\target\qzt-common-redis-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-redis\1.0.0\qzt-common-redis-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-redis\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-redis\1.0.0\qzt-common-redis-1.0.0.pom
+[INFO] 
+[INFO] 
+[INFO] ----------------------< com.qzt:qzt-common-tools >----------------------
+[INFO] -----------------------< com.qzt:qzt-ump-common >-----------------------
+[INFO] Building qzt-common-tools 1.0.0                                  [17/26]
+[INFO] Building qzt-ump-common 1.0.0                                    [18/26]
+[INFO]   from qzt-common\qzt-common-tools\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]   from qzt-ump\qzt-ump-common\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-common ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-ump-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\target\classes
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-tools ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-common-tools ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\target\classes
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-tools/src/main/java/com/qzt/common/tools/HttpXmlClient.java: D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\src\main\java\com\qzt\common\tools\HttpXmlClient.java使用或覆盖了已过时的 API。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-tools/src/main/java/com/qzt/common/tools/HttpXmlClient.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-tools/src/main/java/com/qzt/common/tools/DateUtil.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-tools/src/main/java/com/qzt/common/tools/DateUtil.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-common-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-tools ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-tools ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\target\qzt-common-tools-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-tools ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\target\qzt-common-tools-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-tools\1.0.0\qzt-common-tools-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-tools\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-tools\1.0.0\qzt-common-tools-1.0.0.pom
+[INFO] 
+[INFO] -----------------------< com.qzt:qzt-common-pay >-----------------------
+[INFO] Building qzt-common-pay 1.0.0                                    [19/26]
+[INFO]   from qzt-common\qzt-common-pay\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-common-pay ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-common-pay ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-common-pay ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-ump-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-common ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\target\qzt-ump-common-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-common ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\target\qzt-ump-common-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-common\1.0.0\qzt-ump-common-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-common\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-common\1.0.0\qzt-ump-common-1.0.0.pom
+[INFO] 
+[INFO] -----------------------< com.qzt:qzt-ump-model >------------------------
+[INFO] Building qzt-ump-model 1.0.0                                     [20/26]
+[INFO]   from qzt-ump\qzt-ump-model\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-model ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ qzt-ump-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 57 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\target\classes
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[22,16] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[22,16] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[22,16] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[22,16] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[102,9] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[102,36] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[143,9] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/AppletOfWeChatUtil.java:[143,37] sun.misc.BASE64Encoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/WxPayBackTools.java: 某些输入文件使用或覆盖了已过时的 API。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/WxPayBackTools.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/WxPayBackTools.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /D:/git_local/qzt_server_page/qzt-common/qzt-common-pay/src/main/java/com/qzt/common/pay/util/WxPayBackTools.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-common-pay ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-common-pay ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-common-pay ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-common-pay ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\target\qzt-common-pay-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-common-pay ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\target\qzt-common-pay-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-pay\1.0.0\qzt-common-pay-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-common\qzt-common-pay\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-common-pay\1.0.0\qzt-common-pay-1.0.0.pom
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ qzt-ump-model ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-model ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-model ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\target\qzt-ump-model-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-model ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\target\qzt-ump-model-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-model\1.0.0\qzt-ump-model-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-model\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-model\1.0.0\qzt-ump-model-1.0.0.pom
+[INFO] 
+[INFO] 
+[INFO] ------------------------< com.qzt:qzt-ump-dao >-------------------------
+[INFO] ----------------------< com.qzt:qzt-ump-rpc-api >-----------------------
+[INFO] Building qzt-ump-dao 1.0.0                                       [21/26]
+[INFO] Building qzt-ump-rpc-api 1.0.0                                   [22/26]
+[INFO]   from qzt-ump\qzt-ump-dao\pom.xml
+[INFO]   from qzt-ump\qzt-ump-rpc-api\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-dao ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\target
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-rpc-api ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-dao ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-dao ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-rpc-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-rpc-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 56 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\target\classes
+[INFO] Compiling 57 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-rpc-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-rpc-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-rpc-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-rpc-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-dao ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-dao ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-dao ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-dao ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\target\qzt-ump-rpc-api-1.0.0.jar
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\target\qzt-ump-dao-1.0.0.jar
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-rpc-api ---
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-dao ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\target\qzt-ump-dao-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-dao\1.0.0\qzt-ump-dao-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\target\qzt-ump-rpc-api-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-rpc-api\1.0.0\qzt-ump-rpc-api-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-dao\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-dao\1.0.0\qzt-ump-dao-1.0.0.pom
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-api\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-rpc-api\1.0.0\qzt-ump-rpc-api-1.0.0.pom
+[INFO] 
+[INFO] --------------------< com.qzt:qzt-ump-rpc-service >---------------------
+[INFO] 
+[INFO] Building qzt-ump-rpc-service 1.0.0                               [23/26]
+[INFO] 
+[INFO] ------------------< com.qzt:qzt-ump-server-scheduled >------------------
+[INFO] 
+[INFO] --------------------< com.qzt:qzt-ump-server-back >---------------------
+[INFO]   from qzt-ump\qzt-ump-rpc-service\pom.xml
+[INFO] Building qzt-ump-server-back 1.0.0                               [25/26]
+[INFO] ---------------------< com.qzt:qzt-ump-server-web >---------------------
+[INFO] Building qzt-ump-server-scheduled 1.0.0                          [24/26]
+[INFO] Building qzt-ump-server-web 1.0.0                                [26/26]
+[INFO]   from qzt-ump\qzt-ump-server-scheduled\pom.xml
+[INFO]   from qzt-ump\qzt-ump-server-web\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]   from qzt-ump\qzt-ump-server-back\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-server-back ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-back\target
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-server-scheduled ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\target
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-server-web ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-server-back ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 16 resources
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ qzt-ump-rpc-service ---
+[INFO] Deleting D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-server-scheduled ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-server-back ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-server-scheduled ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-server-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-server-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-back\target\classes
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ qzt-ump-rpc-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 58 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ qzt-ump-rpc-service ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\target\classes
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-scheduled/src/main/java/com/qzt/ump/server/controller/CreateDeductionScheduled.java: 某些输入文件使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-scheduled/src/main/java/com/qzt/ump/server/controller/CreateDeductionScheduled.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-server-scheduled ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-server-scheduled ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-server-scheduled ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-server-scheduled ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\target\qzt-ump-server-scheduled-1.0.0.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.5.8.RELEASE:repackage (default) @ qzt-ump-server-scheduled ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-server-scheduled ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\target\qzt-ump-server-scheduled-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-server-scheduled\1.0.0\qzt-ump-server-scheduled-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-scheduled\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-server-scheduled\1.0.0\qzt-ump-server-scheduled-1.0.0.pom
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-back/src/main/java/com/qzt/ump/server/controllerBack/SM4Util.java:[4,37] 程序包org.bouncycastle.jce.provider不存在
+[ERROR] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-back/src/main/java/com/qzt/ump/server/controllerBack/SM4Util.java:[5,47] 程序包org.bouncycastle.pqc.math.linearalgebra不存在
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-web/src/main/java/com/qzt/ump/server/controllerTpr/WebWeChat.java: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\src\main\java\com\qzt\ump\server\controllerTpr\WebWeChat.java使用或覆盖了已过时的 API。
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-web/src/main/java/com/qzt/ump/server/controllerTpr/WebWeChat.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-web/src/main/java/com/qzt/ump/server/controllerWeb/WebQztHealthInfoController.java: 某些输入文件使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-web/src/main/java/com/qzt/ump/server/controllerWeb/WebQztHealthInfoController.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-server-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-server-web ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-server-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-server-web ---
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-rpc-service/src/main/java/com/qzt/bus/rpc/service/impl/DgmCouponIntegralServiceImpl.java: 某些输入文件使用了未经检查或不安全的操作。
+[INFO] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-rpc-service/src/main/java/com/qzt/bus/rpc/service/impl/DgmCouponIntegralServiceImpl.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ qzt-ump-rpc-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ qzt-ump-rpc-service ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ qzt-ump-rpc-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ qzt-ump-rpc-service ---
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\target\qzt-ump-server-web-1.0.0.jar
+[INFO] Building jar: D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\target\qzt-ump-rpc-service-1.0.0.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.5.8.RELEASE:repackage (default) @ qzt-ump-server-web ---
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.5.8.RELEASE:repackage (default) @ qzt-ump-rpc-service ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-server-web ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\target\qzt-ump-server-web-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-server-web\1.0.0\qzt-ump-server-web-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-server-web\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-server-web\1.0.0\qzt-ump-server-web-1.0.0.pom
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ qzt-ump-rpc-service ---
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\target\qzt-ump-rpc-service-1.0.0.jar to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-rpc-service\1.0.0\qzt-ump-rpc-service-1.0.0.jar
+[INFO] Installing D:\git_local\qzt_server_page\qzt-ump\qzt-ump-rpc-service\pom.xml to D:\git_local\qzt_server_page\.m2\com\qzt\qzt-ump-rpc-service\1.0.0\qzt-ump-rpc-service-1.0.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for qzt 1.0.0:
+[INFO] 
+[INFO] qzt ................................................ SUCCESS [  0.132 s]
+[INFO] qzt-common ......................................... SUCCESS [  0.005 s]
+[INFO] qzt-common-core .................................... SUCCESS [  2.840 s]
+[INFO] qzt-common-http .................................... SUCCESS [  0.678 s]
+[INFO] qzt-common-web ..................................... SUCCESS [  2.548 s]
+[INFO] qzt-common-redis ................................... SUCCESS [  1.596 s]
+[INFO] qzt-common-tools ................................... SUCCESS [  0.578 s]
+[INFO] qzt-common-db ...................................... SUCCESS [  1.285 s]
+[INFO] qzt-common-mdb ..................................... SUCCESS [  1.482 s]
+[INFO] qzt-common-mq ...................................... SUCCESS [  2.285 s]
+[INFO] qzt-common-log ..................................... SUCCESS [  1.894 s]
+[INFO] qzt-common-pay ..................................... SUCCESS [  1.327 s]
+[INFO] qzt-common-dsession ................................ SUCCESS [  0.915 s]
+[INFO] qzt-common-oss ..................................... SUCCESS [  1.732 s]
+[INFO] qzt-common-trans ................................... SUCCESS [  1.615 s]
+[INFO] qzt-ump ............................................ SUCCESS [  0.005 s]
+[INFO] qzt-ump-common ..................................... SUCCESS [  0.905 s]
+[INFO] qzt-ump-model ...................................... SUCCESS [  1.582 s]
+[INFO] qzt-ump-dao ........................................ SUCCESS [  1.041 s]
+[INFO] qzt-ump-rpc-api .................................... SUCCESS [  1.103 s]
+[INFO] qzt-ump-rpc-service ................................ SUCCESS [  3.828 s]
+[INFO] qzt-ump-server-back ................................ FAILURE [  3.100 s]
+[INFO] qzt-ump-server-scheduled ........................... SUCCESS [  2.559 s]
+[INFO] qzt-ump-server-web ................................. SUCCESS [  3.727 s]
+[INFO] qzt-ump-mq ......................................... SUCCESS [  0.678 s]
+[INFO] qzt-ump-generator .................................. SUCCESS [  1.018 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.691 s (Wall Clock)
+[INFO] Finished at: 2025-10-15T15:21:13+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:compile (default-compile) on project qzt-ump-server-back: Compilation failure: Compilation failure: 
+[ERROR] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-back/src/main/java/com/qzt/ump/server/controllerBack/SM4Util.java:[4,37] 程序包org.bouncycastle.jce.provider不存在
+[ERROR] /D:/git_local/qzt_server_page/qzt-ump/qzt-ump-server-back/src/main/java/com/qzt/ump/server/controllerBack/SM4Util.java:[5,47] 程序包org.bouncycastle.pqc.math.linearalgebra不存在
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :qzt-ump-server-back
+
+D:\git_local\qzt_server_page>if 1 NEQ 0 goto error 
+
+D:\git_local\qzt_server_page>set ERROR_CODE=1 
+
+D:\git_local\qzt_server_page>if "" == "on" pause
+
+D:\git_local\qzt_server_page>if "" == "on" exit 1 
+
+D:\git_local\qzt_server_page>exit /B 1 

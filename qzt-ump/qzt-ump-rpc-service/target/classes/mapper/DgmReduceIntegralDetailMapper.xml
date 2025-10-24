@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.DgmReduceIntegralDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.DgmReduceIntegralDetail">
+        <result column="id_" property="id" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="user_id" property="userId" />
+        <result column="record_id" property="recordId" />
+        <result column="new_id" property="newId" />
+        <result column="red_value" property="redValue" />
+        <result column="over_time" property="overTime" />
+        <result column="is_del" property="isDel" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_reduce_integral_detail
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+</mapper>

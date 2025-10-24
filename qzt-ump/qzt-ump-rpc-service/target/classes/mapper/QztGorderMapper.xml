@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztGorderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztGorder">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_tel" property="userTel"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_pic" property="goodsPic"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="shop_id" property="shopId"/>
+        <result column="share_money" property="shareMoney"/>
+        <result column="recommend_money" property="recommendMoney"/>
+        <result column="service_money" property="serviceMoney"/>
+        <result column="share_code" property="shareCode"/>
+        <result column="order_source" property="orderSource"/>
+        <result column="order_type" property="orderType"/>
+        <result column="order_state" property="orderState"/>
+        <result column="postage" property="postage"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="cost_price" property="costPrice"/>
+        <result column="actua_payment" property="actuaPayment"/>
+        <result column="buy_num" property="buyNum"/>
+        <result column="remarks" property="remarks"/>
+        <result column="balance_money" property="balanceMoney"/>
+        <result column="is_service" property="isService"/>
+        <result column="three_sides_money" property="threeSidesMoney"/>
+        <result column="cash_coupon_id" property="cashCouponId"/>
+        <result column="cash_coupon_money" property="cashCouponMoney"/>
+        <result column="pay_type" property="payType"/>
+        <result column="pay_state" property="payState"/>
+        <result column="pay_time" property="payTime"/>
+        <result column="address_id" property="addressId"/>
+        <result column="pickup_way" property="pickupWay"/>
+        <result column="the_verification_code" property="theVerificationCode"/>
+        <result column="consignee_name" property="consigneeName"/>
+        <result column="consignee_tel" property="consigneeTel"/>
+        <result column="consignee_address" property="consigneeAddress"/>
+        <result column="courier_company" property="courierCompany"/>
+        <result column="courier_code" property="courierCode"/>
+        <result column="courier_no" property="courierNo"/>
+        <result column="courier_remarks" property="courierRemarks"/>
+        <result column="shipments_time" property="shipmentsTime"/>
+        <result column="signfor_time" property="signforTime"/>
+        <result column="finsh_time" property="finshTime"/>
+        <result column="order_timing_time" property="orderTimingTime"/>
+        <result column="deduct_max" property="deductMax"/>
+        <result column="coupon_status" property="couponStatus"/>
+        <result column="is_serve" property="isServe"/>
+        <result column="replenish_status" property="replenishStatus"/>
+        <result column="replenish_time" property="replenishTime"/>
+
+        <result column="replenish_cne_name" property="replenishCneName"/>
+        <result column="replenish_cne_tel" property="replenishCneTel"/>
+        <result column="replenish_cne_address" property="replenishCneAddress"/>
+
+        <result column="replenish_csc" property="replenishCsc"/>
+        <result column="replenish_csc_code" property="replenishCscCode"/>
+        <result column="replenish_csc_no" property="replenishCscNo"/>
+        <result column="replenish_csc_remarks" property="replenishCscRemarks"/>
+
+        <result column="referrer_first" property="referrerFirst"/>
+        <result column="referrer_second" property="referrerSecond"/>
+        <result column="referrer_name" property="referrerName"/>
+
+        <result column="store_coupon_id" property="storeCouponId"/>
+        <result column="store_coupon_money" property="storeCouponMoney"/>
+
+        <result column="goods_coupon_id" property="goodsCouponId"/>
+        <result column="goods_coupon_money" property="goodsCouponMoney"/>
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_gorder
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                AND goods_name like CONCAT('%','${goodsName}','%')
+            </if>
+            <if test="shopIdArr != null">
+                AND shop_id IN
+                <foreach collection="shopIdArr" index="shopIdArr" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="orderStateArr != null">
+                AND order_state IN
+                <foreach collection="orderStateArr" index="orderStateArr" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no = #{orderNo}
+            </if>
+            <if test="shopId != null and shopId != ''">
+                AND shop_id = #{shopId}
+            </if>
+            <if test="payType != null and payType != ''">
+                AND pay_type = #{payType}
+            </if>
+            <if test="payState != null and payState != ''">
+                AND pay_state = #{payState}
+            </if>
+            <if test="orderState != null and orderState != ''">
+                AND order_state = #{orderState}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="userTel != null and userTel != ''">
+                AND user_tel = #{userTel}
+            </if>
+            <if test="orderType != null and orderType != ''">
+                AND order_type = #{orderType}
+            </if>
+            <if test="pickupWay != null and pickupWay != ''">
+                AND pickup_way = #{pickupWay}
+            </if>
+            <if test="theVerificationCode != null and theVerificationCode != ''">
+                AND the_verification_code = #{theVerificationCode}
+            </if>
+            <if test="addressId != null and addressId != ''">
+                AND address_id = #{addressId}
+            </if>
+            <if test="isServe != null and isServe != ''">
+                AND is_serve = #{isServe}
+            </if>
+            <if test="replenishStatus != null and replenishStatus != ''">
+                AND replenish_status = #{replenishStatus}
+            </if>
+            <if test="businessId != null and businessId != ''">
+                AND (share_code = #{businessId} OR share_code IS NULL )
+            </if>
+            <choose>
+                <when test="errorOrder != null and errorOrder != ''">
+                </when>
+                <otherwise>
+                    AND order_state NOT IN('96')
+                </otherwise>
+            </choose>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <!-- 根据订单编号，用户id查询订单 -->
+    <select id="queryByOrederNoUserId" resultType="com.qzt.bus.model.QztGorder" parameterType="com.qzt.bus.model.QztGorder">
+        SELECT * FROM dgm_qzt_gorder WHERE order_no = #{orderNo} AND user_id = #{userId} LIMIT 0,1;
+    </select>
+
+    <!-- 根据订单编号查询订单 -->
+    <select id="queryByOrederNo" resultType="com.qzt.bus.model.QztGorder" parameterType="java.lang.String">
+        SELECT * FROM dgm_qzt_gorder WHERE order_no = #{orderNo} LIMIT 0,1;
+    </select>
+
+    <!--商品订单支付更新-->
+    <update id="orderPayUpdate" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        <set>
+            pay_state = #{payState},
+            balance_money = #{balanceMoney},
+            three_sides_money = #{threeSidesMoney},
+            pay_type = #{payType},
+            update_time = #{updateTime}
+        </set>
+        WHERE
+        pay_state IN ('00', '01')
+        AND order_state = '01'
+        AND order_no = #{orderNo}
+    </update>
+
+    <!--支付回调更新订单状态-->
+    <update id="orderPayBack" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET pay_state = #{payState},
+         order_state = #{orderState},
+         pay_time = #{updateTime},
+         update_time = #{updateTime}
+        WHERE
+            pay_state IN ('00', '01')
+        AND order_state = '01'
+        AND order_no = #{orderNo}
+    </update>
+
+    <!--取消订单-->
+    <update id="cancellationOfOrder" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET order_state = '11',
+            create_by = #{userId},
+            update_time = #{updateTime}
+        WHERE
+            order_no = #{orderNo}
+        AND order_state = '01'
+    </update>
+
+    <!--已支付 待发货 取消订单-->
+    <update id="cancellationOfOrder1" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET order_state = '11',
+        create_by = #{userId},
+        update_time = #{updateTime}
+        WHERE
+        order_no = #{orderNo}
+        AND order_state = '03'
+    </update>
+
+    <!--用户确认收货-->
+    <update id="confirmReceipt" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET order_state = '09',
+            is_serve = 'Y',
+            replenish_status = '00',
+            signfor_time = #{updateTime},
+            finsh_time = #{updateTime},
+            create_by = #{userId},
+            update_time = #{updateTime}
+        WHERE
+            order_no = #{orderNo}
+        AND order_state = '05'
+        AND user_id = #{userId}
+    </update>
+
+    <!--商家确认核销-->
+    <update id="confirmTheSettlement" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET order_state = '09',
+            replenish_status = '00',
+            create_by = #{updateBy},
+            finsh_time = #{updateTime},
+            update_time = #{updateTime}
+        WHERE
+            order_no = #{orderNo}
+        AND order_state = '02'
+        AND user_id = #{userId}
+    </update>
+
+    <!--更新是否可申请服务状态-->
+    <update id="updateIsServe" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET is_serve =  #{isServe},
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        WHERE
+            order_no = #{orderNo}
+        AND order_state = '09'
+    </update>
+
+    <!--自提-->
+    <update id="offlineDistribution" parameterType="com.qzt.bus.model.QztGorder">
+        UPDATE dgm_qzt_gorder
+        SET order_state = '09',
+            is_serve = 'Y',
+            update_by = #{updateBy},
+            update_time = #{updateTime},
+            shipments_time = #{updateTime},
+            signfor_time = #{updateTime},
+            finsh_time = #{updateTime},
+            courier_remarks = #{courierRemarks}
+        WHERE
+            id_ = #{id}
+        AND order_state = '03'
+    </update>
+
+    <!-- 查询可申请服务订单 -->
+    <select id="getCanServiceOrderList" resultMap="BaseResultMap" parameterType="map">
+        SELECT
+        qg.*
+        FROM
+        dgm_qzt_gorder qg
+        LEFT JOIN dgm_qzt_business qb ON qg.share_code = qb.user_id
+        <where>
+            AND order_state NOT IN('96')
+            AND (
+            qb.id_ = #{businessId}
+            OR qb.id_ IS NULL
+            )
+            AND qg.is_serve = 'Y'
+            AND qg.user_id = #{userId}
+            AND qg.order_state = '09'
+        </where>
+        ORDER BY qg.create_time DESC, qg.id_
+    </select>
+
+    <!-- 根据商家ID与核销码查询订单 -->
+    <select id="findChargeOffOrderInfo" resultType="com.qzt.bus.model.QztGorder" parameterType="com.qzt.bus.model.QztGorder">
+        SELECT * FROM dgm_qzt_gorder WHERE the_verification_code = #{orderNo} AND order_state = '02' AND address_id = #{userId} LIMIT 0,1;
+    </select>
+
+</mapper>

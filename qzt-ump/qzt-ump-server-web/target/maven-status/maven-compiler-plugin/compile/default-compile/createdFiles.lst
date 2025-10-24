@@ -19,9 +19,11 @@ com\qzt\ump\server\controllerTpr\WebAliPay.class
 com\qzt\ump\server\controllerWeb\WebQztBusLogController.class
 com\qzt\ump\server\controllerWeb\WebQztBusinessController.class
 com\qzt\ump\server\controllerWeb\WebQztGoodsBannerController.class
+com\qzt\ump\server\controllerWeb\WebDgmUsableIntegralController.class
 com\qzt\ump\server\controller\WebAppVersionController.class
 com\qzt\ump\server\controllerWeb\WebDgmZxtClassController.class
 com\qzt\ump\server\controllerWeb\WebDgmGoodsClassController.class
+com\qzt\ump\server\controllerWeb\WebDgmReduceIntegralDetailController.class
 com\qzt\ump\server\controllerWeb\WebQztBannerController.class
 com\qzt\ump\server\controllerWeb\WebQztAccountLogController.class
 com\qzt\ump\server\controllerWeb\WebQztUserBankController.class
@@ -35,8 +37,10 @@ com\qzt\ump\server\controllerWeb\WebQztAccountController.class
 com\qzt\ump\server\controllerWeb\WebQztUserCouponController.class
 com\qzt\ump\server\controllerWeb\WebQztWithdrawController.class
 com\qzt\ump\server\controllerWeb\WebQztRechargeController.class
+com\qzt\ump\server\controllerWeb\WebDgmIntegralRecordController.class
 com\qzt\ump\server\controllerWeb\WebQztGoodsController.class
 com\qzt\ump\server\controllerWeb\WebQztStoGoodsController.class
 com\qzt\ump\server\controllerWeb\WebQztUserController.class
 com\qzt\ump\server\controllerWeb\WebQztApplyBusorderController.class
+com\qzt\ump\server\controllerWeb\WebDgmCouponIntegralController.class
 com\qzt\ump\server\controllerWeb\WebQztAccountRelogController.class

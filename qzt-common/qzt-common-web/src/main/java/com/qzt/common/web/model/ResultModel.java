@@ -1,6 +1,5 @@
 package com.qzt.common.web.model;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 /**
@@ -10,13 +9,22 @@ import lombok.NoArgsConstructor;
  * @date 2017/11/9 23:45
  */
 @NoArgsConstructor
-@AllArgsConstructor
 public class ResultModel<T> {
 
     public ResultModel(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
+    }
+
+    // 显式声明分页构造器，避免在部分环境下Lombok未生效导致的构造器缺失
+    public ResultModel(int code, String message, T data, int count, int pageSize, int current) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+        this.count = count;
+        this.pageSize = pageSize;
+        this.current = current;
     }
 
     /**

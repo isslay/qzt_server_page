@@ -1,0 +1,151 @@
+[2025/10/17 周五 10:34:12.40] Preparing to launch zookeeper-embedded 
+[2025/10/17 周五 10:34:12.40] JAVA_CMD=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe, JAVA_OPTS=-Xms256m -Xmx512m, PROFILE=dev 
+[2025/10/17 周五 10:34:12.42] [WARN] zookeeper-embedded JAR not found at D:\git_local\qzt_server_page\zookeeper-embedded\target\zookeeper-embedded-1.0.0.jar. Skipping embedded ZK start. 
+[2025/10/17 周五 10:50:18.09] Preparing to launch zookeeper-embedded 
+[2025/10/17 周五 10:50:18.10] JAVA_CMD=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe, JAVA_OPTS=-Xms256m -Xmx512m, PROFILE=dev 
+[2025/10/17 周五 10:50:18.24] Starting embedded ZooKeeper on 127.0.0.1:2181 
+Starting embedded ZooKeeper on port 2181...
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServerMain - Starting server
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:host.name=isslay_laptop
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.version=1.8.0_462
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.vendor=Temurin
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.home=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\jre
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.class.path=D:\git_local\qzt_server_page\zookeeper-embedded\target\zookeeper-embedded-1.0.0.jar
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.library.path=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\System32\HWAudioDriver;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;D:\Program Files (x86)\Tencent\微信web开发者工具\dll;D:\Pro;ram Files (x86)\WinSCP\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\Git\cmd;D:\apache-maven-3.9.11\bin;D:\Program Files\Redis\;d:\TraeCN\bin;D:\Python\Python312\Scripts\;D:\Python\Python312\;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;C:\Users\isslay\.dotnet\tools;D:\Microsoft VS Code\bin;D:\Program Files\JetBrains\PyCharm 2023.2.5\bin;C:\Users\isslay\AppData\Local\GitHubDesktop\bin;C:\Users\isslay\AppData\Roaming\npm;C:\php;D:\Program Files\MySQL\MySQL Server 9.1\bin;D:\Program Files\Java\jre1.8.0_431\bin;C:\Users\isslay\.dotnet\tools;D:\Program Files\R\R-4.4.3\bin\x64;;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;D:\JetBrains\IDEA\bin;D:\JetBrains\PyCharm\bin;.
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.io.tmpdir=C:\Users\isslay\AppData\Local\Temp\
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.compiler=<NA>
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.name=Windows 11
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.arch=amd64
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.version=10.0
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.name=isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.home=C:\Users\isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.dir=D:\git_local\qzt_server_page\zookeeper-embedded\target
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - tickTime set to 3000
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - minSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - maxSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.NIOServerCnxnFactory - binding to port 0.0.0.0/0.0.0.0:2181
+[Thread-0] ERROR org.apache.curator.test.TestingZooKeeperServer - From testing server (random state: false) for instance: InstanceSpec{dataDirectory=.\target\zk-data, port=2181, electionPort=7071, quorumPort=7072, deleteDataDirectoryOnClose=true, serverId=1, tickTime=-1, maxClientCnxns=-1, customProperties={}, hostname=127.0.0.1} org.apache.curator.test.InstanceSpec@59c3be02
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)
+Exception in thread "main" java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)
+FAILED to launch zookeeper-embedded, error=0  
+[2025/10/17 周五 10:52:51.73] Preparing to launch zookeeper-embedded 
+[2025/10/17 周五 10:52:51.73] JAVA_CMD=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe, JAVA_OPTS=-Xms256m -Xmx512m, PROFILE=dev 
+[2025/10/17 周五 10:52:51.98] Launching zookeeper-embedded 
+Starting embedded ZooKeeper on port 2181...
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServerMain - Starting server
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:host.name=isslay_laptop
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.version=1.8.0_462
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.vendor=Temurin
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.home=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\jre
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.class.path=D:\git_local\qzt_server_page\zookeeper-embedded\target\zookeeper-embedded-1.0.0.jar
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.library.path=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\System32\HWAudioDriver;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;D:\Program Files (x86)\Tencent\微信web开发者工具\dll;D:\Pro;ram Files (x86)\WinSCP\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\Git\cmd;D:\apache-maven-3.9.11\bin;D:\Program Files\Redis\;d:\TraeCN\bin;D:\Python\Python312\Scripts\;D:\Python\Python312\;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;C:\Users\isslay\.dotnet\tools;D:\Microsoft VS Code\bin;D:\Program Files\JetBrains\PyCharm 2023.2.5\bin;C:\Users\isslay\AppData\Local\GitHubDesktop\bin;C:\Users\isslay\AppData\Roaming\npm;C:\php;D:\Program Files\MySQL\MySQL Server 9.1\bin;D:\Program Files\Java\jre1.8.0_431\bin;C:\Users\isslay\.dotnet\tools;D:\Program Files\R\R-4.4.3\bin\x64;;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;D:\JetBrains\IDEA\bin;D:\JetBrains\PyCharm\bin;.
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.io.tmpdir=C:\Users\isslay\AppData\Local\Temp\
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.compiler=<NA>
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.name=Windows 11
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.arch=amd64
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.version=10.0
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.name=isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.home=C:\Users\isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.dir=D:\git_local\qzt_server_page\zookeeper-embedded\target
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - tickTime set to 3000
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - minSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - maxSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.NIOServerCnxnFactory - binding to port 0.0.0.0/0.0.0.0:2181
+[Thread-0] ERROR org.apache.curator.test.TestingZooKeeperServer - From testing server (random state: false) for instance: InstanceSpec{dataDirectory=.\target\zk-data, port=2181, electionPort=29870, quorumPort=29871, deleteDataDirectoryOnClose=true, serverId=1, tickTime=-1, maxClientCnxns=-1, customProperties={}, hostname=127.0.0.1} org.apache.curator.test.InstanceSpec@59c3be02
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)
+Exception in thread "main" java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)
+[2025/10/23 周四 17:16:10.80] Preparing to launch zookeeper-embedded 
+[2025/10/23 周四 17:16:12.69] JAVA_CMD=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin\java.exe, JAVA_OPTS=-Xms256m -Xmx512m, PROFILE=dev 
+[2025/10/23 周四 17:16:13.00] Launching zookeeper-embedded 
+Starting embedded ZooKeeper on port 2181...
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServerMain - Starting server
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:host.name=isslay_laptop
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.version=1.8.0_462
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.vendor=Temurin
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.home=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\jre
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.class.path=D:\git_local\qzt_server_page\zookeeper-embedded\target\zookeeper-embedded-1.0.0.jar
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.library.path=D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Windows\System32\HWAudioDriver;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;D:\Program Files (x86)\Tencent\微信web开发者工具\dll;D:\Pro;ram Files (x86)\WinSCP\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\Git\cmd;D:\apache-maven-3.9.11\bin;D:\Program Files\Redis\;d:\TraeCN\bin;D:\Python\Python312\Scripts\;D:\Python\Python312\;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;C:\Users\isslay\.dotnet\tools;D:\Microsoft VS Code\bin;D:\Program Files\JetBrains\PyCharm 2023.2.5\bin;C:\Users\isslay\AppData\Local\GitHubDesktop\bin;C:\Users\isslay\AppData\Roaming\npm;C:\php;D:\Program Files\MySQL\MySQL Server 9.1\bin;D:\Program Files\Java\jre1.8.0_431\bin;C:\Users\isslay\.dotnet\tools;D:\Program Files\R\R-4.4.3\bin\x64;;C:\Users\isslay\AppData\Local\Microsoft\WindowsApps;D:\JetBrains\IDEA\bin;D:\JetBrains\PyCharm\bin;.
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.io.tmpdir=C:\Users\isslay\AppData\Local\Temp\
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:java.compiler=<NA>
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.name=Windows 11
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.arch=amd64
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:os.version=10.0
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.name=isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.home=C:\Users\isslay
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - Server environment:user.dir=D:\git_local\qzt_server_page\zookeeper-embedded\target
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - tickTime set to 3000
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - minSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.ZooKeeperServer - maxSessionTimeout set to -1
+[Thread-0] INFO org.apache.zookeeper.server.NIOServerCnxnFactory - binding to port 0.0.0.0/0.0.0.0:2181
+[Thread-0] ERROR org.apache.curator.test.TestingZooKeeperServer - From testing server (random state: false) for instance: InstanceSpec{dataDirectory=.\target\zk-data, port=2181, electionPort=58848, quorumPort=58849, deleteDataDirectoryOnClose=true, serverId=1, tickTime=-1, maxClientCnxns=-1, customProperties={}, hostname=127.0.0.1} org.apache.curator.test.InstanceSpec@59c3be02
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)
+Exception in thread "main" java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:461)
+	at sun.nio.ch.Net.bind(Net.java:453)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:222)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:85)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:78)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.curator.test.TestingZooKeeperMain.runFromConfig(TestingZooKeeperMain.java:93)
+	at org.apache.curator.test.TestingZooKeeperServer$1.run(TestingZooKeeperServer.java:148)
+	at java.lang.Thread.run(Thread.java:750)

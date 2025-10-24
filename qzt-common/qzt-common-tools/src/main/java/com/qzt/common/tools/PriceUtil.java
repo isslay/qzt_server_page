@@ -1,7 +1,5 @@
 package com.qzt.common.tools;
 
-import javafx.scene.text.FontSmoothingType;
-
 import java.math.BigDecimal;
 
 /**

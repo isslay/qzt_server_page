@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.ump.dao.mapper.SysDicMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.ump.model.SysDic">
+        <result column="id_" property="id"/>
+        <result column="is_del" property="isDel"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="dic_type" property="dicType"/>
+        <result column="dic_name" property="dicName"/>
+        <result column="remark" property="remark"/>
+        <result column="enable_" property="enable"/>
+        <result column="is_del" property="isDel"/>
+    </resultMap>
+
+    <!-- 字典主子联查通用查询映射结果 -->
+    <resultMap id="BaseResultMapSublist" type="java.util.Map">
+        <result column="id_" property="id"/>
+        <result column="dic_type" property="dicType"/>
+        <result column="dic_name" property="dicName"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="code_" property="code"/>
+        <result column="code_text" property="codeText"/>
+        <result column="remark" property="remark"/>
+        <result column="sort_no" property="sortNo"/>
+        <result column="enable_" property="enable"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ss.id_, sd.dic_type, sd.dic_name, ss.create_by, ss.create_time,
+        ss.update_by, ss.update_time, ss.parent_id, ss.code_,
+        ss.code_text, ss.remark, ss.sort_no, ss.enable_
+    </sql>
+
+
+    <select id="test" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_sys_dic
+    </select>
+
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_sys_dic
+        <where>
+            is_del = '0'
+            <if test="dicType != null and dicType != ''">
+                AND dic_type = #{dicType}
+            </if>
+            <if test="dicName != null and dicName != ''">
+                AND dic_name = #{dicName}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="queryListSublistPage" resultMap="BaseResultMapSublist" parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        dgm_sys_dic_sublist ss
+        LEFT JOIN dgm_sys_dic sd ON ss.parent_id = sd.id_
+        <where>
+            sd.is_del = '0'
+            <if test="dicType != null and dicType != ''">
+                AND sd.dic_type = #{dicType}
+            </if>
+            <if test="dicName != null and dicName != ''">
+                AND sd.dic_name = #{dicName}
+            </if>
+            <if test="code != null and code != ''">
+                AND ss.code_ = #{code}
+            </if>
+            <if test="codeText != null and codeText != ''">
+                AND ss.code_text = #{codeText}
+            </if>
+            <if test="parentId != null and parentId != ''">
+                AND ss.parent_id = #{parentId}
+            </if>
+        </where>
+        ORDER BY
+        ss.sort_no ASC
+    </select>
+
+</mapper>

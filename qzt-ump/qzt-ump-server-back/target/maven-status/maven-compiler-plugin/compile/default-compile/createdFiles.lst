@@ -3,6 +3,7 @@ com\qzt\ump\server\controller\LoginController.class
 com\qzt\ump\server\controllerBack\QztUserCouponController.class
 com\qzt\ump\server\controller\IndexController.class
 com\qzt\ump\server\controller\SysDicController.class
+com\qzt\ump\server\dic\DicLoad$SupplierWithException.class
 com\qzt\ump\server\controller\SysAreaController.class
 com\qzt\ump\server\controllerBack\DgmCouponController.class
 com\qzt\ump\server\controllerBack\QztBusinessController.class
@@ -27,6 +28,7 @@ com\qzt\ump\server\controllerBack\QztOrderCommenController.class
 com\qzt\ump\server\controller\QiniuUploadingPicController.class
 com\qzt\ump\server\annotation\SysLogOpt.class
 com\qzt\ump\server\controllerBack\QztTopUpRecordController.class
+com\qzt\ump\server\controllerBack\DgmCouponIntegralController.class
 com\qzt\ump\server\shiro\realm\SysUserRealm.class
 com\qzt\ump\server\controllerBack\QztTimingLogController.class
 com\qzt\ump\server\controller\SysDicCommonController.class
@@ -40,14 +42,18 @@ com\qzt\ump\server\message\ExportConfig.class
 com\qzt\ump\server\controller\SysDicSublistController.class
 com\qzt\ump\server\controllerBack\QztAccountLogController.class
 com\qzt\ump\server\shiro\cache\RedisCacheManager.class
+com\qzt\ump\server\controllerBack\DgmUsableIntegralController.class
 com\qzt\ump\server\controllerBack\QztBusLogController.class
 com\qzt\ump\server\controllerBack\QztUserBankController.class
 com\qzt\ump\server\controllerBack\DgmZxtController.class
 com\qzt\ump\server\controllerBack\QztUserAddressController.class
+com\qzt\ump\server\controllerBack\SM4Util.class
 com\qzt\ump\server\dic\DicLoad.class
 com\qzt\ump\server\controllerBack\QztBaseBankController.class
+com\qzt\ump\server\controllerBack\DgmReduceIntegralDetailController.class
 com\qzt\ump\server\controllerBack\QztGorderController.class
 com\qzt\ump\server\controller\QztResourceController.class
+com\qzt\ump\server\controllerBack\DgmIntegralRecordController.class
 com\qzt\ump\server\controllerBack\ErpGoodsInfoController.class
 com\qzt\ump\server\controller\SysRoleController.class
 com\qzt\ump\server\controllerBack\DgmGoodsCouponController.class

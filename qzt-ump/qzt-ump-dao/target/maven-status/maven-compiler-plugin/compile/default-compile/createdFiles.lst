@@ -1,9 +1,11 @@
 com\qzt\bus\dao\mapper\DgmZxtMapper.class
 com\qzt\ump\dao\mapper\SysDicSublistMapper.class
 com\qzt\bus\dao\mapper\QztAccountMapper.class
+com\qzt\bus\dao\mapper\DgmIntegralRecordMapper.class
 com\qzt\bus\dao\mapper\DgmZxtClassMapper.class
 com\qzt\bus\dao\mapper\QztHealthInfoMapper.class
 com\qzt\bus\dao\mapper\QztBusPicMapper.class
+com\qzt\bus\dao\mapper\DgmCouponIntegralMapper.class
 com\qzt\ump\dao\mapper\SysUserMapper.class
 com\qzt\bus\dao\mapper\QztUserMapper.class
 com\qzt\bus\dao\mapper\QztPageBannerMapper.class
@@ -16,6 +18,7 @@ com\qzt\bus\dao\mapper\QztOrderCommenMapper.class
 com\qzt\bus\dao\mapper\QztApplyTryorderMapper.class
 com\qzt\ump\dao\mapper\SysTreeMapper.class
 com\qzt\bus\dao\mapper\QztGoodsBannerMapper.class
+com\qzt\bus\dao\mapper\DgmReduceIntegralDetailMapper.class
 com\qzt\bus\dao\mapper\QztGorderMapper.class
 com\qzt\bus\dao\mapper\VErpOrderDetailMapper.class
 com\qzt\bus\dao\mapper\QztBannerMapper.class
@@ -44,6 +47,7 @@ com\qzt\bus\dao\mapper\QztResourceMapper.class
 com\qzt\bus\dao\mapper\QztWithdrawMapper.class
 com\qzt\ump\dao\mapper\SysAreaMapper.class
 com\qzt\ump\dao\mapper\SysDicMapper.class
+com\qzt\bus\dao\mapper\DgmUsableIntegralMapper.class
 com\qzt\bus\dao\mapper\QztPayBacklogMapper.class
 com\qzt\bus\dao\mapper\DgmGoodsCouponMapper.class
 com\qzt\bus\dao\mapper\QztTopUpRecordMapper.class

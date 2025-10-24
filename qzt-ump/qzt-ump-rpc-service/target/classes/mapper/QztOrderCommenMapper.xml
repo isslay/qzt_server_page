@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztOrderCommenMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztOrderCommen">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="source_" property="source" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_type" property="orderType" />
+        <result column="bus_id" property="busId" />
+        <result column="user_id" property="userId" />
+        <result column="shop_id" property="shopId" />
+        <result column="is_anonymity" property="isAnonymity" />
+        <result column="content" property="content" />
+        <result column="pictures" property="pictures" />
+        <result column="star_level" property="starLevel" />
+        <result column="reply_message" property="replyMessage" />
+        <result column="revert_time" property="revertTime" />
+        <result column="mobile" property="mobile" />
+        <result column="head_img" property="headImg" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_order_commen
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

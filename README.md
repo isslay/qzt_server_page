@@ -109,6 +109,36 @@ jww
  10. 访问地址：http://localhost 帐户密码：admin/123456
  11. swagger地址：http://localhost:8089/swagger-ui.html
 
+## Windows build and run (quick start)
+
+Prereqs:
+- JDK 8 (Temurin/Adoptium recommended). Set JAVA_HOME and add %JAVA_HOME%\bin to PATH.
+- Internet access to download dependencies (configure proxy in .mvn/settings.xml if needed).
+
+Build everything (from project root):
+
+1) Double-click build-all.cmd, or run in cmd:
+   .\build-all.cmd
+
+This uses the included Maven Wrapper (mvnw.cmd) and a project-local repository at .\.m2. Tests/docs are skipped for speed on the first build.
+
+If you prefer raw Maven, use:
+   mvn -T 1C -Dmaven.repo.local=.\.m2 -DskipTests=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true clean install
+
+Run services after build (dev profile):
+- RPC service:
+   java -jar qzt-ump\qzt-ump-rpc-service\target\qzt-ump-rpc-service-1.0.0.jar --spring.profiles.active=dev
+- Admin web (back office):
+   java -jar qzt-ump\qzt-ump-server-back\target\qzt-ump-server-back-1.0.0.jar --spring.profiles.active=dev
+- Front web:
+   java -jar qzt-ump\qzt-ump-server-web\target\qzt-ump-server-web-1.0.0.jar --spring.profiles.active=dev
+- Scheduler:
+   java -jar qzt-ump\qzt-ump-server-scheduled\target\qzt-ump-server-scheduled-1.0.0.jar --spring.profiles.active=dev
+
+Notes:
+- Configure application-dev.yml under each module's src/main/resources before running (DB, Redis, ZooKeeper, etc.).
+- For faster/alternative mirrors, edit .mvn/settings.xml (example Aliyun mirror is provided commented-out).
+
 ## 后续计划(不分先后)：
     ● SSO单点登录服务
     ● 分布式全文检索

@@ -9,12 +9,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="qzt-ump-server-back" />
         <module name="qzt-ump-generator" />
-        <module name="qzt-common-web" />
         <module name="qzt-common-db" />
         <module name="qzt-common-tools" />
         <module name="qzt-common-http" />
         <module name="qzt-ump-server-web" />
-        <module name="qzt-common-redis" />
+        <module name="zookeeper-embedded" />
         <module name="qzt-common-log" />
         <module name="qzt-ump-model" />
         <module name="qzt-ump-rpc-service" />
@@ -24,12 +23,40 @@
         <module name="qzt-common-pay" />
         <module name="qzt-common-trans" />
         <module name="qzt-ump-server-scheduled" />
-        <module name="qzt-common-mdb" />
         <module name="qzt-ump-common" />
         <module name="qzt-common-core" />
         <module name="qzt-common-dsession" />
         <module name="qzt-common-mq" />
         <module name="qzt-common-oss" />
+      </profile>
+      <profile name="Annotation profile for qzt" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="qzt-common-mdb" />
+      </profile>
+      <profile name="Annotation profile for qzt-common-redis" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="qzt-common-redis" />
+      </profile>
+      <profile name="Annotation profile for qzt-common-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="qzt-common-web" />
       </profile>
     </annotationProcessing>
   </component>

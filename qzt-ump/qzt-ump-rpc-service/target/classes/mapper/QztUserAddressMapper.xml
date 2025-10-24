@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztUserAddressMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztUserAddress">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="user_id" property="userId"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="zip_code" property="zipCode"/>
+        <result column="detail_address" property="detailAddress"/>
+        <result column="recipient_name" property="recipientName"/>
+        <result column="phone" property="phone"/>
+        <result column="is_default" property="isDefault"/>
+        <result column="is_del" property="isDel"/>
+        <result column="all_address" property="allAddress"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user_address
+        <where>
+            <if test="isDel != null and isDel != ''">
+                AND is_del = #{isDel}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="isDefault != null and isDefault != ''">
+                AND is_default = #{isDefault}
+            </if>
+            <if test="phone != null and phone != ''">
+                AND phone = #{phone}
+            </if>
+        </where>
+        ORDER BY is_default DESC, create_time DESC, id_;
+    </select>
+
+    <!--修改默认地址-->
+    <update id="defaultArea" parameterType="com.qzt.bus.model.QztUserAddress">
+        UPDATE dgm_qzt_user_address SET is_default = 'N',update_time = #{updateTime},update_by = #{updateBy} WHERE is_default = 'Y' AND user_id = #{userId};
+        UPDATE dgm_qzt_user_address SET is_default = 'Y',update_time = #{updateTime},update_by = #{updateBy} WHERE id_ = #{id}
+    </update>
+
+
+</mapper>

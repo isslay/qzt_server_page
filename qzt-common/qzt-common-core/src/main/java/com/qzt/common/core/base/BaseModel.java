@@ -53,5 +53,16 @@ public abstract class BaseModel implements Serializable {
     @TableField("update_by")
     private Long updateBy;
 
+    // 明确声明setter，避免在某些环境下Lombok未生效导致编译失败
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
 }

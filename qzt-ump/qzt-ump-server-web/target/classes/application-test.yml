@@ -1,0 +1,74 @@
+spring:
+  messages:
+    basename: messzn
+    encoding: UTF-8
+  redis:
+    database: 0
+    host: 117.50.9.193
+    port: 6379
+    password: rhzt1qaz@WSX
+    timeout: 0
+    pool:
+      max-active: 200
+      max-wait: 10000
+      max-idle: 150
+      min-idle: 50
+    lock:
+      waitTimeOut: 5
+      lockTimeOut: 10
+  session:
+    timeout: 60
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    pool:
+      enabled: false #如果此处设置为true，需要加如下的依赖包，否则会自动配置失败，报JmsMessagingTemplate注入失败
+      #<dependency>
+      #         <groupId>org.apache.activemq</groupId>
+      #            <artifactId>activemq-pool</artifactId>
+      #        <!-- <version>5.7.0</version> -->
+      #    </dependency>
+
+server:
+  port: 8189
+  tomcat:
+    basedir: /data/service/temp
+dubbo:
+  application:
+    name: jww-ump-dubbo-consumer
+    owner: jww-ump-dubbo-consumer
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+logging:
+  level:
+    root: info
+wxpay:
+  #是否测试服
+  testValue: true
+  #微信
+  weChatAppId: wx318a7e96aca46fe6 #公众号APPID
+  weChatSecret: cc0d3488913ca29c94ec2220c6856c46 #公众号appSecret
+  weChatMicId: 1563846831 #商户ID
+  weChatSign: 6wl8C2ahReiu42GdvXGPNqNoLiZ5V2p8 #商户ID平台秘钥（签名）
+  weChatPayBackUrl: https://testapi.jlqizutang.com/qzt/pubapi/ #回调地址
+  #小程序
+  appletAppid: wxaa512895419b74b8
+  appletAppSecret: 53ef0517e912099ae871ee7dc9dd85b6
+  #微信APP
+  weChatAppAppId: wx267cf8ff9b29750a #APP应用ID
+  weChatAppAppSecret: 25a0619cfb81000a3079433b2a111c2e  #APP应用秘钥
+  #支付宝
+  aliAppAppId: 2019061565632056
+  aliPayUrl: https://openapi.alipay.com/gateway.do
+  aliAppPrivateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDI0uWyVdYFCUN5XKygFj9Qu+5bZef7KxRtT4AGDIJfVmASrXvoS1Ip6M15YcFsr5ueZt4uOsppB3IQ9v3e2xW+QdUDDIOfb6O4/Nvba7f/X/be9A/vXf9J6h4xoxxQ6StTygtIuafUc3P3qIaJAU4xWW9xb6afzmwIffI4qlQtzmain96eDWrSRuEnelTCgbQdN1CFxWbHU2hb51frkWCyl5UeQUm26qke6G9Aen8vsuM75zdBEwOn1ciqyFLaudvKv9XMRu7M7PY1sjypl6U4Xysv1OXLK8qr7/eljeBqJIrQnp9wKVDPxXO3KFKlcqOYK5RgDKlFk73nXm4zL1eDAgMBAAECggEALIxsG9VitpdJeoCOYqzMutIVm/zNKzBxRZZfJfhca12zzjDhzbP3tAhKnGSNDdkewlK7crHj+MyIBy9jPa6H8j6UTCrYf+O6A+1DsDcDCAl3sBmf9094tCLVM9mlDGXNELc/LZDRpBVAYm3l+jpp6BSY3icQZV7bJD8cHmnaZpaAIMhCOBmUK02YzDEgXpQEEp4BM/duXcSm+NU45OFRkJFW2GQ1x6Y4moD6JOlnGiedJKFRkPWUQNWCSkEY4XyGQkdGs5Dqdv30ZAPEeaAy8QLLtyO39+rcko4BxuFg7TFwsgkALo8h5SN/kapKGOX4hOwdSf1ygcN5Pr6gPmFEcQKBgQDkTMt33vSP/Jq9t1MbSUH+H/WNZGY7BEluhGax2PabhY6o1jxvTFppHNLjiWTjObeENgrinRybwbZIQSDg9GOAsqauj+mM604BwSVFdryf/GgXRjf5YB07ulrHQ7fKDwqCzPmgt4/jY2dSvcBjsooAsQD7C7vdzUlIuYfbDhQ0BwKBgQDhMKr3oJEMnhE2Y53vRj8QxTA6D+17MVLvSRPLZumvn91wY5N7t6fge+ko3C1Pi6VhjeZdQ5X1HbOJ2vYaIEgP0aubndrmIHFJt/2Mka+WK6Dr8PLD/okSxm4yX7zx7ipx45DzvaXH7c4BC9PYfnoG1goNwiXR7b5Oro/6/Dn5pQKBgQCJPZUPEWuJZzwKkjsWaxqNzt6JSfKexbvzAQrPHPNamJYi7u7TpV2wVJB+Eikg46BrjSVMB1CcXX3bv7MpKCDsy/ihdYfbm9R//4ENWgyYTF6ypxadBeds8WEC6rWAdTxHVzs1H0QTWL1TIxiVlk2Zjs5dHDeqZW8JleaSi8sfXwKBgFracM/xZzQI/fbMoCauV7ljZT63uF+Qmd5SxHq27adev0+dzR4IDeIi/AHxOxKxy6qdPoj4QKMhNZNz1QDbb1d6h1sEiBF6m1pbsh8plAbpWUZ38uoiYplBl6oZODj/lv5WCuBb7mvIROnlJLZe6MqjRnEgmHOnELXb9dkUNCvFAoGAU/1kehHb2QjJVIsGSsar5V4+nRf5QBnEgrjodwOvI4RQXYg2SLgLv9uf0sIIZNVGJFP55K5toJoy1bLKULaiY0Sub8S2jcPBRvTAkT9Q4G53rnmYYZTW+qNpGuOi5AHZE4batrYgyOMIP/CIiGSDF9OXZP+STBTjy4WwzZ09xvY=
+  aliAppAlipayShopPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyNLlslXWBQlDeVysoBY/ULvuW2Xn+ysUbU+ABgyCX1ZgEq176EtSKejNeWHBbK+bnmbeLjrKaQdyEPb93tsVvkHVAwyDn2+juPzb22u3/1/23vQP713/SeoeMaMcUOkrU8oLSLmn1HNz96iGiQFOMVlvcW+mn85sCH3yOKpULc5mop/eng1q0kbhJ3pUwoG0HTdQhcVmx1NoW+dX65FgspeVHkFJtuqpHuhvQHp/L7LjO+c3QRMDp9XIqshS2rnbyr/VzEbuzOz2NbI8qZelOF8rL9TlyyvKq+/3pY3gaiSK0J6fcClQz8VztyhSpXKjmCuUYAypRZO9515uMy9XgwIDAQAB
+  aliAppAlipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAomJXxgNF/rLGx+vBVK19Hiw5UlyYGOAKcvblWkjwHipMR7xvyEu44YO9nevkeShVimnKrs1iUjZLs7l3tHKIBMSxxZAMDe49L5drdibtm6dDzb5u1BgQCkpqn6Qm1IrN9ly2V8ekC9VKIkuR5sXooG2uWn44f9zl5WlmJWkYUmEIK1UsgXOHKWoi2NgebwiXHd+lybv2+BlxBWNpBrKvDtsfQNmzej/wILMUfvEhUJ273o/b3F+hjUNTht+0RNuUjunzq55cxEsND11QH70XTEWflLtc8slLH7iydzzmXZDAtmPJkgEmBgP2Dem4gKVqrSdwVaFCc1Lt4nsl2PBhUwIDAQAB
+  aliAppBackUrl: https://testapi.jlqizutang.com/qzt/pubapi/
+sms:
+  appid: 1400057682
+  appkey: 5df31e529354c82e8aa2c4dfc214998f
+  testPhone: 17790072993
+  testFlage: 1
+#testFlage = 0 代表给页面传入的手机号发短信 1代表发送指定人

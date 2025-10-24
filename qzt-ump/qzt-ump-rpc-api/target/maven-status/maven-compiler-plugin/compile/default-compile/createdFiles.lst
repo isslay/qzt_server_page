@@ -19,6 +19,7 @@ com\qzt\ump\rpc\api\SysDicService.class
 com\qzt\bus\rpc\api\IQztApplyBusorderService.class
 com\qzt\bus\rpc\api\IQztGoodsBannerService.class
 com\qzt\bus\rpc\api\IQztUserCouponService.class
+com\qzt\bus\rpc\api\IDgmCouponIntegralService.class
 com\qzt\bus\rpc\api\IQztPayBacklogService.class
 com\qzt\ump\rpc\api\SysAuthorizeService.class
 com\qzt\ump\rpc\api\SysLogService.class
@@ -38,9 +39,11 @@ com\qzt\bus\rpc\api\IQztHealthInfoService.class
 com\qzt\ump\rpc\api\SysMenuService.class
 com\qzt\bus\rpc\api\IQztUserService.class
 com\qzt\bus\rpc\api\IErpGoodsInfoService.class
+com\qzt\bus\rpc\api\IDgmReduceIntegralDetailService.class
 com\qzt\ump\rpc\api\SysRoleService.class
 com\qzt\ump\rpc\api\SysDeptService.class
 com\qzt\bus\rpc\api\IQztTopUpRecordService.class
+com\qzt\bus\rpc\api\IDgmUsableIntegralService.class
 com\qzt\bus\rpc\api\IQztAccountService.class
 com\qzt\bus\rpc\api\IQztBusLogService.class
 com\qzt\bus\rpc\api\IQztBaseBankService.class
@@ -48,6 +51,7 @@ com\qzt\bus\rpc\api\IQztAccountRelogService.class
 com\qzt\bus\rpc\api\IQztOrderCommenService.class
 com\qzt\bus\rpc\api\IQztUserBankService.class
 com\qzt\ump\rpc\api\AppVersionService.class
+com\qzt\bus\rpc\api\IDgmIntegralRecordService.class
 com\qzt\ump\rpc\api\SysUserService.class
 com\qzt\bus\rpc\api\IUserInfoService.class
 com\qzt\ump\rpc\api\SysParamService.class

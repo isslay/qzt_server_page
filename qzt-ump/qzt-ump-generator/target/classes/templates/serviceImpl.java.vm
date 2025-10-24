@@ -1,0 +1,37 @@
+package com.qzt.bus.rpc.service.impl;
+
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.qzt.bus.dao.mapper.${entity}Mapper;
+import com.qzt.bus.model.${entity};
+import com.qzt.bus.rpc.api.I${entity}Service;
+import com.qzt.common.core.base.BaseServiceImpl;
+import com.qzt.pagedef.PageDef;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service("${entity.substring(0,1).toLowerCase()}${entity.substring(1)}Service")
+public class ${entity}ServiceImpl extends BaseServiceImpl<${entity}Mapper, ${entity}> implements I${entity}Service {
+
+    @Autowired
+    private ${entity}Mapper ${entity.substring(0,1).toLowerCase()}${entity.substring(1)}Mapper;
+
+    @Override
+    public Page<${entity}> find(Page<${entity}> page) {
+        PageHelper.startPage(page.getCurrent(),page.getSize());
+        List<${entity}> rb = this.${entity.substring(0,1).toLowerCase()}${entity.substring(1)}Mapper.find(page.getCondition());
+        PageInfo pageInfos = new PageInfo<>(rb);
+        return PageDef.defPage(pageInfos,page);
+    }
+}

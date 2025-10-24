@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.ump.dao.mapper.SysDicSublistMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.ump.model.SysDicSublist">
+        <result column="id_" property="id"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="code_" property="code"/>
+        <result column="code_text" property="codeText"/>
+        <result column="remark" property="remark"/>
+        <result column="sort_no" property="sortNo"/>
+        <result column="enable_" property="enable"/>
+    </resultMap>
+
+    <select id="findByDicType" resultMap="BaseResultMap" parameterType="map">
+        SELECT
+            *
+        FROM
+            dgm_sys_dic_sublist sds
+        JOIN dgm_sys_dic sd ON sd.id_ = sds.parent_id
+        <where>
+            sd.is_del = '0'
+            <if test="dicType != null and dicType != ''">
+                AND sd.dic_type = #{dicType}
+            </if>
+        </where>
+        ORDER BY sds.sort_no ASC
+    </select>
+
+</mapper>

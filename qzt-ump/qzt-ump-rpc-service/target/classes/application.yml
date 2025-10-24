@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: dev
+#正式服 active: official
+#测试服 active: test
+#开发 active: dev

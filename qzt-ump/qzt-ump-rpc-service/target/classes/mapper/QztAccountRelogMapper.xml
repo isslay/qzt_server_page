@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztAccountRelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztAccountRelog">
+        <result column="id_" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="re_money" property="reMoney" />
+        <result column="re_type" property="reType" />
+        <result column="user_id" property="userId" />
+        <result column="state" property="state" />
+        <result column="give_money" property="giveMoney" />
+        <result column="change_money" property="changeMoney" />
+        <result column="control_date" property="controlDate" />
+        <result column="bus_id" property="busId" />
+        <result column="bus_type" property="busType" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_account_relog
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="reType != null">
+                AND re_type = #{reType}
+            </if>
+            <if test="regEndTime != null and regEndTime != ''">
+                AND create_time &lt;= #{regEndTime}
+            </if>
+            <if test="regStartTime != null and regStartTime != ''">
+                AND create_time &gt;= #{regStartTime}
+            </if>
+            <if test="busType != null  and busType!=''">
+                AND bus_type = #{busType}
+            </if>
+
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findAccountById" resultType="map" parameterType="java.lang.Long">
+        select sum(re_money) as  reMoney,re_type as reType from dgm_qzt_account_relog where user_id=#{userId} group by re_type
+    </select>
+
+    <select id="findAccountByIdAndType" resultType="map" parameterType="map">
+
+        select IFNULL(sum(re_money),0) as allMoney,IFNULL(sum(change_money),0) as changeMoney ,IFNULL(sum(give_money),0) as  giveMoney  from dgm_qzt_account_relog where user_id=#{userId}  and re_type=#{reType}
+
+        <if test="dateTime!=null and dateTime!=''">
+          and  create_time like CONCAT (#{dateTime},'%')
+        </if>
+        <if test="odateTime!=null and odateTime!=''">
+            and  create_time &lt; #{odateTime}
+        </if>
+    </select>
+
+    <select id="findHaveAccount" resultMap="BaseResultMap" parameterType="map">
+        select * from dgm_qzt_account_relog where re_type=#{reType} and user_id=#{userId}  and state=1 and re_money>(change_money+give_money)
+        <if test="createTime != null">
+            AND create_time like CONCAT(#{createTime},'%' )
+        </if>
+         order by create_time asc
+    </select>
+
+    <select id="findCountHaveAccount"  parameterType="map" resultType="java.lang.Long">
+        select ifnull(sum(re_money-change_money-give_money),0) as haveMoney from dgm_qzt_account_relog where re_type=#{reType} and user_id=#{userId} and re_money>(change_money+give_money)
+    </select>
+
+    <select id="findAccountByBusId"  parameterType="map" resultType="java.lang.Integer">
+        select count(1) from dgm_qzt_account_relog
+        <where>
+            <if test="userId!=null and userId!=''">
+                AND user_id=#{userId}
+            </if>
+            <if test="busId!=null and busId!=''">
+                AND bus_Id=#{busId}
+            </if>
+            <if test="reType!=null and reType!=''">
+                AND re_type=#{reType}
+            </if>
+        </where>
+    </select>
+
+    <select id="findAccountRelogByUserId" resultType="map" parameterType="map">
+
+        select user_id,ifnull(sum(re_money-change_money-give_money),0) as change_money from dgm_qzt_account_relog
+        <where>
+            <if test="state != null">
+                AND state = #{state}
+            </if>
+            <if test="reType != null">
+                AND re_type = #{reType}
+            </if>
+            <if test="createTime != null">
+                AND create_time like CONCAT(#{createTime},'%' )
+            </if>
+            <if test="userId != null">
+                AND user_id = #{userId}
+            </if>
+
+        </where>
+        group by user_id
+
+    </select>
+
+
+    <select id="findShareMapList" resultType="map" parameterType="map">
+        SELECT har.*,hu.mobile FROM dgm_qzt_account_relog har LEFT JOIN dgm_qzt_user hu on har.user_id=hu.id_
+        WHERE har.bus_id LIKE CONCAT(#{busId},"%")
+        ORDER BY har.create_time DESC
+    </select>
+
+</mapper>

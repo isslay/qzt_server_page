@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztStoGoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztStoGoods">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="user_id" property="userId"/>
+        <result column="is_single_commodity" property="isSingleCommodity"/>
+        <result column="is_cart" property="isCart"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="shop_id" property="shopId"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_spec" property="goodsSpec"/>
+        <result column="goods_remark" property="goodsRemark"/>
+        <result column="goods_pic" property="goodsPic"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="postage" property="postage"/>
+        <result column="buy_num" property="buyNum"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="coupon_status" property="couponStatus"/>
+        <result column="is_serve" property="isServe"/>
+        <result column="is_del" property="isDel"/>
+        <result column="is_pitchon" property="isPitchon"/>
+    </resultMap>
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_sto_goods
+        <where>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="isSingleCommodity != null and isSingleCommodity != ''">
+                AND is_single_commodity = #{isSingleCommodity}
+            </if>
+            <if test="isCart != null and isCart != ''">
+                AND is_cart = #{isCart}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no = #{orderNo}
+            </if>
+            <if test="goodsId != null and goodsId != ''">
+                AND goods_id = #{goodsId}
+            </if>
+            <if test="shopId != null and shopId != ''">
+                AND shop_id = #{shopId}
+            </if>
+            <if test="isDel != null and isDel != ''">
+                AND is_del = #{isDel}
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="isPitchon != null and isPitchon != ''">
+                AND is_pitchon = #{isPitchon}
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <!-- 根据商品ID查询用户购物车商品 -->
+    <select id="queryByGoodsId" resultType="com.qzt.bus.model.QztStoGoods"
+            parameterType="com.qzt.bus.model.QztStoGoods">
+        SELECT * FROM dgm_qzt_sto_goods WHERE goods_id = #{goodsId} AND user_id = #{userId} AND is_cart = 'Y' AND is_del = 'N' AND is_single_commodity = 'N' LIMIT 0,1;
+    </select>
+
+    <!--批量更新购物车商品信息-->
+    <update id="updateStoGoodsList">
+        <foreach collection="list" index="index" item="item" open="" separator="" close="">
+            UPDATE dgm_qzt_sto_goods
+            <set>
+                <if test="item.isCart != null and item.isCart != ''">
+                    is_cart = #{item.isCart,jdbcType=CHAR},
+                </if>
+                <if test="item.orderNo != null and item.orderNo != ''">
+                    order_no = #{item.orderNo,jdbcType=VARCHAR},
+                </if>
+                <if test="item.shopId != null and item.shopId != ''">
+                    shop_id = #{item.shopId,jdbcType=BIGINT},
+                </if>
+                <if test="item.goodsName != null and item.goodsName != ''">
+                    goods_name = #{item.goodsName,jdbcType=VARCHAR},
+                </if>
+                <if test="item.goodsSpec != null and item.goodsSpec != ''">
+                    goods_spec = #{item.goodsSpec,jdbcType=VARCHAR},
+                </if>
+                <if test="item.goodsPic != null and item.goodsPic != ''">
+                    goods_pic = #{item.goodsPic,jdbcType=VARCHAR},
+                </if>
+                <if test="item.goodsPrice != null and item.goodsPrice != ''">
+                    goods_price = #{item.goodsPrice,jdbcType=BIGINT},
+                </if>
+                <if test="item.postage != null and item.postage != ''">
+                    postage = #{item.postage,jdbcType=BIGINT},
+                </if>
+                <if test="item.buyNum != null and item.buyNum != ''">
+                    buy_num = #{item.buyNum,jdbcType=INTEGER},
+                </if>
+                <if test="item.totalPrice != null and item.totalPrice != ''">
+                    total_price = #{item.totalPrice,jdbcType=BIGINT},
+                </if>
+                <if test="item.isDel != null and item.isDel != ''">
+                    is_del = #{item.isDel,jdbcType=CHAR},
+                </if>
+                <if test="item.updateTime != null">
+                    update_time = #{item.updateTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="item.updateBy != null and item.updateBy != ''">
+                    update_by = #{item.updateBy,jdbcType=BIGINT},
+                </if>
+                <if test="item.isPitchon != null and item.isPitchon != ''">
+                    is_pitchon = #{item.isPitchon,jdbcType=CHAR},
+                </if>
+                <if test="item.goodsRemark != null and item.goodsRemark != ''">
+                    goods_remark = #{item.goodsRemark,jdbcType=VARCHAR},
+                </if>
+                <if test="item.isSingleCommodity != null and item.isSingleCommodity != ''">
+                    is_single_commodity = #{item.isSingleCommodity,jdbcType=CHAR},
+                </if>
+                <if test="item.couponStatus != null and item.couponStatus != ''">
+                    coupon_status = #{item.couponStatus,jdbcType=CHAR},
+                </if>
+                <if test="item.isServe != null and item.isServe != ''">
+                    is_serve = #{item.isServe,jdbcType=CHAR},
+                </if>
+            </set>
+            WHERE
+            id_ = #{item.id};
+        </foreach>
+    </update>
+
+    <!--批量更新购物车商品信息 为N-->
+    <update id="updateStoGoodsList1">
+      UPDATE dgm_qzt_sto_goods SET is_pitchon="N" WHERE user_id = #{userId} AND is_cart = 'Y' AND is_del = 'N'
+    </update>
+</mapper>

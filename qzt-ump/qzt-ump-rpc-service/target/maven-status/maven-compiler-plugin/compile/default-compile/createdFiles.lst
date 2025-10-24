@@ -3,6 +3,7 @@ com\qzt\bus\rpc\service\impl\QztUserServiceImpl.class
 com\qzt\ump\rpc\service\impl\ProcessingPayOrderServiceImpl.class
 com\qzt\bus\rpc\service\impl\DgmGoodsCouponServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztWithdrawServiceImpl.class
+com\qzt\bus\rpc\service\impl\DgmCouponIntegralServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztAccountLogServiceImpl.class
 com\qzt\annotation\OrderToMonitor.class
 com\qzt\bus\rpc\service\impl\QztGoodsServiceImpl.class
@@ -25,8 +26,10 @@ com\qzt\bus\rpc\service\impl\QztApplyBusorderServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztUserRegServiceImpl.class
 com\qzt\ump\rpc\service\impl\SysUserServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztBusinessServiceImpl.class
+com\qzt\bus\rpc\service\impl\DgmReduceIntegralDetailServiceImpl.class
 com\qzt\ump\rpc\service\impl\SysMenuServiceImpl.class
 com\qzt\ump\rpc\service\impl\SysDeptServiceImpl.class
+com\qzt\bus\rpc\service\impl\DgmIntegralRecordServiceImpl.class
 com\qzt\bus\rpc\service\impl\RedisTimeServiceImpl.class
 com\qzt\pagedef\PageDef.class
 com\qzt\bus\rpc\service\impl\UserInfoServiceImpl.class
@@ -47,6 +50,7 @@ com\qzt\ump\rpc\service\impl\SysParamServiceImpl.class
 com\qzt\ump\rpc\service\impl\SysDicServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztApplyTryorderServiceImpl.class
 com\qzt\bus\rpc\service\impl\DgmOrderRefundServiceImpl.class
+com\qzt\bus\rpc\service\impl\DgmUsableIntegralServiceImpl.class
 com\qzt\aspect\OrderToMonitorAspect.class
 com\qzt\bus\rpc\service\impl\QztPageBannerServiceImpl.class
 com\qzt\bus\rpc\service\impl\QztGoodsBannerServiceImpl.class

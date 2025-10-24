@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.QztUserCouponMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.QztUserCoupon">
+        <result column="id_" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="state" property="state"/>
+        <result column="coupon_id" property="couponId"/>
+        <result column="coupon_money" property="couponMoney"/>
+        <result column="target_money" property="targetMoney"/>
+        <result column="active_time" property="activeTime"/>
+        <result column="used_time" property="usedTime"/>
+        <result column="over_time" property="overTime"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_type" property="goodsType"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="user_id" property="userId"/>
+        <result column="give_user_id" property="giveUserId"/>
+        <result column="coupon_remark" property="couponRemark" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_qzt_user_coupon
+        <where>
+            <if test="startTime != null and startTime != ''">
+                AND create_time >= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time &lt;= #{endTime}
+            </if>
+            <if test="validTime != null">
+                AND over_time >= #{validTime}
+            </if>
+            <if test="targetMoney != null">
+                AND target_money &lt;= #{targetMoney}
+            </if>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="state != null and state != ''">
+                AND state = #{state}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="giveUserId != null and giveUserId != ''">
+                AND give_user_id = #{giveUserId}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND order_no = #{orderNo}
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                AND goods_type = #{goodsType}
+            </if>
+            <if test="goodsIds != null">
+                AND goods_id IN
+                <foreach collection="goodsIds" index="goodsIds" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY create_time DESC, id_
+    </select>
+
+    <!-- 查询有效抵扣券 over_time >= #{updateTime} AND-->
+    <select id="queryEffectiveVouchers" resultMap="BaseResultMap" parameterType="com.qzt.bus.model.QztUserCoupon">
+        SELECT * FROM dgm_qzt_user_coupon WHERE id_ = #{id} AND state = '1' AND user_id = #{updateBy} ;
+    </select>
+    <select id="queryEffectiveVouchersListAll" resultMap="BaseResultMap" parameterType="com.qzt.bus.model.QztUserCoupon">
+        SELECT * FROM dgm_qzt_user_coupon WHERE user_id = #{userId} AND coupon_id = #{couponId};
+    </select>
+    <select id="queryEffectiveVouchersList" resultMap="BaseResultMap" parameterType="com.qzt.bus.model.QztUserCoupon">
+        SELECT * FROM dgm_qzt_user_coupon WHERE  state = #{state} AND user_id = #{userId} AND coupon_id = #{couponId};
+    </select>
+    <select id="queryEffectiveVouchersListToday" resultMap="BaseResultMap" parameterType="com.qzt.bus.model.QztUserCoupon">
+        SELECT * FROM dgm_qzt_user_coupon WHERE user_id = #{userId} AND coupon_id = #{couponId} AND create_time >= #{dateToday};
+    </select>
+
+    <!--下单锁券更新 AND over_time > #{updateTime} -->
+    <update id="kockStampsUpdate" parameterType="com.qzt.bus.model.QztUserCoupon">
+        UPDATE dgm_qzt_user_coupon
+        <set>
+            state = #{state},
+            <choose>
+                <when test="state == '1'.toString()">
+                    used_time = NULL,
+                    order_no = NULL,
+                    update_by = #{updateBy},
+                    update_time = #{updateTime}
+                </when>
+                <when test="state == '2'.toString()">
+                    used_time = #{updateTime},
+                    order_no = #{orderNo},
+                    update_by = #{updateBy},
+                    update_time = #{updateTime}
+                </when>
+            </choose>
+        </set>
+        <where>
+            <choose>
+                <when test="state == '1'.toString()">
+                    state = '2'
+                    AND used_time IS NOT NULL
+                    AND order_no IS NOT NULL
+                </when>
+                <when test="state == '2'.toString()">
+                    state = '1'
+                    AND used_time IS NULL
+                    AND order_no IS NULL
+                </when>
+            </choose>
+            AND id_ = #{id}
+            AND user_id = #{updateBy}
+        </where>
+    </update>
+
+    <update id="updateActiveCoupon" parameterType="map">
+
+       update dgm_qzt_user_coupon  set state='1',user_id=#{userId},active_time=#{activeDate} where  id_=#{conId} and state='0' and active_time is null and user_id is null and give_user_id &lt;&gt; #{userId}
+
+    </update>
+
+    <update id="updatePassCoupon" parameterType="map">
+        update dgm_qzt_user_coupon set state='3' where over_time &lt; #{validTime} and  state not in('2','3')
+    </update>
+</mapper>

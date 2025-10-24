@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.VErpOrderDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.VErpOrderDetail">
+        <result column="bill_no" property="billNo" />
+        <result column="bill_sn" property="billSn" />
+        <result column="goods_code" property="goodsCode" />
+        <result column="goods_id" property="goodsId" />
+        <result column="goods_name" property="goodsName" />
+        <result column="approval_no" property="approvalNo" />
+        <result column="goods_spec" property="goodsSpec" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="unit" property="unit" />
+        <result column="num" property="num" />
+        <result column="retail_p" property="retailP" />
+        <result column="tra_price" property="traPrice" />
+        <result column="rec_amt" property="recAmt" />
+        <result column="paid_in_amt" property="paidInAmt" />
+        <result column="amount" property="amount" />
+        <result column="batch_Code" property="batchCode" />
+        <result column="produce_date" property="produceDate" />
+        <result column="val_date" property="valDate" />
+        <result column="place" property="place" />
+        <result column="batch_no" property="batchNo" />
+        <result column="tax" property="tax" />
+        <result column="ded_rate" property="dedRate" />
+        <result column="rate" property="rate" />
+        <result column="in_tax_rate" property="inTaxRate" />
+        <result column="out_tax_rate" property="outTaxRate" />
+        <result column="cost" property="cost" />
+        <result column="cost_amt" property="costAmt" />
+        <result column="profit" property="profit" />
+        <result column="profit_rate" property="profitRate" />
+        <result column="tax_price" property="taxPrice" />
+        <result column="tax_cost_amt" property="taxCostAmt" />
+        <result column="tax_profit" property="taxProfit" />
+        <result column="tax_profit_rate" property="taxProfitRate" />
+        <result column="sale_man_name" property="saleManName" />
+        <result column="is_pres" property="isPres" />
+        <result column="recipe_type" property="recipeType" />
+        <result column="business_code" property="businessCode" />
+        <result column="business_name" property="businessName" />
+        <result column="san_zz" property="sanZz" />
+        <result column="cgsx" property="cgsx" />
+        <result column="sale_lb" property="saleLb" />
+        <result column="jgfl" property="jgfl" />
+        <result column="merchant_discount" property="merchantDiscount" />
+        <result column="platform_discount" property="platformDiscount" />
+        <result column="freight_discount" property="freightDiscount" />
+        <result column="freight_discount_business" property="freightDiscountBusiness" />
+        <result column="freight_discount_platform" property="freightDiscountPlatform" />
+        <result column="platform_fee" property="platformFee" />
+        <result column="agreement_fee" property="agreementFee" />
+        <result column="pay_fee" property="payFee" />
+        <result column="call_delivery_fee" property="callDeliveryFee" />
+        <result column="call_tip_fee" property="callTipFee" />
+        <result column="angle_id" property="angleId" />
+        <result column="spfl_a" property="spflA" />
+        <result column="spfl_b" property="spflB" />
+        <result column="spfl_c" property="spflC" />
+        <result column="spfl_d" property="spflD" />
+        <result column="order_channel" property="orderChannel" />
+        <result column="order_source" property="orderSource" />
+        <result column="g_category" property="gCategory" />
+        <result column="q_category" property="qCategory" />
+        <result column="dates" property="dates" />
+        <result column="org_name" property="orgName" />
+        <result column="bill_code" property="billCode" />
+        <result column="org_id" property="orgId" />
+        <result column="contact" property="contact" />
+        <result column="mobile" property="mobile" />
+        <result column="hospital_name" property="hospitalName" />
+        <result column="open_phy_name" property="openPhyName" />
+        <result column="age" property="age" />
+        <result column="gender" property="gender" />
+        <result column="suffer_dis" property="sufferDis" />
+        <result column="remark" property="remark" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="coupon_date" property="couponDate" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM v_erp_order_detail
+        <where>
+            <if test="goodsId != null and goodsId != ''">
+                AND goods_id = #{goodsId}
+            </if>
+            <if test="couponDate != null and couponDate != ''">
+                AND coupon_date like CONCAT(#{couponDate},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -116,6 +116,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- Add AspectJ weaver at runtime to satisfy Spring AOP/Swagger requirements -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
 
     </dependencies>
 

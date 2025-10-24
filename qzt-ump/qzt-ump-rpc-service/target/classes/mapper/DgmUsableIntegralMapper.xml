@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzt.bus.dao.mapper.DgmUsableIntegralMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qzt.bus.model.DgmUsableIntegral">
+        <result column="id_" property="id" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="record_id" property="recordId" />
+        <result column="user_id" property="userId" />
+        <result column="use_value" property="useValue" />
+        <result column="over_time" property="overTime" />
+        <result column="is_del" property="isDel" />
+    </resultMap>
+
+
+    <!-- 通用查询方法 -->
+    <select id="find" resultMap="BaseResultMap" parameterType="map">
+        SELECT * FROM dgm_usable_integral
+        <where>
+            <if test="id != null and id != ''">
+                AND id_ = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="isDel != null and isDel != ''">
+                AND is_del = #{isDel}
+            </if>
+            <if test="overTime != null and overTime != ''">
+                AND over_time &lt; #{overTime}
+            </if>
+        </where>
+        ORDER BY id_ ASC
+    </select>
+
+    <select id="sumAll" resultType="java.lang.Integer">
+        select IFNULL(SUM(use_value),0) from dgm_usable_integral where user_id=#{userId} AND is_del='N'
+    </select>
+
+    <select id="monthOver" resultType="java.lang.Integer">
+        select IFNULL(SUM(use_value),0) from dgm_usable_integral where user_id=#{userId} AND over_time &lt;= #{overTime} AND is_del='N'
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT * FROM dgm_usable_integral where id_=#{id} ORDER BY id_ ASC
+    </select>
+
+</mapper>

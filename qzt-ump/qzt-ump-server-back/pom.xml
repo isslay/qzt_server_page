@@ -131,6 +131,20 @@
             <version>1.7.7</version>
         </dependency>
 
+        <!-- BouncyCastle provider for SM4 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.70</version>
+        </dependency>
+
+        <!-- Add AspectJ weaver at runtime to satisfy Spring AOP/Swagger requirements -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
